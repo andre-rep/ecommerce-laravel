@@ -55,17 +55,14 @@ class UserAccessPage implements AccessPageContract
     public function shoppingHistoric()
     {
         $purchases = DB::table('purchases')
-            ->where('user_id', '=', $this->userId)
+            ->where('user_id', '=', Auth::user()->id)
             ->get();
 
-        $users = UserModel::where('id', $this->userId)
+        $users = UserModel::where('id', Auth::user()->id)
             ->first();
 
         return response()->view('pages.user.shopping-historic', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0],
             'cartItems' => $this->cartItems,
-            'userName' => $this->userName,
             'purchases' => $purchases,
             'users' => $users
         ]);
@@ -306,7 +303,7 @@ class UserAccessPage implements AccessPageContract
         $cartTotal = request()->session()->get('cartTotal');
 
         $user = DB::table('users')
-            ->where('id', $this->userId)
+            ->where('id', Auth::user()->id)
             ->first();
 
         return response()->view('pages.user.checkout', [
@@ -322,11 +319,11 @@ class UserAccessPage implements AccessPageContract
 
     public function order()
     {
-        $user = UserModel::where('id', $this->userId)
+        $user = UserModel::where('id', Auth::user()->id)
             ->first();
 
         $products = DB::table('purchases')
-            ->where('user_id', '=', $this->userId)
+            ->where('user_id', '=', Auth::user()->id)
             ->where('purchase_id', '=', request()->orderNumber)
             ->where('product_image_highlighted', '=', 1)
             ->join('purchases_products', 'purchases.id', '=', 'purchases_products.purchase_id')

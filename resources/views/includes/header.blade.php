@@ -75,21 +75,23 @@
     });
 
     //Allow logged in user to logout
-    @if(Auth::user()->user_access_level == 1 || Auth::user()->user_access_level == 2)
-        document.getElementById('header-login-ctn').addEventListener('mouseover', (e) =>{
-            document.getElementById('header-login-option').style.display = 'block';
-        });
-        document.getElementById('header-login-ctn').addEventListener('mouseout', (e) =>{
-            document.getElementById('header-login-option').style.display = 'none';
-        });
-        document.getElementById('logout').addEventListener('click', (e) =>{
-            e.preventDefault();
-            axios.post('http://localhost:8000/logout', null,{
-                
-            })
-            .then((response) => {
-                document.location.reload(true);
-            })
-        });
+    @if(Auth::user() != null)
+        @if(Auth::user()->user_access_level == 1 || Auth::user()->user_access_level == 2)
+            document.getElementById('header-login-ctn').addEventListener('mouseover', (e) =>{
+                document.getElementById('header-login-option').style.display = 'block';
+            });
+            document.getElementById('header-login-ctn').addEventListener('mouseout', (e) =>{
+                document.getElementById('header-login-option').style.display = 'none';
+            });
+            document.getElementById('logout').addEventListener('click', (e) =>{
+                e.preventDefault();
+                axios.post('http://localhost:8000/logout', null,{
+                    
+                })
+                .then((response) => {
+                    document.location.reload(true);
+                })
+            });
+        @endif
     @endif
 </script>

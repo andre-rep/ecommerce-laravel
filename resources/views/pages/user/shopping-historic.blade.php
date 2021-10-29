@@ -13,7 +13,7 @@
                     <input type="file" id="image" style="position:absolute;width:100%;height:100%;opacity:0;cursor:pointer;">
                 </div>
                 <div class="user-edit-profile-name">
-                    <span>{{$userName}}</span>
+                    <span>{{Auth::user()->name}}</span>
                 </div>
                 <a href="{{asset('/user/edit-profile')}}" class="user-edit-menu-option">
                     <span>Perfil</span>
