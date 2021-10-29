@@ -15,7 +15,7 @@
             <i class="fas fa-user"></i>
             @if(Auth::user() != null)
                 @if(Auth::user()->user_access_level == 1 || Auth::user()->user_access_level == 2)
-                    <span>Olá, {{ Auth::user()->name }}</span>
+                    <span>Olá, {{ strtok(Auth::user()->name, ' ') }}</span>
                     <div id="header-login-option">
                         <div class="header-login-user-id">
                             <span>{{strtok(Auth::user()->name, ' ')}}</span>
