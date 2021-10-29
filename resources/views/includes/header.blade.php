@@ -18,7 +18,7 @@
                     <span>Olá, {{ Auth::user()->name }}</span>
                     <div id="header-login-option">
                         <div class="header-login-user-id">
-                            <span>{{Auth::user()->name}}</span>
+                            <span>{{strtok(Auth::user()->name, ' ')}}</span>
                         </div>
                         <div class="header-login-item">
                             @if(Auth::user()->user_access_level == 1)
