@@ -15,10 +15,10 @@
             <i class="fas fa-user"></i>
             @if(Auth::user() != null)
                 @if(Auth::user()->user_access_level == 1 || Auth::user()->user_access_level == 2)
-                    <span>Olá, {{ $userNameShort }}</span>
+                    <span>Olá, {{ Auth::user()->name }}</span>
                     <div id="header-login-option">
                         <div class="header-login-user-id">
-                            <span>{{$userNameShort}}</span>
+                            <span>{{Auth::user()->name}}</span>
                         </div>
                         <div class="header-login-item">
                             @if(Auth::user()->user_access_level == 1)

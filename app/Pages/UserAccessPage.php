@@ -28,8 +28,6 @@ class UserAccessPage implements AccessPageContract
 
     public function main()
     {
-        $user = Auth::user();
-
         $banners = DB::table('banners')
             ->latest('created_at')
             ->first();
@@ -38,12 +36,9 @@ class UserAccessPage implements AccessPageContract
             ->get();
 
         return response()->view('pages.user.main', [
-            'accessLevel' => Auth::user()->user_access_level, 
-            'userNameShort' => Auth::user()->name,
             'cartItems' => $this->cartItems,
             'banners' => $banners,
-            'gallery' => $gallery,
-            'user' => $user
+            'gallery' => $gallery
         ]);
     }
 
