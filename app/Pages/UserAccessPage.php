@@ -44,13 +44,10 @@ class UserAccessPage implements AccessPageContract
 
     public function editProfile()
     {
-        $users = UserModel::where('id', $this->userId)->first();
+        $users = UserModel::where('id', Auth::user()->id)->first();
 
         return response()->view('pages.user.edit-profile', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0],
             'cartItems' => $this->cartItems,
-            'userName' => $this->userName,
             'users' => $users
         ]);
     }
@@ -180,10 +177,7 @@ class UserAccessPage implements AccessPageContract
             ->get();
 
         return response()->view('pages.user.search', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0],
             'cartItems' => $this->cartItems,
-            'userName' => $this->userName, 
             'products' => $products,
             'productsBrands' => $productsBrands,
             'productsCategories' => $productsCategories,
@@ -225,10 +219,7 @@ class UserAccessPage implements AccessPageContract
             ->get();
 
         return response()->view('pages.user.product', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0],
             'cartItems' => $this->cartItems,
-            'userName' => $this->userName,
             'products' => $products,
             'mainProduct' => $mainProduct,
             'purchasesProducts' => $purchasesProducts,
