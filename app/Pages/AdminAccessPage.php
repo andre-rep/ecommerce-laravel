@@ -503,9 +503,6 @@ class AdminAccessPage implements AccessPageContract
         }
             
         return response()->view('pages.admin.clients', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0], 
-            'userName' => $this->userName,
             'cartItems' => $this->cartItems,
             'users' => $users,
             'chosenStatus' => request()->query('userStatus'),
@@ -537,9 +534,6 @@ class AdminAccessPage implements AccessPageContract
         }
 
         return response()->view('pages.admin.client', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0], 
-            'userName' => $this->userName,
             'cartItems' => $this->cartItems,
             'user' => $user,
             'totalItemsPurchased' => $totalItemsPurchased,
@@ -588,9 +582,6 @@ class AdminAccessPage implements AccessPageContract
     public function mainPage()
     {
         return response()->view('pages.admin.main-page', [
-            'accessLevel' => $this->accessLevel,
-            'userNameShort' => $this->userNameShort[0], 
-            'userName' => $this->userName,
             'cartItems' => $this->cartItems
         ]);
     }
