@@ -73,7 +73,7 @@ class Purchase implements PurchaseContract
     public function rate()
     {
         DB::table('purchases_products')
-            ->where('user_id', '=', $this->userId)
+            ->where('user_id', '=', Auth::user()->id)
             ->where('purchase_id', '=', request()->purchaseId)
             ->where('product_id', '=', request()->productId)
             ->join('purchases', 'purchases_products.purchase_id', '=', 'purchase_id')
