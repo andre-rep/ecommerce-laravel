@@ -7,38 +7,16 @@ use App\Auth\JWTAuth;
 use App\Users\UserContract;
 use App\Directories\PublicDirectory;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function getUserEmail()
-    {
-        //Get the user information from the token
-        $providedToken = request()->cookie('access-token');
-        $tokenParts = explode('.', $providedToken);
-        $jsonPayload = base64_decode($tokenParts[1]);
-        $arrayPhpPayload = json_decode($jsonPayload);
-        $userEmail = $arrayPhpPayload->email;
-        return $userEmail;
-    }
-
-    public function getUserId()
-    {
-        return User::where('email', '=', $this->getUserEmail())
-            ->value('id');
-    }
-
-    public function getUserName()
-    {
-        return User::where('email', '=', $this->getUserEmail())
-            ->value('name');
-    }
-
     public function insertPhone()
     {
         $phoneNumber = request()->phoneNumber;
 
-        User::where('id', $this->getUserId())
+        User::where('id', Auth::user()->id)
             ->update(['user_phone' => $phoneNumber]);
 
         return 'Phone number recorded';
@@ -48,7 +26,7 @@ class UsersController extends Controller
     {
         $emailAddress = request()->emailAddress;
 
-        User::where('id', $this->getUserId())
+        User::where('id', Auth::user()->id)
             ->update(['email' => $emailAddress]);
 
         return 'Email address updated';
@@ -62,7 +40,7 @@ class UsersController extends Controller
         $number = request()->number;
         $complement = request()->complement;
         //Update users address details
-        User::where('id', $this->getUserId())
+        User::where('id', Auth::user()->id)
             ->update([
                 'user_address_cep' => $cep,
                 'user_address_street' => $street,
@@ -78,7 +56,7 @@ class UsersController extends Controller
     {
         $publicFile = new PublicDirectory('profileImage/');
         $profileImageUrl = $publicFile->fileUpload(request()->file);
-        User::where('id', $this->getUserId())
+        User::where('id', Auth::user()->id)
             ->update(['user_profile_image_url' => $profileImageUrl]);
         
         return 'Uploaded to ' . $profileImageUrl;
