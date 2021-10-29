@@ -1,0 +1,112 @@
+.product-categories-ctn{
+    width: 1300px;
+    height: 100%;
+    background-color: #f8f9fa;
+    padding: 30px;
+}
+.product-categories-ctn > h2{
+    margin-bottom: 20px;
+}
+.product-categories{
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.product-categories-form{   
+    height: 100%;
+    width: 527px;
+}
+.product-categories-form > form > button{
+    width: 100%;
+    margin-top: 15px;
+}
+.product-categories-brands-table{
+    height: 100%;
+    width: 700px;
+    margin-left: 20px;
+}
+.product-categories-brands-table > h4{
+    margin-bottom: 20px;
+}
+.product-categories-table{
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+    width: 100%;
+}
+.product-categories-thead{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    background-color: #f8f8f8;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.product-categories-thead > tr{
+    display:flex;
+    justify-content:space-between;
+    width: 100%;
+}
+.product-categories-tbody{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.product-categories-tbody > tr{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.product-brands-table{
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+    width: 100%;
+}
+.product-brands-thead{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    background-color: #f8f8f8;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.product-brands-thead > tr{
+    display:flex;
+    justify-content:space-between;
+    width: 100%;
+}
+.product-brands-tbody{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.product-brands-tbody > tr{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}

@@ -1,0 +1,77 @@
+.checkout-ctn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.checkout{
+    width: 1141px;
+    display: grid;
+    grid-template-columns: 551px 551px;
+    grid-template-rows: auto auto;
+    column-gap: 39px;
+    row-gap: 29px;
+}
+.checkout-address{
+    grid-column: 1/2;
+}
+.checkout-address > span{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.checkout-details{
+    grid-column: 2/3;
+}
+.checkout-details > span{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.checkout-table-ctn{
+    border-right: 1px solid #e8e8e8;
+    border-left: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
+    border-radius: 3px;
+    margin-top: 35px;
+}
+.checkout-table{
+    width: 100%;
+    border-radius: 3px;
+}
+.checkout-table-thead{
+    height: 55px;
+    border-bottom: 1px solid #e8e8e8;
+}
+.checkout-payment-options-ctn{
+    grid-row: 2/3;
+    grid-column: 1/3;
+    background-color: #f6f6f6;
+}
+.checkout-payment-options{
+    border-bottom: 1px solid #e8e8e8;
+}
+.checkout-payment-option{
+    padding-top: 38px;
+    padding-left: 25px;
+    padding-right: 28px;
+    padding-bottom: 52px;
+}
+#checkoutButton{
+    width: 165px;
+    height: 55px;
+    border-radius: 2px;
+    background-color: #408de4;
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    border: none;
+    position:absolute;
+    right:25px;
+    top: 20px;
+}
