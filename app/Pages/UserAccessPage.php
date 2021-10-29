@@ -303,9 +303,6 @@ class UserAccessPage implements AccessPageContract
         $cartTotal = request()->session()->get('cartTotal');
 
         return response()->view('pages.user.cart', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0], 
-            'userName' => $this->userName,
             'cartItems' => $this->cartItems,
             'cartProducts' => $cartProducts,
             'cartTotal' => $cartTotal
