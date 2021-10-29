@@ -44,7 +44,7 @@
                     </div>
                 @endif
                 @if(Auth::user()->user_access_level == 1)
-                    <a href="{{asset('/cart')}}">
+                    <a href="{{asset('user/cart')}}">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Carrinho</span>
                     </a>

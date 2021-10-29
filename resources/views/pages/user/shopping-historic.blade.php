@@ -21,7 +21,7 @@
                 <a href="{{asset('/user/shopping-historic')}}" class="user-edit-menu-option" style="background-color:#e8e8e8;">
                     <span>Histórico de Compras</span>
                 </a>
-                <a href="{{asset('/cart')}}" class="user-edit-menu-option">
+                <a href="{{asset('user/cart')}}" class="user-edit-menu-option">
                     <span>Carrinho</span>
                 </a>
                 <a href="#" class="user-edit-menu-option">

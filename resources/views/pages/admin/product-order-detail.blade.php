@@ -170,7 +170,7 @@
                     var formData = new FormData();
                     formData.append('orderStatus', document.getElementById('orderStatus').value);
                     formData.append('orderId', document.getElementById('orderId').value);
-                    axios.post('/puchase/changeStatus/', formData,{
+                    axios.post('/purchase/changeStatus/', formData,{
                         
                     })
                     .then((response) => {

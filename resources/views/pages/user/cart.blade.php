@@ -92,7 +92,7 @@
                         </tbody>
                     </table>
                 </div>
-                <a href="{{asset('/checkout')}}">
+                <a href="{{asset('user/checkout')}}">
                     @if($cartProducts != null)
                         <button id="cartButton">Ir para o Checkout de Compra</button>
                     @else
