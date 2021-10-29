@@ -307,9 +307,6 @@ class UserAccessPage implements AccessPageContract
             ->first();
 
         return response()->view('pages.user.checkout', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0], 
-            'userName' => $this->userName,
             'cartItems' => $this->cartItems,
             'cartProducts' => $cartProducts,
             'cartTotal' => $cartTotal,
@@ -332,9 +329,6 @@ class UserAccessPage implements AccessPageContract
             ->get();
 
         return response()->view('pages.user.order', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0], 
-            'userName' => $this->userName,
             'cartItems' => $this->cartItems,
             'user' => $user,
             'products' => $products,

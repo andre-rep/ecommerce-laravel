@@ -3,6 +3,7 @@
 namespace App\Purchase;
 
 use App\Auth\JWTAuth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Purchase implements PurchaseContract
@@ -18,12 +19,12 @@ class Purchase implements PurchaseContract
         DB::insert('insert into purchases
             (user_id, purchase_status)
             values (?,?)',
-            [$this->userId, 0]
+            [Auth::user()->id, 0]
         );
 
         //Get purchase id
         $purchaseId = DB::table('purchases')
-            ->where('user_id', $this->userId)
+            ->where('user_id', Auth::user()->id)
             ->latest()
             ->value('id');
         
