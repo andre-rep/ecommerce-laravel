@@ -2,16 +2,12 @@
 
 namespace App\Providers;
 
-use App\Auth\JWTAuth;
-use App\Auth\AuthContract;
 use App\Mail\MailSend;
 use App\Mail\MailContract;
 use App\Products\Product;
 use App\Products\ProductContract;
 use App\Users\User;
 use App\Users\UserContract;
-use App\Cart\CartContract;
-use App\Cart\Cart;
 use App\Purchase\PurchaseContract;
 use App\Purchase\Purchase;
 use App\Pages\PublicAccessPage;
@@ -34,19 +30,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //Service Provider for Auth
-        $this->app->singleton(AuthContract::class, function($app){
-            return new JWTAuth(request()->cookie('access-token'));
-        });
-
         //Service Provider for Emails
         $this->app->singleton(MailContract::class, function($app){
             return new MailSend();
-        });
-
-        //Service Provider for Cart
-        $this->app->singleton(CartContract::class, function($app){
-            return new Cart();
         });
 
         //Service Provider for Purchase

@@ -2,7 +2,6 @@
 
 namespace App\Purchase;
 
-use App\Auth\JWTAuth;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
