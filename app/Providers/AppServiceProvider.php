@@ -4,19 +4,10 @@ namespace App\Providers;
 
 use App\Mail\MailSend;
 use App\Mail\MailContract;
-use App\Products\Product;
-use App\Products\ProductContract;
-use App\Users\User;
-use App\Users\UserContract;
-use App\Purchase\PurchaseContract;
-use App\Purchase\Purchase;
 use App\Pages\PublicAccessPage;
 use App\Pages\UserAccessPage;
 use App\Pages\AdminAccessPage;
 use App\Pages\AccessPageContract;
-use App\Directories\PublicDirectory;
-use App\Files\StorageLocalFileManagement;
-use App\Files\StoragePublicDirectory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
@@ -33,11 +24,6 @@ class AppServiceProvider extends ServiceProvider
         //Service Provider for Emails
         $this->app->singleton(MailContract::class, function($app){
             return new MailSend();
-        });
-
-        //Service Provider for Purchase
-        $this->app->singleton(PurchaseContract::class, function($app){
-            return new Purchase();
         });
 
         //Service Provider for Pages
