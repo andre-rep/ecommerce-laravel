@@ -14,24 +14,22 @@
         <div id="header-login-ctn">
             <i class="fas fa-user"></i>
             @if(Auth::user() != null)
-                @if(Auth::user()->user_access_level == 1 || Auth::user()->user_access_level == 2)
-                    <span>Olá, {{ strtok(Auth::user()->name, ' ') }}</span>
-                    <div id="header-login-option">
-                        <div class="header-login-user-id">
-                            <span>{{strtok(Auth::user()->name, ' ')}}</span>
-                        </div>
-                        <div class="header-login-item">
-                            @if(Auth::user()->user_access_level == 1)
-                                <a href="{{asset('/user/edit-profile')}}">Perfil de Usuário</a>
-                            @elseif(Auth::user()->user_access_level == 2)
-                                <a href="{{asset('/dashboard/product-list')}}">Painel de Controle</a>
-                            @endif
-                        </div>
-                        <div class="header-login-item">
-                            <button id="logout">Sair</button>
-                        </div>
+                <span>Olá, {{ strtok(Auth::user()->name, ' ') }}</span>
+                <div id="header-login-option">
+                    <div class="header-login-user-id">
+                        <span>{{strtok(Auth::user()->name, ' ')}}</span>
                     </div>
-                @endif
+                    <div class="header-login-item">
+                        @if(Auth::user()->user_access_level == 1)
+                            <a href="{{asset('/user/edit-profile')}}">Perfil de Usuário</a>
+                        @elseif(Auth::user()->user_access_level == 2)
+                            <a href="{{asset('/dashboard/product-list')}}">Painel de Controle</a>
+                        @endif
+                    </div>
+                    <div class="header-login-item">
+                        <button id="logout">Sair</button>
+                    </div>
+                </div>
             @else
                 <a href="{{asset('/auth')}}">Criar / Entrar em uma conta</a>
             @endif
@@ -43,17 +41,18 @@
                         <span>{{$cartItems}}</span>
                     </div>
                 @endif
-                @if(Auth::user()->user_access_level == 1)
+                @can('isUser')
                     <a href="{{asset('user/cart')}}">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Carrinho</span>
                     </a>
-                @elseif(Auth::user()->user_access_level == 2)
+                @endcan
+                @can('isAdmin')
                     <a href="#">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Carrinho</span>
                     </a>
-                @endif
+                @endcan
             @else
                 <a href="{{asset('/auth')}}">
                     <i class="fas fa-shopping-cart"></i>
@@ -76,22 +75,20 @@
 
     //Allow logged in user to logout
     @if(Auth::user() != null)
-        @if(Auth::user()->user_access_level == 1 || Auth::user()->user_access_level == 2)
-            document.getElementById('header-login-ctn').addEventListener('mouseover', (e) =>{
-                document.getElementById('header-login-option').style.display = 'block';
-            });
-            document.getElementById('header-login-ctn').addEventListener('mouseout', (e) =>{
-                document.getElementById('header-login-option').style.display = 'none';
-            });
-            document.getElementById('logout').addEventListener('click', (e) =>{
-                e.preventDefault();
-                axios.post('http://localhost:8000/logout', null,{
-                    
-                })
-                .then((response) => {
-                    document.location.reload(true);
-                })
-            });
-        @endif
+        document.getElementById('header-login-ctn').addEventListener('mouseover', (e) =>{
+            document.getElementById('header-login-option').style.display = 'block';
+        });
+        document.getElementById('header-login-ctn').addEventListener('mouseout', (e) =>{
+            document.getElementById('header-login-option').style.display = 'none';
+        });
+        document.getElementById('logout').addEventListener('click', (e) =>{
+            e.preventDefault();
+            axios.post('http://localhost:8000/logout', null,{
+                
+            })
+            .then((response) => {
+                document.location.reload(true);
+            })
+        });
     @endif
 </script>
