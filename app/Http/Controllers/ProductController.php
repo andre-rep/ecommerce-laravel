@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Products\ProductContract;
-use App\Directories\PublicDirectory;
+use App\FileManager\PublicDirectory;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

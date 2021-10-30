@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Auth\JWTAuth;
 use App\Users\UserContract;
-use App\Directories\PublicDirectory;
+use App\FileManager\PublicDirectory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
