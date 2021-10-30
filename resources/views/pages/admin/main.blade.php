@@ -1,6 +1,9 @@
 @extends('layouts.userLayout')
 @section('content')
     @include('includes.header')
+    @can('isAdmin')
+        É admin
+    @endcan
     <section class="main-menu-ctn">
         <div class="main-menu">
             <div class="main-menu-top">
