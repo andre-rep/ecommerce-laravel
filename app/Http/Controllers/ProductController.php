@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\Category;
 use App\Products\ProductContract;
 use App\FileManager\PublicDirectory;
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -76,11 +77,10 @@ class ProductController extends Controller
         $type = request()->type;
         
         if($type == 'category'){
-            DB::insert('insert into products_categories
-                (product_category_name, product_category_description)
-                values (?,?)',
-                [$name, $description]
-            );
+            Category::create([
+                'product_category_name' => $name,
+                'product_category_description' => $description
+            ]);
 
             return 'Nova categoria adicionada';
         }else if($type == 'brand'){
