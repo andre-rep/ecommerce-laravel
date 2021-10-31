@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTokenBlacklistTable extends Migration
+class CreateProductBrandCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateTokenBlacklistTable extends Migration
      */
     public function up()
     {
-        Schema::create('token_blacklist', function (Blueprint $table) {
+        Schema::create('product_brand_category', function (Blueprint $table) {
             $table->id();
-            $table->longText('token');
+            $table->Integer('product_brand_id');
+            $table->Integer('product_category_id');
             $table->timestamp('created_at')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
@@ -27,6 +28,6 @@ class CreateTokenBlacklistTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('token_blacklist');
+        Schema::dropIfExists('product_brand_category');
     }
 }
