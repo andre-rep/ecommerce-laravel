@@ -172,7 +172,7 @@
                         formData.append('brandDescription', brandDescription);
                         formData.append('brandId', this.id);
                         axios.post('/product/brand-update/', formData, {
-
+                            
                         })
                         .then((response) => {
                             document.location.reload(true);
