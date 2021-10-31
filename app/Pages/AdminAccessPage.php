@@ -361,9 +361,6 @@ class AdminAccessPage implements AccessPageContract
             ->get();
 
         return response()->view('pages.admin.product-categories', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0], 
-            'userName' => $this->userName,
             'cartItems' => $this->cartItems,
             'productsCategories' => $productsCategories,
             'productsBrands' => $productsBrands
