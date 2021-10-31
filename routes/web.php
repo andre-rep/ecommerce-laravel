@@ -51,8 +51,10 @@ Route::prefix('users')->group(function(){
 });
 
 //Cart
-Route::post('cart/add', [CartController::class, 'add']);
-Route::post('cart/delete', [CartController::class, 'delete']);
+Route::prefix('cart')->group(function(){
+    Route::post('add', [CartController::class, 'add']);
+    Route::post('delete', [CartController::class, 'delete']);
+});
 
 //Purchase
 Route::prefix('purchase')->group(function(){
@@ -63,14 +65,14 @@ Route::prefix('purchase')->group(function(){
 });
 
 //Banner
-Route::post('banner/insert', [BannerController::class, 'add']);
+Route::prefix('banner')->group(function(){
+    Route::post('insert', [BannerController::class, 'add']);
+});
 
 //Gallery
-Route::post('gallery/insert', [GalleryController::class, 'add']);
-
-//Files
-Route::get('retrieveFile', [FileController::class, 'fileRetrieve']);
-Route::post('uploadFile', [FileController::class, 'fileUpload']);
+Route::prefix('gallery')->group(function(){
+    Route::post('insert', [GalleryController::class, 'add']);
+});
 
 /** 
  * 
