@@ -83,7 +83,7 @@
         });
         document.getElementById('logout').addEventListener('click', (e) =>{
             e.preventDefault();
-            axios.post('http://localhost:8000/logout', null,{
+            axios.post('/auth/logout', null,{
                 
             })
             .then((response) => {

@@ -20,9 +20,11 @@ use App\Http\Controllers\FileController;
  */
 
 //Auth
-Route::post('register', [AuthController::class, 'register']);
-Route::post('login', [AuthController::class, 'authenticate']);
-Route::post('logout', [AuthController::class, 'logout']);
+Route::prefix('auth')->group(function(){
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('login', [AuthController::class, 'authenticate']);
+    Route::post('logout', [AuthController::class, 'logout']);
+});
 Route::get('activate/{mail}', [AuthController::class, 'verifyMail'])->name('activateLink')->middleware('signed');
 
 //Mail Sending

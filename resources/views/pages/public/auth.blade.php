@@ -33,7 +33,7 @@
             </div>
             <div class="sign-in">
                 <h3>Faça login para continuar</h3>
-                <form id="sign-in-form" method="post" action="/login">
+                <form id="sign-in-form" method="post" action="/auth/login">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">Endereço de Email</label>
@@ -72,7 +72,7 @@
                     const email = document.getElementById('signUpEmail').value;
                     const password = document.getElementById('signUpPassword').value;
                     document.getElementById('wait').style.display = "flex";
-                    axios.post('/register', {
+                    axios.post('/auth/register', {
                         name:name,
                         email:email,
                         password:password
