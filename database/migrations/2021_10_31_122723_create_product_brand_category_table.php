@@ -15,8 +15,13 @@ class CreateProductBrandCategoryTable extends Migration
     {
         Schema::create('product_brand_category', function (Blueprint $table) {
             $table->id();
-            $table->Integer('product_brand_id');
-            $table->Integer('product_category_id');
+            
+            //Foreign Keys
+            $table->unsignedBigInteger('product_brand_id');
+            $table->foreign('product_brand_id')->references('id')->on('products_brands');
+            $table->unsignedBigInteger('product_category_id');
+            $table->foreign('product_category_id')->references('id')->on('products_categories');
+
             $table->timestamp('created_at')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
