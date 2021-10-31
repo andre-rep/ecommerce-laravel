@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductBrandCategoryTable extends Migration
+class CreateProductsBrandCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProductBrandCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_brand_category', function (Blueprint $table) {
+        Schema::create('products_brand_category', function (Blueprint $table) {
             $table->id();
             
             //Foreign Keys
