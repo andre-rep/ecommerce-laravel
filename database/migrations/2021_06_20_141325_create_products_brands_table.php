@@ -17,10 +17,6 @@ class CreateProductsBrandsTable extends Migration
         Schema::create('products_brands', function (Blueprint $table) {
             $table->id();
 
-            //Foreign key
-            $table->unsignedBigInteger('product_brand_category_id');
-            $table->foreign('product_brand_category_id')->references('id')->on('products_categories');
-
             //Columns that reflect the table's name
             $table->string('product_brand_name');
             $table->string('product_brand_description')->nullable();
