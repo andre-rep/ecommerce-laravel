@@ -54,7 +54,7 @@
                 
                 var formDataCategory = new FormData();
                 formDataCategory.append('newProductCategory', document.getElementById('productCategory').value);
-                axios.post('/brands/retrieve/', formDataCategory,{
+                axios.post('/product/brands-retrieve/', formDataCategory,{
                     
                 })
                 .then((response) => {
@@ -72,7 +72,7 @@
                 function change(){
                     var formDataCategory = new FormData();
                     formDataCategory.append('newProductCategory', document.getElementById('productCategory').value);
-                    axios.post('/brands/retrieve/', formDataCategory,{
+                    axios.post('/product/brands-retrieve/', formDataCategory,{
                         
                     })
                     .then((response) => {

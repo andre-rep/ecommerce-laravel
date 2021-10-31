@@ -104,7 +104,7 @@
                 function changeProductCategory(){
                     var formDataCategory = new FormData();
                     formDataCategory.append('newProductCategory', document.getElementById('newProductCategory').value);
-                    axios.post('/brands/retrieve/', formDataCategory,{
+                    axios.post('/product/brands-retrieve/', formDataCategory,{
                         
                     })
                     .then((response) => {

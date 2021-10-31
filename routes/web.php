@@ -30,12 +30,14 @@ Route::post('getPasswordRecoverLink', [MailController::class, 'getPasswordRecove
 Route::get('mail', [MailController::class, 'sendEmail']);
 
 //Products
-Route::post('product/insert', [ProductController::class, 'insertProduct']);
-Route::post('category-brand/insert', [ProductController::class, 'insertCategoryOrBrand']);
-Route::post('brands/retrieve', [ProductController::class, 'retrieveBrands']);
-Route::post('product/update', [ProductController::class, 'updateProduct']);
-Route::post('productCategory/update', [ProductController::class, 'updateProductCategory']);
-Route::post('productBrand/update', [ProductController::class, 'updateProductBrand']);
+Route::prefix('product')->group(function(){
+    Route::post('insert', [ProductController::class, 'insertProduct']);
+    Route::post('insert-category-brand', [ProductController::class, 'insertCategoryOrBrand']);
+    Route::post('brands-retrieve', [ProductController::class, 'retrieveBrands']);
+    Route::post('update', [ProductController::class, 'updateProduct']);
+    Route::post('category-update', [ProductController::class, 'updateProductCategory']);
+    Route::post('brand-update', [ProductController::class, 'updateProductBrand']);
+});
 
 //Users
 Route::prefix('users')->group(function(){

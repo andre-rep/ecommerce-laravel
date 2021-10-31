@@ -8,7 +8,7 @@
                 <h2>Categorias e Marcas</h2>
                 <div class="product-categories">
                     <div class="product-categories-form">
-                        <form id="addCategory" v-on:submit.prevent="onSubmit">
+                        <form id="addCategoryOrBrand" v-on:submit.prevent="onSubmit">
                             <h5>Adicionar</h5>
                             <div class="mb-3" style="display:flex;margin-top:20px;">
                                 <div class="form-check" style="margin-right:15px;">
@@ -144,7 +144,7 @@
                         formData.append('categoryName', categoryName);
                         formData.append('categoryDescription', categoryDescription);
                         formData.append('categoryId', this.id);
-                        axios.post('/productCategory/update/', formData, {
+                        axios.post('/product/category-update/', formData, {
 
                         })
                         .then((response) => {
@@ -171,7 +171,7 @@
                         formData.append('brandName', brandName);
                         formData.append('brandDescription', brandDescription);
                         formData.append('brandId', this.id);
-                        axios.post('/productBrand/update/', formData, {
+                        axios.post('/product/brand-update/', formData, {
 
                         })
                         .then((response) => {
@@ -181,8 +181,8 @@
                 }
 
                 //Add new category
-                var addCategory = new Vue({
-                    el:'#addCategory',
+                var addCategoryOrBrand = new Vue({
+                    el:'#addCategoryOrBrand',
                     methods:{
                         onSubmit:function(event){
                             var formData = new FormData();
@@ -195,7 +195,7 @@
                                 formData.append('type', 'brand');
                             }
                             formData.append('description', document.getElementById('description').value);
-                            axios.post('/category-brand/insert/', formData,{
+                            axios.post('/product/insert-category-brand/', formData,{
                                 
                             })
                             .then((response) => {
