@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  laravel-app:
+    image: wyveo/nginx-php-fpm:latest
+    ports:
+      - '8081:80'
+    volumes:
+      - ./:/usr/share/nginx
+    networks:
+      - app-network
+        
+networks:
+  app-network:
+    name: app-network
+    driver: bridge

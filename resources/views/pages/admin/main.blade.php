@@ -9,12 +9,12 @@
                 </div>
                 <div class="main-menu-options">
                     <div class="main-menu-options-links">
-                        <a href="#">Página Principal</a>
-                        <a href="#">Compras</a>
-                        <a href="#">Páginas</a>
-                        <a href="#">Funcionalidades</a>
-                        <a href="#">Páginas</a>
-                        <a href="#">Páginas</a>
+                        <a href="{{asset('search?filterByCategory[]=smartphone')}}">Smartphones</a>
+                        <a href="{{asset('search?filterByCategory[]=tv')}}">Tv's</a>
+                        <a href="{{asset('search?filterByCategory[]=notebook')}}">Notebooks</a>
+                        <a href="{{asset('search?filterByCategory[]=tablet')}}">Tablets</a>
+                        <a href="{{asset('search?filterByCategory[]=roteador')}}">Roteadores</a>
+                        <a href="{{asset('search?filterByCategory[]=hd')}}">HD's</a>
                     </div>
                     <div class="main-menu-options-contact">
                         <span>Telefone:</span>
