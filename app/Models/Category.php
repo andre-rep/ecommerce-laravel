@@ -15,4 +15,6 @@ class Category extends Model
         'product_category_name',
         'product_category_description'
     ];
+
+    public $timestamps = false;
 }

@@ -92,7 +92,7 @@ class ProductController extends Controller
             //Add new brand
             $addedBrandId = DB::insert('insert into products_brands
                 (product_brand_name, product_brand_description)
-                values (?,?,?)',
+                values (?,?)',
                 [$name, $description]
             );
 
