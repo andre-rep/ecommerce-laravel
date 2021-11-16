@@ -194,9 +194,15 @@ class ProductController extends Controller
 
     public function retrieveBrands()
     {
+        //Get category id
+        $categoryId = Category::
+            where('product_category_name', request()->newProductCategory)//This newProductCategory is the name of the category
+            ->value('id');
+
+        //Retrieve brands that have the category chosen by the user
         $brands = DB::table('products_brands')
-            ->where('product_category_name', request()->newProductCategory)
-            ->join('products_categories', 'products_brands.product_brand_category_id', '=', 'products_categories.id')
+            ->where('product_category_id', $categoryId)
+            ->join('products_brand_category', 'products_brand_category.product_brand_id', 'products_brands.id')
             ->get();
 
         return response()->json([$brands]);
