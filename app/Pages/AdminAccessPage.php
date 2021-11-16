@@ -31,7 +31,6 @@ class AdminAccessPage implements AccessPageContract
             ->get();
 
         return response()->view('pages.admin.main', [
-            'cartItems' => $this->cartItems,
             'banners' => $banners,
             'gallery' => $gallery
         ]);
