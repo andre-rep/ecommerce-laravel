@@ -5,7 +5,6 @@
         <div class="dashboard">
             @include('includes.dashboard-menu')
             <div class="product-order-detail-ctn">
-                <input type="hidden" id="orderId" value="{{$orderId}}">
                 <h2 style="margin-bottom:20px;">Detalhes da Ordem de Compra</h2>
                 <div class="product-order-detail">
                     <div class="product-order-detail-header">
@@ -15,8 +14,10 @@
                             <span>Order ID: 3453012</span>
                         </div>
                         <div class="product-order-detail-status">
-                            <form id="changeStatus" v-on:submit.prevent="onSubmit">
-                                <select class="form-select form-select-lg" id="orderStatus" aria-label=".form-select-lg example">
+                            <form method="post" action="{{route('purchase/changeStatus')}}">
+                                @csrf
+                                <input type="hidden" name="orderId" id="orderId" value="{{$orderId}}">
+                                <select class="form-select form-select-lg" name="orderStatus" id="orderStatus" aria-label=".form-select-lg example">
                                     @if($purchases[0]->purchase_status == 0)
                                         <option value="0" selected>Aguardando Confirmação</option>
                                         <option value="1">Pedido Confirmado</option>
@@ -162,23 +163,6 @@
         //These values are for the menu
         document.getElementById('collapseThree').classList.remove("in");
         document.getElementById('collapseThree').classList.add("show");
-        
-        var addProduct = new Vue({
-            el:'#changeStatus',
-            methods:{
-                onSubmit:function(event){
-                    var formData = new FormData();
-                    formData.append('orderStatus', document.getElementById('orderStatus').value);
-                    formData.append('orderId', document.getElementById('orderId').value);
-                    axios.post('/purchase/changeStatus/', formData,{
-                        
-                    })
-                    .then((response) => {
-                        document.location.reload(true);
-                    })
-                }
-            }
-        });
     </script>
     @include('includes.facilities')
     @include('includes.footer')

@@ -62,7 +62,7 @@ class PurchaseController extends Controller
             ->where('id', request()->orderId)
             ->update(['purchase_status' => request()->orderStatus]);
         
-        return 'Order Status updated successfully';
+        return redirect()->back();
     }
 
     public function rate()
