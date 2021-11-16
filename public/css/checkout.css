@@ -60,7 +60,7 @@
     padding-right: 28px;
     padding-bottom: 52px;
 }
-#checkoutButton{
+.checkout-button{
     width: 165px;
     height: 55px;
     border-radius: 2px;

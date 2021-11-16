@@ -57,7 +57,7 @@ Route::prefix('cart')->group(function(){
 });
 
 //Purchase
-Route::prefix('purchase')->group(function(){
+Route::prefix('user/purchase')->group(function(){
     Route::post('add', [PurchaseController::class, 'add']);
     Route::post('changeStatus', [PurchaseController::class, 'changeStatus']);
     Route::post('rate', [PurchaseController::class, 'rate']);
