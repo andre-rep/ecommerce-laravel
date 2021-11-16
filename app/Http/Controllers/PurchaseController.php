@@ -53,7 +53,7 @@ class PurchaseController extends Controller
         request()->session()->forget('cartTotal');
         request()->session()->forget('cart');
 
-        return $purchaseId;
+        return redirect('/user/order/' . $purchaseId);
     }
 
     public function changeStatus()
