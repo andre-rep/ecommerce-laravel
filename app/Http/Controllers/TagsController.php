@@ -14,11 +14,9 @@ class TagsController extends Controller
         $tagName = request()->tagsName;
 
         //Insert a new tag
-        DB::insert('insert into tags
-            (tag_name)
-            values (?)',
-            [$tagName]
-        );
+        DB::table('tags')->insert([
+            'tag_name' => $tagName
+        ]);
 
         return "Nova tag adicionada";
     }

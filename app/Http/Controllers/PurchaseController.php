@@ -11,11 +11,10 @@ class PurchaseController extends Controller
     public function add()
     {
         //Add data into purchases table
-        DB::insert('insert into purchases
-            (user_id, purchase_status)
-            values (?,?)',
-            [Auth::user()->id, 0]
-        );
+        DB::table('purchases')->insert([
+            'user_id' => Auth::user()->id,
+            'purchase_status' => 0
+        ]);
 
         //Get purchase id
         $purchaseId = DB::table('purchases')
@@ -33,20 +32,29 @@ class PurchaseController extends Controller
         $complement = request()->complement;
         $email = request()->email;
         $phoneNumber = request()->phoneNumber;
-        DB::insert('insert into purchases_invoices
-            (purchase_id, name, surname, cep, street, neighbourhood, number, complement, email, phoneNumber)
-            values (?,?,?,?,?,?,?,?,?,?)',
-            [$purchaseId, $name, $surname, $cep, $street, $neighbourhood, $number, $complement, $email, $phoneNumber]
-        );
+
+        DB::table('purchases_invoices')->insert([
+            'purchase_id' => $purchaseId,
+            'name' => $name,
+            'surname' => $surname,
+            'cep' => $cep,
+            'street' => $street,
+            'neighbourhood' => $neighbourhood,
+            'number' => $number,
+            'complement' => $complement,
+            'email' => $email,
+            'phoneNumber' => $phoneNumber
+        ]);
 
         $cartProducts = request()->session()->get('cart');
         foreach($cartProducts as $cartProduct){
             foreach($cartProduct as $cart){
-                DB::insert('insert into purchases_products
-                    (product_id, purchase_id, purchase_product_price, purchase_product_quantity)
-                    values (?,?,?,?)',
-                    [$cart['product_id'], $purchaseId, $cart['product_price'], $cart['product_quantity']]
-                );
+                DB::table('purchases_products')->insert([
+                    'product_id' => $cart['product_id'],
+                    'purchase_id' => $purchaseId,
+                    'purchase_product_price' => $cart['product_price'],
+                    'purchase_product_quantity' => $cart['product_quantity']
+                ]);
             }
         }
 

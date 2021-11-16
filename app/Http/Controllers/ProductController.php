@@ -50,18 +50,18 @@ class ProductController extends Controller
                 ->value('id');
     
             if($foreachIteration == 1){
-                DB::insert('insert into product_images
-                    (product_id, product_image_url, product_image_highlighted)
-                    values (?,?,?)',
-                    [$product_id , $productImageUrl, 1]
-                );
+                DB::table('product_images')->insert([
+                    'product_id' => $product_id,
+                    'product_image_url' => $productImageUrl,
+                    'product_image_highlighted' => 1
+                ]);
+
                 $foreachIteration = 0;
             }else{
-                DB::insert('insert into product_images
-                    (product_id, product_image_url)
-                    values (?,?)',
-                    [$product_id , $productImageUrl]
-                );
+                DB::table('product_images')->insert([
+                    'product_id' => $product_id,
+                    'product_image_url' => $productImageUrl
+                ]);
             }
             
         }
@@ -99,11 +99,10 @@ class ProductController extends Controller
                 );
 
             //Add new products_brand_category register
-            DB::insert('insert into products_brand_category
-                (product_category_id, product_brand_id)
-                values (?,?)',
-                [$productBrandCategoryId, $addedBrandId]
-            );
+            DB::table('procuts_brand_category')->insert([
+                'product_category_id' => $productBrandCategoryId,
+                'product_brand_id' => $addedBrandId
+            ]);
 
             return 'Nova marca adicionada';
         }
@@ -164,11 +163,10 @@ class ProductController extends Controller
 
             foreach($files as $file){
                 $productImageUrl = $publicFile->fileUpload($file);
-                DB::insert('insert into product_images
-                    (product_id, product_image_url)
-                    values (?,?)',
-                    [$product_id , $productImageUrl]
-                );
+                DB::table('product_images')->insert([
+                    'product_id' => $product_id,
+                    'product_image_url' => $productImageUrl
+                ]);
             }
 
             return request()->file;

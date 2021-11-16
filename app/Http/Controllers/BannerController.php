@@ -27,11 +27,12 @@ class BannerController extends Controller
         //Actually uploading the file, passing as the parameter the file itself.
         $bannerImageUrl = $publicDirectory->fileUpload($bannerImage);
 
-        DB::insert('insert into banners
-            (banner_image_url, banner_bg_text, banner_sm_text, banner_is_promotion)
-            values (?,?,?,?)',
-            [$bannerImageUrl, $bannerBgText, $bannerSmText, $bannerIsPromotion]
-        );
+        DB::table('banners')->insert([
+            'banner_image_url' => $bannerImageUrl,
+            'banner_bg_text' => $bannerBgText,
+            'banner_sm_text' => $bannerSmText,
+            'banner_is_promotion' => $bannerIsPromotion
+        ]);
 
         return 'Banner inserido com sucesso';
     }

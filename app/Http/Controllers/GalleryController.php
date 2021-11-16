@@ -20,11 +20,14 @@ class GalleryController extends Controller
         $publicDirectory = new PublicDirectory('galleryImages/');
         $galleryImageUrl = $publicDirectory->fileUpload($galleryImage);
 
-        DB::insert('insert into carousel
-            (carousel_image_url, carousel_image_bg_text, carousel_image_sm_text, carousel_image_btn_text, carousel_image_btn_url, carousel_image_is_active)
-            values (?,?,?,?,?,?)',
-            [$galleryImageUrl, $galleryBgText, $gallerySmText, $galleryBtnText, $galleryBtnLink, 1]
-        );
+        DB::table('carousel')->insert([
+            'carousel_image_url' => $galleryImageUrl,
+            'carousel_image_bg_text' => $galleryBgText,
+            'carousel_image_sm_text' => $gallerySmText,
+            'carousel_image_btn_text' => $galleryBtnText,
+            'carousel_image_btn_url' => $galleryBtnLink,
+            'carousel_image_is_active' => 1
+        ]);
 
         return 'Imagem adicionada na galeria';
     }
