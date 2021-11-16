@@ -11,13 +11,9 @@ use Illuminate\Support\Facades\DB;
 
 class AdminAccessPage implements AccessPageContract
 {
-    //Logged in user's information
-    private $cartItems;
-
     public function __construct()
     {
-        $cart = new Cart();
-        $this->cartItems = $cart->getProductsQuantity();
+        
     }
 
     public function auth()
@@ -153,10 +149,6 @@ class AdminAccessPage implements AccessPageContract
 
         //Return the values in the page
         return response()->view('pages.admin.search', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0],
-            'userName' => $this->userName,
-            'cartItems' => $this->cartItems,
             'products' => $products,
             'productsBrands' => $productsBrands,
             'productsCategories' => $productsCategories,
@@ -197,10 +189,6 @@ class AdminAccessPage implements AccessPageContract
             ->get();
 
         return response()->view('pages.admin.product', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0],
-            'cartItems' => $this->cartItems,
-            'userName' => $this->userName,
             'products' => $products,
             'mainProduct' => $mainProduct,
             'purchasesProducts' => $purchasesProducts,
@@ -342,7 +330,6 @@ class AdminAccessPage implements AccessPageContract
 
         //Return the values in the page
         return response()->view('pages.admin.product-list', [
-            'cartItems' => $this->cartItems,
             'products' => $products,
             'productsBrands' => $productsBrands,
             'productsCategories' => $productsCategories,
@@ -361,7 +348,6 @@ class AdminAccessPage implements AccessPageContract
             ->get();
 
         return response()->view('pages.admin.product-categories', [
-            'cartItems' => $this->cartItems,
             'productsCategories' => $productsCategories,
             'productsBrands' => $productsBrands
         ]);
@@ -373,7 +359,6 @@ class AdminAccessPage implements AccessPageContract
             ->get();
 
         return response()->view('pages.admin.product-add', [
-            'cartItems' => $this->cartItems,
             'productsCategories' => $productsCategories
         ]);
     }
@@ -406,7 +391,6 @@ class AdminAccessPage implements AccessPageContract
         }
             
         return response()->view('pages.admin.product-orders', [
-            'cartItems' => $this->cartItems,
             'purchases' => $purchases,
             'chosenStatus' => request()->query('orderStatus'),
             'chosenPagination' => $paginate
@@ -425,7 +409,6 @@ class AdminAccessPage implements AccessPageContract
             ->get();
             
         return response()->view('pages.admin.product-order-detail', [
-            'cartItems' => $this->cartItems,
             'purchases' => $purchases,
             'orderId' => request()->orderId
         ]);
@@ -433,12 +416,7 @@ class AdminAccessPage implements AccessPageContract
 
     public function productTransactions()
     {
-        return response()->view('pages.admin.product-transactions', [
-            'accessLevel' => $this->accessLevel, 
-            'userNameShort' => $this->userNameShort[0], 
-            'userName' => $this->userName,
-            'cartItems' => $this->cartItems
-        ]);
+        return response()->view('pages.admin.product-transactions');
     }
 
     public function productReviews()
@@ -472,7 +450,6 @@ class AdminAccessPage implements AccessPageContract
         }
             
         return response()->view('pages.admin.product-reviews', [
-            'cartItems' => $this->cartItems,
             'purchasesProducts' => $purchasesProducts,
             'chosenVisibility' => $chosenVisibility
         ]);
@@ -500,7 +477,6 @@ class AdminAccessPage implements AccessPageContract
         }
             
         return response()->view('pages.admin.clients', [
-            'cartItems' => $this->cartItems,
             'users' => $users,
             'chosenStatus' => request()->query('userStatus'),
             'chosenPagination' => $paginate
@@ -531,7 +507,6 @@ class AdminAccessPage implements AccessPageContract
         }
 
         return response()->view('pages.admin.client', [
-            'cartItems' => $this->cartItems,
             'user' => $user,
             'totalItemsPurchased' => $totalItemsPurchased,
             'totalSpent' => $totalSpent
@@ -554,7 +529,6 @@ class AdminAccessPage implements AccessPageContract
             ->get();
 
         return response()->view('pages.admin.product-edit', [
-            'cartItems' => $this->cartItems,
             'productsCategories' => $productsCategories,
             'mainProduct' => $mainProduct,
             'products' => $products
@@ -578,8 +552,6 @@ class AdminAccessPage implements AccessPageContract
 
     public function mainPage()
     {
-        return response()->view('pages.admin.main-page', [
-            'cartItems' => $this->cartItems
-        ]);
+        return response()->view('pages.admin.main-page');
     }
 }

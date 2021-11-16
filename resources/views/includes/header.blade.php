@@ -36,12 +36,12 @@
         </div>
         <div class="header-cart">
             @if(Auth::user() != null)
-                @if($cartItems != '0')
-                    <div class="header-cart-items">
-                        <span>{{$cartItems}}</span>
-                    </div>
-                @endif
                 @can('isUser')
+                    @if($cartItems != '0')
+                        <div class="header-cart-items">
+                            <span>{{$cartItems}}</span>
+                        </div>
+                    @endif
                     <a href="{{asset('user/cart')}}">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Carrinho</span>
