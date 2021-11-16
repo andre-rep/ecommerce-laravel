@@ -27,7 +27,7 @@ class CreatePurchasesInvoicesTable extends Migration
             $table->longText('street');
             $table->longText('neighbourhood');
             $table->Integer('number');
-            $table->longText('complement');
+            $table->longText('complement')->nullable();
             $table->longText('email');
             $table->bigInteger('phoneNumber');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
