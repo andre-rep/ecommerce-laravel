@@ -88,11 +88,19 @@ class ProductController extends Controller
             $productBrandCategoryId = DB::table('products_categories')
                 ->where('product_category_name', '=', $category)
                 ->value('id');
-
-            DB::insert('insert into products_brands
-                (product_brand_name, product_brand_description, product_brand_category_id)
+            
+            //Add new brand
+            $addedBrandId = DB::insert('insert into products_brands
+                (product_brand_name, product_brand_description)
                 values (?,?,?)',
-                [$name, $description, $productBrandCategoryId]
+                [$name, $description]
+            );
+
+            //Add new products_brand_category register
+            DB::insert('insert into products_brand_category
+                (product_category_id, product_brand_id)
+                values (?,?)',
+                [$productBrandCategoryId, $addedBrandId]
             );
 
             return 'Nova marca adicionada';
