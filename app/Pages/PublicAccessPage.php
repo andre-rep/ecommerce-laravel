@@ -164,33 +164,37 @@ class PublicAccessPage implements AccessPageContract
 
     public function product()
     {
+        //Get product name from url
+        $encodedProductName = request()->productName;
+        $decodedProductName = urldecode($encodedProductName);
+        
         $purchasesProducts = DB::table('purchases_products')
-            ->where('product_name', '=', request()->productName)
+            ->where('product_name', '=', $decodedProductName)
             ->join('purchases', 'purchases_products.purchase_id', '=', 'purchases.id')
             ->join('users', 'purchases.user_id', '=', 'users.id')
             ->join('products', 'purchases_products.product_id', '=', 'products.id')
             ->select('purchases_products.*', 'purchases.*', 'users.*', 'products.*', 'purchases_products.id as id', 'purchases_products.created_at as purchases_product_created_at')
             ->get();
 
-        $products = Product::where('product_name', '=', request()->productName)
+        $products = Product::where('product_name', '=', $decodedProductName)
             ->where('product_image_highlighted', '=', null)
             ->join('product_images', 'products.id', '=', 'product_images.product_id')
             ->get();
 
-        $mainProduct = Product::where('product_name', '=', request()->productName)
+        $mainProduct = Product::where('product_name', '=', $decodedProductName)
             ->where('product_image_highlighted', '=', 1)
             ->join('product_images', 'products.id', '=', 'product_images.product_id')
             ->first();
         
         $customersReviews = DB::table('purchases_products')
-            ->where('product_name', '=', request()->productName)
+            ->where('product_name', '=', $decodedProductName)
             ->join('products', 'products.id', '=', 'purchases_products.product_id')
             ->get();
 
         $customersReviews = sizeof($customersReviews);
 
         $allRates = DB::table('purchases_products')
-            ->where('product_name', '=', request()->productName)
+            ->where('product_name', '=', $decodedProductName)
             ->join('products', 'products.id', '=', 'purchases_products.product_id')
             ->get();
 
