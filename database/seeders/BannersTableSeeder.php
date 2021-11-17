@@ -15,11 +15,11 @@ class BannersTableSeeder extends Seeder
     public function run()
     {
         DB::table('banners')->insert([
-            'banner_image_url' => 'bannerImage/banner.jpg',
-            'banner_bg_text' => 'Desconto de 50%',
-            'banner_sm_text' => 'Por tempo limitado',
+            'banner_image_url' => '/storage/image/bannerImage//p2JrEjThKQnhKBsUiFzNhTgOmRbrhmFhmFgTfhjx.jpg',
+            'banner_bg_text' => 'Promoção de fones de ouvido',
+            'banner_sm_text' => '20% de desconto',
             'banner_is_promotion' => 1,
-            'created_at' => '2021-09-02 15:40:30'
+            'created_at' => '2021-11-17 12:51:59'
         ]);
     }
 }
