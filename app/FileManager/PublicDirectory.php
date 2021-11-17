@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Files;
+namespace App\FileManager;
 
 use Illuminate\Http\Request;
 
