@@ -16,7 +16,6 @@ class StoragePublic
 
     public function fileUpload($file = '')
     {
-        $fileName = $file->getClientOriginalName();
-        Storage::disk('public')->put($fileName, $file);
+        return '/storage/' . Storage::disk('public')->put($this->folder, $file);
     }
 }

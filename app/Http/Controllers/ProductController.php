@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Products\ProductContract;
 use App\FileManager\PublicDirectory;
+use App\FileManager\StoragePublic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,7 +21,8 @@ class ProductController extends Controller
         $files = request()->file('file');
         $productPrice = request()->productPrice;
 
-        $publicFile = new PublicDirectory('image/' . $productCategory . '/' . $productBrand . '/');
+        //$publicFile = new PublicDirectory('image/' . $productCategory . '/' . $productBrand . '/');
+        $publicFile = new StoragePublic('image/' . $productCategory . '/' . $productBrand . '/');
 
         //Get product_category_id
         $productCategoryId = DB::table('products_categories')
