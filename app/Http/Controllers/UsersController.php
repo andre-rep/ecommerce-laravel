@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Auth\JWTAuth;
 use App\Users\UserContract;
-use App\FileManager\PublicDirectory;
+use App\FileManager\StoragePublic;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -54,7 +54,7 @@ class UsersController extends Controller
 
     public function insertProfileImage()
     {
-        $publicFile = new PublicDirectory('profileImage/');
+        $publicFile = new StoragePublic('profileImage/' . Auth::user()->email . '/');
         $profileImageUrl = $publicFile->fileUpload(request()->file);
         User::where('id', Auth::user()->id)
             ->update(['user_profile_image_url' => $profileImageUrl]);
