@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(BannersTableSeeder::class);
         $this->call(CarouselTableSeeder::class);
-        $this->call(ProductsTableSeeder::class);
         $this->call(ProductsCategoriesTableSeeder::class);
         $this->call(ProductsBrandsTableSeeder::class);
-        $this->call(ProductsImagesTableSeeder::class);
         $this->call(ProductsBrandCategoryTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
+        $this->call(ProductsImagesTableSeeder::class);
     }
 }
