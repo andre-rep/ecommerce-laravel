@@ -2,7 +2,7 @@
     <div class="header-wrapper">
         <div class="header-logo">
             <a href="{{asset('/')}}">
-                <img src="{{asset('image/logo.png')}}">
+                <img src="{{asset('storage/image/logo.png')}}">
             </a>
         </div>
         <div class="header-search">

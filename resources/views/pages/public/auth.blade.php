@@ -7,7 +7,7 @@
                         
             </div>
             <div id="wait" style="display:none;margin-bottom:10px;align-items:center;">
-                <img src="{{asset('image/wait.gif')}}" style="width:25px;height:25px;margin-right:10px;">
+                <img src="{{asset('storage/image/wait.gif')}}" style="width:25px;height:25px;margin-right:10px;">
                 <h5 style="margin-top:5px;">Aguarde..</h5>
             </div>
             <div class="sign-up">

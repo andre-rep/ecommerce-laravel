@@ -67,7 +67,7 @@
                                         <th scope="row">
                                             <div class="clients-list-profile">
                                                 @if($user->user_profile_image_url == '')
-                                                    <img src="{{asset('image/default-profile.png')}}" style="width:50px;border-radius:50px;">
+                                                    <img src="{{asset('storage/image/default-profile.png')}}" style="width:50px;border-radius:50px;">
                                                 @else
                                                     <img src="{{asset($user->user_profile_image_url)}}" style="width:50px;border-radius:50px;">
                                                 @endif

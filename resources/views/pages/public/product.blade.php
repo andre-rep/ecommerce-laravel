@@ -90,7 +90,7 @@
                             <div class="product-review-item">
                                 <div class="product-review-profile-img">
                                     @if($purchasesProduct->user_profile_image_url == '')
-                                        <img src="{{asset('image/default-profile.png')}}">
+                                        <img src="{{asset('storage/image/default-profile.png')}}">
                                     @else
                                         <img src="{{asset($purchasesProduct->user_profile_image_url)}}">
                                     @endif

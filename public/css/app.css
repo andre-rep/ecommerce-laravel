@@ -48,7 +48,7 @@ header{
     border: none;
     height: 100%;
     background-color: white;
-    background-image: url('../image/header-ecommerce-search.png');
+    background-image: url('../storage/image/header-ecommerce-search.png');
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;

@@ -1,6 +1,6 @@
 <div class="dashboard-menu">
     <div class="dashboard-menu-logo">
-        <img src="{{asset('image/dash-brand.svg')}}">
+        <img src="{{asset('storage/image/dash-brand.svg')}}">
     </div>
     <div class="dashboard-menu-item">
         <div class="accordion" id="accordionExample">

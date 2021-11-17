@@ -7,7 +7,7 @@
             <div class="user-edit-menu">
                 <div class="user-edit-profile-img" style="position:relative;">
                     @if($user->user_profile_image_url == '')
-                        <img src="{{asset('image/default-profile.png')}}" style="position:absolute;">    
+                        <img src="{{asset('storage/image/default-profile.png')}}" style="position:absolute;">    
                     @else
                         <img src="{{asset($user->user_profile_image_url)}}" style="position:absolute;">
                     @endif

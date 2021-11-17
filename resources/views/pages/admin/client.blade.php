@@ -10,7 +10,7 @@
                     <div class="client-card">
                         <div class="client-card-image">
                             @if($user->user_profile_image_url == '')
-                                <img src="{{asset('image/default-profile.png')}}" style="width:100%;">
+                                <img src="{{asset('storage/image/default-profile.png')}}" style="width:100%;">
                             @else
                                 <img src="{{asset($user->user_profile_image_url)}}" style="width:100%;">
                             @endif
