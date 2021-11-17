@@ -20,7 +20,7 @@ class ProductController extends Controller
         $files = request()->file('file');
         $productPrice = request()->productPrice;
 
-        $publicFile = new StoragePublic('image/' . $productCategory . '/' . $productBrand . '/');
+        $publicFile = new StoragePublic('image/products/' . $productCategory . '/' . $productBrand . '/');
 
         //Get product_category_id
         $productCategoryId = DB::table('products_categories')
@@ -99,7 +99,7 @@ class ProductController extends Controller
                 );
 
             //Add new products_brand_category register
-            DB::table('procuts_brand_category')->insert([
+            DB::table('products_brand_category')->insert([
                 'product_category_id' => $productBrandCategoryId,
                 'product_brand_id' => $addedBrandId
             ]);
