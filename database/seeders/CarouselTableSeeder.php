@@ -37,7 +37,8 @@ class CarouselTableSeeder extends Seeder
         DB::table('carousel')->insert([
             'carousel_image_url' => '/storage/image/galleryImages//Jz4pXVIbDnokPfPbkELsE9cf6sP6jIal4kUW7UtR.jpg',
             'carousel_image_bg_text' => 'Novidade',
-            'carousel_image_btn_text' => 'Com suporte a 5G',
+            'carousel_image_sm_text' => 'Com suporte a 5G',
+            'carousel_image_btn_text' => 'Acessar',
             'carousel_image_btn_url' => '#',
             'carousel_image_is_active' => 1,
             'created_at' => '2021-11-17 13:09:15'
