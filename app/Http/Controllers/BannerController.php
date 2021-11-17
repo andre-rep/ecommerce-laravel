@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
-use App\FileManager\PublicDirectory;
+use App\FileManager\StoragePublic;
 
 class BannerController extends Controller
 {
@@ -23,9 +23,9 @@ class BannerController extends Controller
         }
 
         //Instatiate a new PublicDirectory object passing as paramenter the folder inside 'public' where the file will be uploaded to.
-        $publicDirectory = new PublicDirectory('bannerImage/');
+        $storagePublic = new StoragePublic('image/bannerImage/');
         //Actually uploading the file, passing as the parameter the file itself.
-        $bannerImageUrl = $publicDirectory->fileUpload($bannerImage);
+        $bannerImageUrl = $storagePublic->fileUpload($bannerImage);
 
         DB::table('banners')->insert([
             'banner_image_url' => $bannerImageUrl,
