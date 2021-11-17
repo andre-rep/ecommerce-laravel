@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
-use App\FileManager\PublicDirectory;
+use App\FileManager\StoragePublic;
 
 class GalleryController extends Controller
 {
@@ -17,8 +17,8 @@ class GalleryController extends Controller
         $galleryBtnText = request()->galleryBtnText;
         $galleryBtnLink = request()->galleryBtnLink;
 
-        $publicDirectory = new PublicDirectory('galleryImages/');
-        $galleryImageUrl = $publicDirectory->fileUpload($galleryImage);
+        $storagePublic = new StoragePublic('image/galleryImages/');
+        $galleryImageUrl = $storagePublic->fileUpload($galleryImage);
 
         DB::table('carousel')->insert([
             'carousel_image_url' => $galleryImageUrl,
