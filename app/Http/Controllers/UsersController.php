@@ -54,7 +54,7 @@ class UsersController extends Controller
 
     public function insertProfileImage()
     {
-        $publicFile = new StoragePublic('profileImage/' . Auth::user()->email . '/');
+        $publicFile = new StoragePublic('image/profileImage/' . Auth::user()->email . '/');
         $profileImageUrl = $publicFile->fileUpload(request()->file);
         User::where('id', Auth::user()->id)
             ->update(['user_profile_image_url' => $profileImageUrl]);
