@@ -525,7 +525,7 @@ class AdminAccessPage implements AccessPageContract
             ->join('product_images', 'products.id', '=', 'product_images.product_id')
             ->get();
         
-        $products = Product::where('product_name', request()->product)
+        $products = Product::where('product_url', request()->product)
             ->where('product_image_highlighted', '=', null)
             ->join('product_images', 'products.id', '=', 'product_images.product_id')
             ->get();
