@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
 
             //Columns that reflect the table's name
             $table->string('product_name');
+            $table->string('product_url');
             $table->string('product_description');
             $table->Integer('product_price');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
