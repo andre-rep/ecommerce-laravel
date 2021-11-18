@@ -48,5 +48,10 @@ class ProductsCategoriesTableSeeder extends Seeder
             'product_category_name' => 'Tv',
             'created_at' => '2021-11-18 12:52:53'
         ]);
+
+        DB::table('products_categories')->insert([
+            'product_category_name' => 'Tablet',
+            'created_at' => '2021-11-18 13:06:12'
+        ]);
     }
 }

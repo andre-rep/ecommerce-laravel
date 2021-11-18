@@ -48,5 +48,10 @@ class ProductsBrandsTableSeeder extends Seeder
             'product_brand_name' => 'samsung',
             'created_at' => '2021-11-18 12:52:59'
         ]);
+
+        DB::table('products_brands')->insert([
+            'product_brand_name' => 'philco',
+            'created_at' => '2021-11-18 13:07:06'
+        ]);
     }
 }

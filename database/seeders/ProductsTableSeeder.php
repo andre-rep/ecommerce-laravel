@@ -83,5 +83,15 @@ class ProductsTableSeeder extends Seeder
             'product_price' => 2899,
             'created_at' => '2021-11-18 12:56:35'
         ]);
+
+        Product::create([
+            'product_category_id' => 8,
+            'product_brand_id' => 8,
+            'product_name' => 'Tablet Philco 32GB Tela 8" Android 10 Processador Quadcore 4G Wi-Fi PTB8RSG - Preco/Cinza',
+            'product_url' => 'tablet-philco-32gb-tela-8--android-10-processador-quadcore-4g-wi-fi-ptb8rsg---preco-cinza',
+            'product_description' => '4ª geração de conexão com a internet. Mais velocidade de conexão, aceso rápido ao conteúdo online em qualquer lugar',
+            'product_price' => 759,
+            'created_at' => '2021-11-18 13:09:16'
+        ]);
     }
 }

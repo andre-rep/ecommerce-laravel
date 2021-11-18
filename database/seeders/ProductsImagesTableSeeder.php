@@ -158,5 +158,24 @@ class ProductsImagesTableSeeder extends Seeder
             'product_image_highlighted' => 1,
             'created_at' => '2021-11-18 12:56:35'
         ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 8,
+            'product_image_url' => '/storage/image/products/Tablet/philco//9BcQzxPixePGhlHSyEeEQX5dfJSqAW9pAKU9zxI3.webp',
+            'created_at' => '2021-11-18 13:09:16'
+        ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 8,
+            'product_image_url' => '/storage/image/products/Tablet/philco//tNOW7zLHUcFj09qpJMie7PbEhr5rxFwbww8NKwNC.webp',
+            'created_at' => '2021-11-18 13:09:16'
+        ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 8,
+            'product_image_url' => '/storage/image/products/Tablet/philco//NnTG7JHbTeVKnsb6YwLEKn4uqBynUjFemMjXgOZ5.webp',
+            'product_image_highlighted' => 1,
+            'created_at' => '2021-11-18 13:09:16'
+        ]);
     }
 }
