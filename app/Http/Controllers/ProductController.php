@@ -14,10 +14,10 @@ class ProductController extends Controller
     public function insertProduct()
     {
         $productName = request()->productName;
-        $productUrl = str_replace(
+        $productUrl = strtolower(str_replace(
             array('/', '?', ' ', '_', ':', '#', '[', ']', '!', '$', '@', '(', ')', '*', ',', ';', '=', '<', '>', '%', '\\', '\'', '`', '|', '¨', '&', '"' ),
             array('-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-' ),
-            $productName);
+            $productName));
         $productDescription = request()->productDescription;
         $productCategory = request()->productCategory;
         $productBrand = request()->productBrand;
