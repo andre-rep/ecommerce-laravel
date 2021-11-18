@@ -177,5 +177,18 @@ class ProductsImagesTableSeeder extends Seeder
             'product_image_highlighted' => 1,
             'created_at' => '2021-11-18 13:09:16'
         ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 9,
+            'product_image_url' => '/storage/image/products/Roteador/Dlink//NyeDIAHvDOsK8IFMXBvD7FNYESaXT30vF6nz3xVF.webp',
+            'product_image_highlighted' => 1,
+            'created_at' => '2021-11-18 15:12:03'
+        ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 9,
+            'product_image_url' => '/storage/image/products/Roteador/Dlink//uCl17eVLmCpADVTeBIOF7dR3jIvCnIpfLZlkLQ44.webp',
+            'created_at' => '2021-11-18 15:12:03'
+        ]);
     }
 }

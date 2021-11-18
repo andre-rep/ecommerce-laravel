@@ -93,5 +93,15 @@ class ProductsTableSeeder extends Seeder
             'product_price' => 759,
             'created_at' => '2021-11-18 13:09:16'
         ]);
+
+        Product::create([
+            'product_category_id' => 9,
+            'product_brand_id' => 9,
+            'product_name' => 'Roteador dlink wifi AC1200 TR069 wan gigabit DIR841',
+            'product_url' => 'roteador-dlink-wifi-ac1200-tr069-wan-gigabit-dir841',
+            'product_description' => 'Características: - Marca: D-Link - Modelo: DIR-841 Especificações: Interfaces do Dispositivo: - 4 x lan 10/100Mbps - 1 x wan 10/100/1000Mbps - Wireless ac (Dual-Band) - Botão wps - Botão Reset - Botão Wi-Fi (Liga/Desliga)',
+            'product_price' => 116,
+            'created_at' => '2021-11-18 15:12:03'
+        ]);
     }
 }
