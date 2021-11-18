@@ -14,7 +14,7 @@
                 <div class="search-wrapper-body">
                     @foreach ($products as $product)
                         <div class="search-wrapper-product">
-                            <a class="search-product-link" href="/product/{{$product->product_name}}">
+                            <a class="search-product-link" href="/product/{{$product->product_url}}">
                                 
                             </a>
                             <div class="search-wrapper-product-image">

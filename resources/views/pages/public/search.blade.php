@@ -5,35 +5,24 @@
         <div class="search">
             <div class="search-wrapper">
                 <div class="search-wrapper-header">
-                    <span>Showing 1-16 of 24 Products</span>
+                    <span>Mostrando 1-16 de 24 Produtos</span>
                     <div class="search-wrapper-header-buttons">
-                        <button>16</button>
+                        <button>{{$paginate}}</button>
                         <button>Ordenação Padrão</button>
                     </div>
                 </div>
                 <div class="search-wrapper-body">
                     @foreach ($products as $product)
                         <div class="search-wrapper-product">
+                            <a class="search-product-link" href="/product/{{$product->product_url}}">
+                                
+                            </a>
                             <div class="search-wrapper-product-image">
                                 <img src="{{asset($product->product_image_url)}}">
                             </div>
-                            <div class="search-wrapper-product-links">
-                                <a class="search-product-link" href="/product/{{$product->product_name}}">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </a>
-                                <a class="search-product-link" href="/product/{{$product->product_name}}">
-                                    <i class="far fa-heart"></i>
-                                </a>
-                                <a class="search-product-link" href="/product/{{$product->product_name}}">
-                                    <i class="fas fa-exchange-alt"></i>
-                                </a>
-                                <a class="search-product-link" href="/product/{{$product->product_name}}">
-                                    <i class="far fa-eye"></i>
-                                </a>
-                            </div>
                             <div class="search-product-desc-ctn">
                                 <div class="search-product-description">
-                                    <span>{{$product->product_name}}</span>
+                                    <span class="product-name">{{$product->product_name}}</span>
                                     <span>R${{$product->product_price}}.00</span>
                                     <div class="main-novidades-product-rate">
                                         <i class="fa fa-star" style="color:rgb(250,196,70)"></i>
@@ -141,23 +130,9 @@
         var categories = urlParams.getAll('filterByCategory[]');
         //brandcheck elements from class
         var brandCheck = document.getElementsByClassName('brand-check');
-        
-        console.log(brands);
-        //If there are values in query string, check the checks
-        for(var i=0; i<brandCheck.length-1; i++){
-            if(brands.includes(brandCheck[i].value)){
-                if(!brandCheck[i].checked){
-                    console.log('not checked');
-                    brandCheck[i].checked = true;
-                }else{
-                    brandcheck[i].checked = false;
-                }
-                console.log(brandCheck[i]);
-            }
-        }
 
         //trigger for clicking on a brand check
-        for(var i=0; i<brandCheck.length-1; i++){
+        for(var i=0; i<brandCheck.length; i++){
             brandCheck[i].onclick = function(target){
                 if(this.checked){
                     urlParams.append('filterByBrand[]', this.value);
@@ -174,6 +149,13 @@
                     window.location.assign("http://localhost:8000/search?" + urlParams.toString());
                 }
             }
+        }
+
+        //limit the length of the product name 20
+        for(var i=0; i<20; i++){
+            var productName = document.getElementsByClassName('product-name')[i];
+            var substring = productName.textContent.substring(0, 70);
+            productName.innerHTML = substring;
         }
     </script>
     @include('includes.facilities')
