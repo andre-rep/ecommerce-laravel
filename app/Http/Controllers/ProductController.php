@@ -14,6 +14,10 @@ class ProductController extends Controller
     public function insertProduct()
     {
         $productName = request()->productName;
+        $productUrl = str_replace(
+            array('/', '?', ' ', '_', ':', '#', '[', ']', '!', '$', '@', '(', ')', '*', ',', ';', '=', '<', '>', '%', '\\', '\'', '`', '|', '¨', '&' ),
+            array('-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-',  ),
+            $productName);
         $productDescription = request()->productDescription;
         $productCategory = request()->productCategory;
         $productBrand = request()->productBrand;
@@ -35,6 +39,7 @@ class ProductController extends Controller
         //Insert data into products table
         Product::create([
             'product_name' => $productName,
+            'product_url' => $productUrl,
             'product_description' => $productDescription,
             'product_category_id' => $productCategoryId,
             'product_brand_id' => $productBrandId,
