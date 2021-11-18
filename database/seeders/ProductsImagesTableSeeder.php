@@ -139,5 +139,24 @@ class ProductsImagesTableSeeder extends Seeder
             'product_image_url' => '/storage/image/products/Placa Mãe/Gigabyte//IY0Xm01OqRUC5W4oUHVoaxOCQs9ecpHuHhgscymV.webp',
             'created_at' => '2021-11-17 14:46:35'
         ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 7,
+            'product_image_url' => '/storage/image/products/Tv/samsung//yfLwMfDpMzf4zjUylCiI7liXGWVmnzHrMvI2ZTIl.webp',
+            'created_at' => '2021-11-18 12:56:35'
+        ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 7,
+            'product_image_url' => '/storage/image/products/Tv/samsung//JYorHZFIs7BcJifnDnebx0jCmIQSYNjnFuBMfU2p.webp',
+            'created_at' => '2021-11-18 12:56:35'
+        ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 7,
+            'product_image_url' => '/storage/image/products/Tv/samsung//Iuq2rUbaJ9RT0MgjMiI7Rx0pME9S51Dl1jHpVct0.webp',
+            'product_image_highlighted' => 1,
+            'created_at' => '2021-11-18 12:56:35'
+        ]);
     }
 }

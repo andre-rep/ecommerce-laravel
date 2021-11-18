@@ -43,5 +43,10 @@ class ProductsCategoriesTableSeeder extends Seeder
             'product_category_name' => 'Placa Mãe',
             'created_at' => '2021-11-17 14:36:23'
         ]);
+
+        DB::table('products_categories')->insert([
+            'product_category_name' => 'Tv',
+            'created_at' => '2021-11-18 12:52:53'
+        ]);
     }
 }

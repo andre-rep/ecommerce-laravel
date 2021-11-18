@@ -73,5 +73,15 @@ class ProductsTableSeeder extends Seeder
             'product_price' => 887,
             'created_at' => '2021-11-17 14:46:35'
         ]);
+
+        Product::create([
+            'product_category_id' => 7,
+            'product_brand_id' => 1,
+            'product_name' => 'Smart TV 50" UHD Samsung 4k 50AU7700 Processador Crystal 4k Tela Sem Limites Visual Livre de Cabos Alexa Built In',
+            'product_url' => 'smart-tv-50--uhd-samsung-4k-50aU7700-processador-crystal-4k-tela-sem-limites-visual-livre-de-cabos-alexa-built-in',
+            'product_description' => 'Com uma exclusiva tela sem bordas aparentes, a TV destaca apenas as imagens que você quer ver e nada mais.',
+            'product_price' => 2899,
+            'created_at' => '2021-11-18 12:56:35'
+        ]);
     }
 }

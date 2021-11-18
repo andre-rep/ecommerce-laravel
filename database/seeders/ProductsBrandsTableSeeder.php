@@ -43,5 +43,10 @@ class ProductsBrandsTableSeeder extends Seeder
             'product_brand_name' => 'Gigabyte',
             'created_at' => '2021-11-17 14:37:20'
         ]);
+
+        DB::table('products_brands')->insert([
+            'product_brand_name' => 'samsung',
+            'created_at' => '2021-11-18 12:52:59'
+        ]);
     }
 }
