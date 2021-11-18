@@ -197,5 +197,12 @@ class ProductsImagesTableSeeder extends Seeder
             'product_image_highlighted' => 1,
             'created_at' => '2021-11-18 15:20:47'
         ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 11,
+            'product_image_url' => '/storage/image/products/Papelaria/multilaser//Tt5eo5MMW2ppXF4j6NRJr8f7AAPZn28Ls5VyVS9s.webp',
+            'product_image_highlighted' => 1,
+            'created_at' => '2021-11-18 15:28:33'
+        ]);
     }
 }

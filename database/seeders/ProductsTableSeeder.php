@@ -117,5 +117,16 @@ class ProductsTableSeeder extends Seeder
             'product_price' => 3723,
             'created_at' => '2021-11-18 15:20:47'
         ]);
+
+        Product::create([
+            'product_category_id' => 11,
+            'product_brand_id' => 11,
+            'product_name' => 'Bloco de Papel A4 com 500 Folhas de Gramatura 75 Branco Multilaser - PE033',
+            'product_url' => 'bloco-de-papel-a4-com-500-folhas-de-gramatura-75-branco-multilaser---pe033',
+            'product_description' => 'Imprima textos, imagens ou faça arte!
+            O papel Multilaser possui alta performance em copiadoras e impressoras.',
+            'product_price' => 24,
+            'created_at' => '2021-11-18 15:28:33'
+        ]);
     }
 }

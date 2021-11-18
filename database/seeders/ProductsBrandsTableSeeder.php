@@ -63,5 +63,10 @@ class ProductsBrandsTableSeeder extends Seeder
             'product_brand_name' => 'Amd',
             'created_at' => '2021-11-18 15:19:59'
         ]);
+
+        DB::table('products_brands')->insert([
+            'product_brand_name' => 'multilaser',
+            'created_at' => '2021-11-18 15:26:56'
+        ]);
     }
 }

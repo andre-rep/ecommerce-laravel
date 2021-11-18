@@ -63,5 +63,10 @@ class ProductsCategoriesTableSeeder extends Seeder
             'product_category_name' => 'Processador',
             'created_at' => '2021-11-18 15:19:50'
         ]);
+
+        DB::table('products_categories')->insert([
+            'product_category_name' => 'Papelaria',
+            'created_at' => '2021-11-18 15:26:52'
+        ]);
     }
 }
