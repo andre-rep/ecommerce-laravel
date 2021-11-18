@@ -45,7 +45,7 @@
                                     <span>{{$product->product_name}}</span>
                                     <span>R${{$product->product_price}}.00</span>
                                     <div class="product-list-element-input">
-                                        <a href="{{asset('/dashboard/product-edit/'. $product->product_name)}}">
+                                        <a href="{{asset('/dashboard/product-edit/'. $product->product_url)}}">
                                             <i class="fas fa-pencil-alt"></i>Editar
                                         </a>
                                         <button>

@@ -520,7 +520,7 @@ class AdminAccessPage implements AccessPageContract
         $productsCategories = DB::table('products_categories')
             ->get();
             
-        $mainProduct = Product::where('product_name', request()->product)
+        $mainProduct = Product::where('product_url', request()->product)
             ->where('product_image_highlighted', '=', 1)
             ->join('product_images', 'products.id', '=', 'product_images.product_id')
             ->get();
