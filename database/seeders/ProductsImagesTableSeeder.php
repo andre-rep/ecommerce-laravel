@@ -190,5 +190,12 @@ class ProductsImagesTableSeeder extends Seeder
             'product_image_url' => '/storage/image/products/Roteador/Dlink//uCl17eVLmCpADVTeBIOF7dR3jIvCnIpfLZlkLQ44.webp',
             'created_at' => '2021-11-18 15:12:03'
         ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 10,
+            'product_image_url' => '/storage/image/products/Processador/Amd//LvTe3jbKaV2FIICyduxcFQAlKkTb5kl6RU4blO4X.jpg',
+            'product_image_highlighted' => 1,
+            'created_at' => '2021-11-18 15:20:47'
+        ]);
     }
 }

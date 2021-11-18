@@ -103,5 +103,19 @@ class ProductsTableSeeder extends Seeder
             'product_price' => 116,
             'created_at' => '2021-11-18 15:12:03'
         ]);
+
+        Product::create([
+            'product_category_id' => 10,
+            'product_brand_id' => 10,
+            'product_name' => 'Processador AMD Ryzen 9 3900X Box (AM4 / 12 Cores / 24 Threads / 3.8Ghz / 70MB Cache/Cooler Wraith Prism RGB) - *S/Video Integrado*',
+            'product_url' => 'processador-amd-ryzen-9-3900x-box--am4---12-cores---24-threads---3.8ghz---70mb-cache-cooler-wraith-prism-rgb-----s-video-integrado-',
+            'product_description' => 'Marca 	AMD
+            Fabricante da CPU 	AMD
+            Modelo da CPU 	Ryzen 9 3900X
+            Velocidade da CPU 	3.8 GHz
+            Soquete da CPU 	Socket AM5',
+            'product_price' => 3723,
+            'created_at' => '2021-11-18 15:20:47'
+        ]);
     }
 }

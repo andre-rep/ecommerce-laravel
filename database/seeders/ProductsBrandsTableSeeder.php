@@ -58,5 +58,10 @@ class ProductsBrandsTableSeeder extends Seeder
             'product_brand_name' => 'Dlink',
             'created_at' => '2021-11-18 13:19:30'
         ]);
+
+        DB::table('products_brands')->insert([
+            'product_brand_name' => 'Amd',
+            'created_at' => '2021-11-18 15:19:59'
+        ]);
     }
 }

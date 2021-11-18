@@ -67,5 +67,11 @@ class ProductsBrandCategoryTableSeeder extends Seeder
             'product_brand_id' => 9,
             'created_at' => '2021-11-18 13:19:30'
         ]);
+
+        DB::table('products_brand_category')->insert([
+            'product_category_id' => 10,
+            'product_brand_id' => 10,
+            'created_at' => '2021-11-18 15:19:59'
+        ]);
     }
 }
