@@ -24,9 +24,9 @@ class CreateProductsTable extends Migration
             $table->foreign('product_brand_id')->references('id')->on('products_brands')->onDelete('cascade');
 
             //Columns that reflect the table's name
-            $table->string('product_name');
-            $table->string('product_url');
-            $table->string('product_description');
+            $table->longText('product_name');
+            $table->longText('product_url');
+            $table->longText('product_description');
             $table->Integer('product_price');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
