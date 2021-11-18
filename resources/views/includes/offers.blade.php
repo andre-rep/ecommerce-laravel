@@ -11,7 +11,7 @@
                     <ul class="splide__list">
                         <li class="splide__slide">
                             <div class="main-offers-product">
-                                <a class="main-offers-product-link" href="http://localhost:8000/product/Notebook%20Gamer%20Dell%20G3%203500-U10P%2015.6%22%2010%C2%AA%20Gera%C3%A7%C3%A3o%20Intel%20Core%20i5%208GB%20256GB%20SSD%20NVIDIA%20GTX%201650%20Linux">
+                                <a class="main-offers-product-link" href="{{asset('product%2FSmartphone%2520Samsung%2520Galaxy%2520A03s%252064GB%25204G%2520Wi-Fi%2520Tela%25206%2C5%27%27%2520Dual%2520Chip%25204GB%2520RAM%2520C%25C3%25A2mera%2520Tripla%2520%2B%2520Selfie%25205MP%2520-%2520Preto')}}">
                                     
                                 </a>
                                 <div class="main-offers-product-image">
@@ -35,7 +35,7 @@
                         </li>
                         <li class="splide__slide">
                             <div class="main-offers-product">
-                                <a class="main-offers-product-link" href="http://localhost:8000/product/Notebook%20VAIO%20Core%20i7-10510U%208GB%201TB%20Tela%2015.6%E2%80%9D%20Windows%2010%20FE15%20VJFE5211X-B0211H">
+                                <a class="main-offers-product-link" href="{{asset('product%2FNotebook%2520Asus%2520M515DA-EJ502T%2520AMD%2520R5-3500U%25208GB%2520256GB%2520W10%252015.6%2522%2520Cinza')}}">
                                     
                                 </a>
                                 <div class="main-offers-product-image">
@@ -58,7 +58,7 @@
                         </li>
                         <li class="splide__slide">
                             <div class="main-offers-product">
-                                <a class="main-offers-product-link" href="http://localhost:8000/product/Notebook%20Samsung%20Chromebook%20Dual-Core%20N3060%202GB%20Ram%2016GB%20Tela%2011.6%20Chrome%20OS">
+                                <a class="main-offers-product-link" href="{{asset('product%2FImpressora%20Multifuncional%20DeskJet%20Ink%20Advantage%202774%201%20UN%20HP')}}">
                                     
                                 </a>
                                 <div class="main-offers-product-image">
@@ -82,7 +82,7 @@
                         </li>
                         <li class="splide__slide">
                             <div class="main-offers-product">
-                                <a class="main-offers-product-link" href="http://localhost:8000/product/Smart%20TV%20LED%2050%22%20UHD%204K%20LG%2050UN7310PSC%20Wi-Fi,%20Bluetooth,%20HDR,%20Intelig%C3%AAncia%20Artificial%20ThinQ%20AI,%20Google%20Assistente,%20Alexa,%20Controle%20Smart%20Magic%20-%202020">
+                                <a class="main-offers-product-link" href="{{asset('product%2FSSD%20Kingston%20A400%20480GB%20-%20500mb%2Fs%20para%20Leitura%20e%20450mb%2Fs%20para%20Grava%C3%A7%C3%A3o')}}">
                                     
                                 </a>
                                 <div class="main-offers-product-image">
@@ -105,7 +105,7 @@
                         </li>
                         <li class="splide__slide">
                             <div class="main-offers-product">
-                                <a class="main-offers-product-link" href="http://localhost:8000/product/iPhone%206s%20Apple%20com%203D%20Touch,%20iOS%2013,%20Sensor%20Touch%20ID,%20C%C3%A2mera%20iSight%2012MP,%20Wi-Fi,%204G,%20GPS,%20Bluetooth%20e%20NFC,%2032GB,%20Cinza%20Espacial,%20Tela%204,7%22">
+                                <a class="main-offers-product-link" href="{{asset('product%2FHD%20WD%20Blue%201TB%203.5%22%20Sata%20III%206GB%2Fs%2C%20WD10EZEX')}}">
                                     
                                 </a>
                                 <div class="main-offers-product-image">
