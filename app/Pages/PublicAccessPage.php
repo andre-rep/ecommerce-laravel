@@ -153,7 +153,7 @@ class PublicAccessPage implements AccessPageContract
         $productsCategories = DB::table('products_categories')
             ->get();
 
-        return response()->view('pages.user.search', [
+        return response()->view('pages.public.search', [
             'accessLevel' => $this->accessLevel,
             'products' => $products,
             'productsBrands' => $productsBrands,
@@ -197,7 +197,7 @@ class PublicAccessPage implements AccessPageContract
             ->join('products', 'products.id', '=', 'purchases_products.product_id')
             ->get();
 
-        return response()->view('pages.user.product', [
+        return response()->view('pages.public.product', [
             'accessLevel' => $this->accessLevel,
             'products' => $products,
             'mainProduct' => $mainProduct,
