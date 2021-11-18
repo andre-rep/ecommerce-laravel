@@ -306,7 +306,7 @@ header{
     font-family: 'Poppins', sans-serif;
     color: #fff;
 }
-.main-carousel-info > button{
+.main-carousel-info > a{
     width: 120px;
     height: 34px;
     border-radius: 2px;
@@ -316,6 +316,11 @@ header{
     font-weight: 500;
     text-transform: uppercase;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
 }
 .main-carousel-shadow{
     position: absolute;

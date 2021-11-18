@@ -84,7 +84,7 @@
                             <div class="main-carousel-info">
                                 <span>{{$image->carousel_image_bg_text}}</span>
                                 <span>{{$image->carousel_image_sm_text}}</span>
-                                <button>{{$image->carousel_image_btn_text}}</button>
+                                <a href="{{asset($image->carousel_image_btn_url)}}">{{$image->carousel_image_btn_text}}</a>
                             </div>
                             <div class="main-carousel-shadow"></div>
                             <img src="{{asset($image->carousel_image_url)}}" class="d-block w-100" alt="...">
