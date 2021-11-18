@@ -196,7 +196,7 @@ class UserAccessPage implements AccessPageContract
             ->select('purchases_products.*', 'purchases.*', 'users.*', 'products.*', 'purchases_products.id as id', 'purchases_products.created_at as purchases_product_created_at')
             ->get();
 
-        $products = Product::where('product_name', '=', $productName)
+        $products = Product::where('product_url', '=', $productName)
             ->where('product_image_highlighted', '=', null)
             ->join('product_images', 'products.id', '=', 'product_images.product_id')
             ->get();
