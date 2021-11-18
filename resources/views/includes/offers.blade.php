@@ -16,12 +16,12 @@
                                 </a>
                                 <div class="main-offers-product-image">
                                     <span class="main-offers-product-sale">Oferta</span>
-                                    <img src="{{asset('image/notebook/dell/4.jpg')}}">
+                                    <img src="{{asset('storage/image/products/Smartphone/samsung//rbq9T4Ui7Ip1Lre915gg3fFcS4vrkivsTAYQlHxQ.webp')}}">
                                 </div>
                                 <div class="main-offers-product-desc-ctn">
                                     <div class="main-offers-product-description">
-                                        <span class="product-name">Notebook Gamer Dell G3 3500-U10P 15.6" 10ª Geração Intel Core i5 8GB 256GB SSD NVIDIA GTX 1650 Linux</span>
-                                        <span>R$5323.00</span>
+                                        <span class="product-name">Smartphone Samsung Galaxy A03s 64GB 4G Wi-Fi Tela 6,5'' Dual Chip 4GB RAM Câmera Tripla + Selfie 5MP - Preto</span>
+                                        <span>R$879.00</span>
                                         <div class="main-offers-product-rate">
                                             <i class="fa fa-star" style="color:rgb(250,196,70)"></i>
                                             <i class="fa fa-star" style="color:rgb(250,196,70)"></i>
@@ -39,12 +39,12 @@
                                     
                                 </a>
                                 <div class="main-offers-product-image">
-                                    <img src="{{asset('image/notebook/vaio/11.webp')}}">
+                                    <img src="{{asset('storage/image/products/Notebook/Asus//0XJmfuCcvLidetLnvBDf3IeKdlRfHsrtI2Ic6c6M.webp')}}">
                                 </div>
                                 <div class="main-offers-product-desc-ctn">
                                     <div class="main-offers-product-description">
-                                        <span class="product-name">Notebook VAIO Core i7-10510U 8GB 1TB Tela 15.6” Windows 10 FE15 VJFE5211X-B0211H</span>
-                                        <span>R$5099.00</span>
+                                        <span class="product-name">Notebook Asus M515DA-EJ502T AMD R5-3500U 8GB 256GB W10 15.6" Cinza</span>
+                                        <span>R$3183.00</span>
                                         <div class="main-offers-product-rate">
                                             <i class="fa fa-star" style="color:rgb(250,196,70)"></i>
                                             <i class="fa fa-star" style="color:rgb(250,196,70)"></i>
@@ -63,12 +63,12 @@
                                 </a>
                                 <div class="main-offers-product-image">
                                     <span class="main-offers-product-pinned">Mais Vendido</span>
-                                    <img src="{{asset('image/notebook/samsung/4.webp')}}">
+                                    <img src="{{asset('storage/image/products/Impressora/HP//3giF1cA744XAVdmeqSwxFYSf6x9LXICTipJZFT05.webp')}}">
                                 </div>
                                 <div class="main-offers-product-desc-ctn">
                                     <div class="main-offers-product-description">
-                                        <span class="product-name">Notebook Samsung Chromebook Dual-Core N3060 2GB Ram 16GB Tela 11.6 Chrome OS</span>
-                                        <span>R$1997.00</span>
+                                        <span class="product-name">Impressora Multifuncional DeskJet Ink Advantage 2774 1 UN HP</span>
+                                        <span>R$355.00</span>
                                         <div class="main-offers-product-rate">
                                             <i class="fa fa-star" style="color:rgb(250,196,70)"></i>
                                             <i class="fa fa-star" style="color:rgb(250,196,70)"></i>
@@ -86,12 +86,12 @@
                                     
                                 </a>
                                 <div class="main-offers-product-image">
-                                    <img src="{{asset('image/tv/lg/1.jpg')}}">
+                                    <img src="{{asset('storage/image/products/Ssd/Kingston//tJJBd9hgWaYR7RVLCnTWdy8wYJORFgF6GAfhlSUt.webp')}}">
                                 </div>
                                 <div class="main-offers-product-desc-ctn">
                                     <div class="main-offers-product-description">
-                                        <span class="product-name">Smart TV LED 50" UHD 4K LG 50UN7310PSC Wi-Fi, Bluetooth, HDR, Inteligência Artificial ThinQ AI, Google Assistente, Alexa, Controle Smart Magic - 2020</span>
-                                        <span>R$2564.00</span>
+                                        <span class="product-name">SSD Kingston A400 480GB - 500mb/s para Leitura e 450mb/s para Gravação</span>
+                                        <span>R$359.00</span>
                                         <div class="main-offers-product-rate">
                                             <i class="fa fa-star" style="color:rgb(250,196,70)"></i>
                                             <i class="fa fa-star" style="color:rgb(250,196,70)"></i>
@@ -109,12 +109,12 @@
                                     
                                 </a>
                                 <div class="main-offers-product-image">
-                                    <img src="{{asset('image/smartphone/iphone/2.webp')}}">
+                                    <img src="{{asset('storage/image/products/Hd/WD//YbDniuJ83yFany07IpX0W1BX7xi7HrQFQJnvkMKG.webp')}}">
                                 </div>
                                 <div class="main-offers-product-desc-ctn">
                                     <div class="main-offers-product-description">
-                                        <span class="product-name">iPhone 6s Apple com 3D Touch, iOS 13, Sensor Touch ID, Câmera iSight 12MP, Wi-Fi, 4G, GPS, Bluetooth e NFC, 32GB, Cinza Espacial, Tela 4,7"</span>
-                                        <span>R$2169.00</span>
+                                        <span class="product-name">HD WD Blue 1TB 3.5" Sata III 6GB/s, WD10EZEX</span>
+                                        <span>R$260.00</span>
                                         <div class="main-offers-product-rate">
                                             <i class="fa fa-star" style="color:rgb(250,196,70)"></i>
                                             <i class="fa fa-star" style="color:rgb(250,196,70)"></i>
