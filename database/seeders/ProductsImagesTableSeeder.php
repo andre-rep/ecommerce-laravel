@@ -204,5 +204,24 @@ class ProductsImagesTableSeeder extends Seeder
             'product_image_highlighted' => 1,
             'created_at' => '2021-11-18 15:28:33'
         ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 12,
+            'product_image_url' => '/storage/image/products/Fone/philips//hj01rwewwZBgdCaus7VnP1w98cwBGil2vSsYLbyj.webp',
+            'product_image_highlighted' => 1,
+            'created_at' => '2021-11-18 15:37:34'
+        ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 12,
+            'product_image_url' => '/storage/image/products/Fone/philips//zJgJymSjc2FDIaqlC4HbKQI5I0Uz2Br2HOv6ZrVW.webp',
+            'created_at' => '2021-11-18 15:37:34'
+        ]);
+
+        DB::table('product_images')->insert([
+            'product_id' => 12,
+            'product_image_url' => '/storage/image/products/Fone/philips//RDIEXZoT9chmyLDKh6T3zupUBH7az0qQNqbOFyE1.webp',
+            'created_at' => '2021-11-18 15:37:34'
+        ]);
     }
 }

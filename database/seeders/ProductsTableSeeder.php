@@ -128,5 +128,15 @@ class ProductsTableSeeder extends Seeder
             'product_price' => 24,
             'created_at' => '2021-11-18 15:28:33'
         ]);
+
+        Product::create([
+            'product_category_id' => 12,
+            'product_brand_id' => 12,
+            'product_name' => 'Fone de Ouvido Philips TAUE101BK/00 Serie 1000 Intra-Auricular com Microfone - Preto',
+            'product_url' => 'fone-de-ouvido-philips-taue101bk-00-serie-1000-intra-auricular-com-microfone---preto',
+            'product_description' => 'Com o desempenho dos graves otimizado, este fone de ouvido reproduz músicas com uma qualidade incrível.',
+            'product_price' => 40,
+            'created_at' => '2021-11-18 15:37:33'
+        ]);
     }
 }
