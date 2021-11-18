@@ -1,65 +1,68 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Sobre o Ecommerce
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+O projeto é feito em Laravel 8, trata-se de um site para uma loja local que faz entregas de seus produtos.
+Existem dois tipos de contas: Admin e Usuário normal.
+Não é possível criar uma nova conta de Admin mas é possível criar uma conta normal para fazer compras.
 
-## About Laravel
+## Tecnologias utilizadas
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Para o backend está sendo utilizado Laravel 8 e Mysql Workbench para gerenciamento do banco de dados. Para o front end está sendo usado Html, Css e Javascript puros além de algumas bibliotecas para funções específicas como Bootstrap 5, Vue.js e Axios para requisições Http.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Como instalar
+É necessário instalar o arquivo "loja.sql" da raíz do projeto para popular o banco de dados já com os usuários cadastrados e vários produtos já disponíveis para compra.
+###### Opcional
+Para fazer **cadastro de novo usuário** é necessário usar a biblioteca de envio de email do Laravel. Para isso é necessário configurar o arquivo .env com credenciais de um servidor smtp, o seguinte exemplo usa configurações para o gmail:
+```
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.googlemail.com
+MAIL_PORT=465
+MAIL_USERNAME=endereco@email.com
+MAIL_PASSWORD=senhadoemail
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS=null
+MAIL_FROM_NAME="${APP_NAME}"
+```
+Você pode colocar em 'MAIL_USERNAME' e em 'MAIL_PASSWORD' as credenciais do seu próprio email, funciona normalmente. Mas por questão de segurança você também pode configurar uma senha de app na sua conta gmail e colocar em 'MAIL_PASSWORD', seguindo o [Tutotial](https://support.google.com/mail/answer/185833?hl=pt-BR), funciona da memsa maneira.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Login como Admin
 
-## Learning Laravel
+Admin já cadastrado\
+login: admin@admin.com
+senha: 123456789
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Login como Usuário Comum
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Usuário já cadastrado\
+login: user@user.com
+senha: 123456789
 
-## Laravel Sponsors
+## Banco de dados
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+O Banco de dados relacional foi feito com restrições para ligar as chaves extrangeiras das tabelas quando necessário.
 
-### Premium Partners
+![alt text](http://andrenascimento.com/external_images/banco_de_dados.png)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Imagens do site
 
-## Contributing
+###### Página principal
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![alt text](http://andrenascimento.com/external_images/pagina_principal.png)
+![alt text](http://andrenascimento.com/external_images/pagina_principal_2.png)
 
-## Code of Conduct
+###### Painel de Admin
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+![alt text](http://andrenascimento.com/external_images/painel_admin.png)
 
-## Security Vulnerabilities
+###### Painel de Controle do Usuário Comum
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![alt text](http://andrenascimento.com/external_images/painel_de_controle_usuario_comum.png)
 
-## License
+###### Produto
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+![alt text](http://andrenascimento.com/external_images/produto.png)
+![alt text](http://andrenascimento.com/external_images/produto_2.png)
+
+## O que ainda falta ser implementado
+
+A página principal ainda conta com alguns links que estão incompletos como os do nav logo a baixo da barra superior, os demais estão funcionais na mesma página.
+Ainda falta corrigir um erro na página de pesquisa, os filtros no lado direito da página não estão funcionando corretamente. O erro principal é que, apesar de ser possível filtrar uma pesquisa a desmarcação de uma opção de filtro não está funcionando.
