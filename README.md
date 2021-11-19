@@ -71,5 +71,5 @@ O Banco de dados relacional foi feito com restrições para ligar as chaves extr
 
 ## Erros ainda a serem corrigidos e novas implementações
 
-A página de pesquisa de produtos possui um filtro do lado direito da página que ainda não está funcionando\
-Falta adicionar uma integração para pagamento no final da compra. Atualmente o usuário pode apenas fazer pagamento ao receber o produto.
+- A página de pesquisa de produtos possui um filtro do lado direito da página que ainda não está funcionando\
+- Falta adicionar uma integração para pagamento no final da compra. Atualmente o usuário pode apenas fazer pagamento ao receber o produto.
