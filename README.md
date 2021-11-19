@@ -15,6 +15,10 @@ Após a configuração do arquivo .env basta rodar o comando:
 php artisan migrate --seed
 ```
 O site já vai estar instalado e populado com alguns produtos e com os dados de um user e um admin.
+É necessário também fazer um link entre o storage a pasta storage dentro de public, usando o comando:
+```
+php artisan storage:link
+```
 
 ###### Opcional
 
