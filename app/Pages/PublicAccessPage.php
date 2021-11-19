@@ -168,7 +168,7 @@ class PublicAccessPage implements AccessPageContract
         $productName = request()->productName;
         
         $purchasesProducts = DB::table('purchases_products')
-            ->where('product_name', '=', $productName)
+            ->where('product_url', '=', $productName)
             ->join('purchases', 'purchases_products.purchase_id', '=', 'purchases.id')
             ->join('users', 'purchases.user_id', '=', 'users.id')
             ->join('products', 'purchases_products.product_id', '=', 'products.id')
@@ -186,14 +186,14 @@ class PublicAccessPage implements AccessPageContract
             ->first();
         
         $customersReviews = DB::table('purchases_products')
-            ->where('product_name', '=', $productName)
+            ->where('product_url', '=', $productName)
             ->join('products', 'products.id', '=', 'purchases_products.product_id')
             ->get();
 
         $customersReviews = sizeof($customersReviews);
 
         $allRates = DB::table('purchases_products')
-            ->where('product_name', '=', $productName)
+            ->where('product_url', '=', $productName)
             ->join('products', 'products.id', '=', 'purchases_products.product_id')
             ->get();
 
