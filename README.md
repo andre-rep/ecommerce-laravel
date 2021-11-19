@@ -47,27 +47,27 @@ senha: 12345
 
 O Banco de dados relacional foi feito com restrições para ligar as chaves extrangeiras das tabelas quando necessário.
 
-![alt text](http://andrenascimento.com/external_images/banco_de_dados.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/eer-diagram.png)
 
 ## Imagens do site
 
 ###### Página principal
 
-![alt text](http://andrenascimento.com/external_images/pagina_principal.png)
-![alt text](http://andrenascimento.com/external_images/pagina_principal_2.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/main-page-1.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/main-page-2.png)
 
 ###### Painel de Admin
 
-![alt text](http://andrenascimento.com/external_images/painel_admin.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/admin-panel.png)
 
 ###### Painel de Controle do Usuário Comum
 
-![alt text](http://andrenascimento.com/external_images/painel_de_controle_usuario_comum.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/user-panel.png)
 
 ###### Produto
 
-![alt text](http://andrenascimento.com/external_images/produto.png)
-![alt text](http://andrenascimento.com/external_images/produto_2.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/product-page.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/product-page-2.png)
 
 ## Erros ainda a serem corrigidos e novas implementações
 
