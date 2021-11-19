@@ -58,7 +58,7 @@ Route::prefix('cart')->group(function(){
 
 //Purchase
 Route::prefix('purchase')->group(function(){
-    Route::post('add', [PurchaseController::class, 'add']);
+    Route::post('add', [PurchaseController::class, 'add'])->name('purchase/add');
     Route::post('changeStatus', [PurchaseController::class, 'changeStatus'])->name('purchase/changeStatus');
     Route::post('rate', [PurchaseController::class, 'rate']);
     Route::post('changeRateCommentVisibility', [PurchaseController::class, 'changeRateCommentVisibility']);

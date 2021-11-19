@@ -2,7 +2,7 @@
 @section('content')
     @include('includes.header')
         <div class="checkout-ctn">
-            <form method="post" action="purchase/add/">
+            <form method="post" action="{{route('purchase/add')}}">
                 @csrf
                 <div class="checkout">
                     <div class="checkout-address">
