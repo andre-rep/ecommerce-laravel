@@ -275,7 +275,7 @@
                                         @if($product->purchase_product_rate != null)
                                         <tr>
                                             <th>
-                                                <a href="{{asset('/product/' . $product->product_name)}}">
+                                                <a href="{{asset('/product/' . $product->product_url)}}">
                                                     <img src="{{asset($product->product_image_url)}}" style="max-height:80px;margin-left:20px;">
                                                 </a>
                                             </th>
