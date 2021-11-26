@@ -1,4 +1,4 @@
-Select Language: **English**, [Portuguese](https://github.com/AnisanWesley/anisan-college/blob/master/Anisoket/README-pt.md)
+Select Language: [Inglês](https://github.com/AnisanWesley/anisan-college/blob/master/Anisoket/README-pt.md), **Português**
 ========
 ## Sobre o Ecommerce
 
