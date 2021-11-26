@@ -1,3 +1,5 @@
+Select Language: **English**, [Portuguese](https://github.com/andre-rep/laravel-ecommerce-project/blob/master/README-pt.md)
+========
 ## Sobre o Ecommerce
 
 O projeto é feito em Laravel 8, trata-se de um site para uma loja local que faz entregas de seus produtos.
