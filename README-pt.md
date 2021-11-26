@@ -1,4 +1,4 @@
-Select Language: [Inglês](https://github.com/AnisanWesley/anisan-college/blob/master/Anisoket/README-pt.md), **Português**
+Select Language: [Inglês](https://github.com/andre-rep/laravel-ecommerce-project), **Português**
 ========
 ## Sobre o Ecommerce
 
