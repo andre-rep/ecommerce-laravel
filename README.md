@@ -1,4 +1,4 @@
-Select Language: **English**, [Portuguese](https://github.com/andre-rep/laravel-ecommerce-project/README-pt.md)
+Select Language: **English**, [Portuguese](https://github.com/andre-rep/laravel-ecommerce-project/blob/master/README-pt.md)
 ========
 ## Sobre o Ecommerce
 
