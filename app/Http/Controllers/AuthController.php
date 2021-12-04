@@ -26,8 +26,8 @@ class AuthController extends Controller
                 'password' => ['required']
             ],
             [
-                'email.required' => 'O campo email tem que ser preenchido',
-                'password.required' => 'O campo senha tem que ser preenchido'
+                'email.required' => 'O campo email não pode estar vazio',
+                'password.required' => 'O campo senha não pode estar vazio'
             ]
         );
 
@@ -39,7 +39,7 @@ class AuthController extends Controller
 
         //Error if credentials are incorrect
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.'
+            'email' => 'Email ou senha estão incorretos.'
         ]);
     }
 
@@ -51,11 +51,18 @@ class AuthController extends Controller
         $password = Hash::make($request->password);
 
         //Validate data from the user
-        $credentials = $request->validate([
-            'name' => ['required'],
-            'email' => ['required', 'email'],
-            'password' => ['required']
-        ]);
+        $credentials = $request->validate(
+            [
+                'name' => ['required'],
+                'email' => ['required', 'email'],
+                'password' => ['required']
+            ],
+            [
+                'name.required' => 'O campo nome não pode estar vazio',
+                'email.required' => 'O campo email não pode estar vazio',
+                'password.required' => 'O campo senha não pode estar vazio'
+            ]
+        );
 
         //Insert new user in users table
         User::create([

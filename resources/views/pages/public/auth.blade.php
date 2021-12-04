@@ -16,20 +16,20 @@
             </div>
             <div class="sign-up">
                 <h3>Cadastre-se para continuar</h3>
-                <form id="sign-up-form" v-on:submit.prevent="onSubmit">
+                <form id="sign-up-form" method="post" action="/auth/register">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nome</label>
-                        <input type="text" class="form-control" id="signUpName" aria-describedby="emailHelp" placeholder="Nome Completo" autocomplete="off" style="margin-top: 10px;" required>
+                        <input type="text" class="form-control" id="signUpName" name="name" aria-describedby="emailHelp" placeholder="Nome Completo" autocomplete="off" style="margin-top: 10px;">
                     </div>
                     <div class="form-group" style="margin-top: 20px;">
                         <label for="exampleInputEmail1">Endereço de Email</label>
-                        <input type="email" class="form-control" id="signUpEmail" aria-describedby="emailHelp" placeholder="Email do Usuário" autocomplete="off" style="margin-top: 10px;" required>
+                        <input type="email" class="form-control" id="signUpEmail" name="email" aria-describedby="emailHelp" placeholder="Email do Usuário" autocomplete="off" style="margin-top: 10px;">
                         <small id="emailHelp" class="form-text text-muted" style="margin-top: 18px;display:block;">Ao se cadastrar, você confirma que leu e aceitou nosso aviso de usuário e política de privacidade.</small>
                     </div>
                     <div class="form-group" style="margin-top: 20px;">
                         <label for="exampleInputPassword1">Criar Senha</label>
-                        <input type="password" class="form-control" id="signUpPassword" placeholder="Senha do Usuário" style="margin-top: 10px;" required>
+                        <input type="password" class="form-control" id="signUpPassword" name="password" placeholder="Senha do Usuário" style="margin-top: 10px;">
                     </div>
                     <button type="submit" class="btn btn-primary" style="margin-top: 30px;width:100%;">Cadastrar</button>
                 </form>
@@ -57,4 +57,16 @@
     @include('includes.facilities')
     @include('includes.footer')
     @include('includes.copyright')
+    <script>
+        document.getElementById('toSignUpPage').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementsByClassName('sign-up')[0].style.display = 'block';
+            document.getElementsByClassName('sign-in')[0].style.display = 'none';
+        });
+        document.getElementById('toSignInPage').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementsByClassName('sign-in')[0].style.display = 'block';
+            document.getElementsByClassName('sign-up')[0].style.display = 'none';
+        });
+    </script>
 @endsection
