@@ -10,21 +10,21 @@
                     <div class="alert alert-primary" id="alert" role="alert" style="display:none;">
                         
                     </div>
-                    <form id="addProduct" v-on:submit.prevent="onSubmit">
+                    <form id="addProduct" method="post" action="/product/insert/" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nome do Produto</label>
-                            <input type="text" class="form-control" id="productName" aria-describedby="emailHelp" placeholder="Escreva aqui">
+                            <input type="text" class="form-control" name="productName" id="productName" aria-describedby="emailHelp" placeholder="Escreva aqui">
                         </div>
                         <div class="mb-3">
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Descrição</label>
-                                <textarea class="form-control" id="productDescription" rows="3" placeholder="Escreva aqui"></textarea>
+                                <textarea class="form-control" name="productDescription" id="productDescription" rows="3" placeholder="Escreva aqui"></textarea>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="formFileMultiple" class="form-label">Categoria</label>
-                            <select id="productCategory" onchange="change();" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="height:50px;">
+                            <select id="productCategory" name="productCategory" onchange="change();" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="height:50px;">
                                 @foreach($productsCategories as $productsCategory)
                                     <option value="{{$productsCategory->product_category_name}}" selected>{{$productsCategory->product_category_name}}</option>
                                 @endforeach
@@ -32,17 +32,17 @@
                         </div>
                         <div class="mb-3">
                             <label for="formFileMultiple" class="form-label">Marca</label>
-                            <select id="productBrand" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="height:50px;">
+                            <select id="productBrand" name="productBrand" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="height:50px;">
                                 
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="formFileMultiple" class="form-label">Imagens</label>
-                            <input class="form-control" type="file" id="productImage" ref="file" multiple="multiple">
+                            <input class="form-control" type="file" id="productImage" name="file[]" ref="file" multiple="multiple">
                         </div>
                         <label for="formFileMultiple" class="form-label">Preço</label>
                         <div class="mb-3" style="display:flex;flex-direction:row;">
-                            <input type="text" class="form-control" id="productPrice" aria-describedby="emailHelp" placeholder="Escreva aqui" style="width:150px;height:50px;">
+                            <input type="text" class="form-control" name="productPrice" id="productPrice" aria-describedby="emailHelp" placeholder="Escreva aqui" style="width:150px;height:50px;">
                         </div>
                         <button type="submit" class="btn btn-primary" style="margin-top:15px;">Criar Produto</button>
                     </form>
