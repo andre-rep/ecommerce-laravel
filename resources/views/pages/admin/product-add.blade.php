@@ -87,30 +87,6 @@
                         }
                     })  
                 }
-
-                var addProduct = new Vue({
-                    el:'#addProduct',
-                    methods:{
-                        onSubmit:function(event){
-                            var formData = new FormData();
-                            formData.append('productName', document.getElementById('productName').value);
-                            formData.append('productDescription', document.getElementById('productDescription').value);
-                            formData.append('productCategory', document.getElementById('productCategory').value);
-                            formData.append('productBrand', document.getElementById('productBrand').value);
-                            for(var i=0; i<document.querySelector('#productImage').files.length; i++){
-                                formData.append('file[' + i + ']', document.querySelector('#productImage').files[i]);
-                            }
-                            formData.append('productPrice', document.getElementById('productPrice').value);
-                            axios.post('/product/insert/', formData,{
-                                
-                            })
-                            .then((response) => {
-                                document.getElementById('alert').style.display = "block";
-                                document.getElementById('alert').innerHTML = response.data;
-                            })
-                        }
-                    }
-                });
             </script>
         </div>
     </section>
