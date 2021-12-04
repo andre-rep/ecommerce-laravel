@@ -37,12 +37,12 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">Endereço de Email</label>
-                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" autocomplete="off" style="margin-top: 10px;">
+                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" autocomplete="off" style="margin-top: 10px;" required>
                         <small id="emailHelp" class="form-text text-muted" style="margin-top: 15px;display:block;">Nós não compartilhamos suas informações pessoais com terceiros.</small>
                     </div>
                     <div class="form-group" style="margin-top: 10px;">
                         <label for="exampleInputPassword1">Senha</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Senha do Usuário" style="margin-top: 10px;">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Senha do Usuário" style="margin-top: 10px;" required>
                     </div>
                     <button type="submit" class="btn btn-primary" style="margin-top: 30px;width:100%;">Fazer Login</button>
                 </form>
