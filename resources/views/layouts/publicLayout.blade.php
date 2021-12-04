@@ -27,6 +27,8 @@
     <script src="{{asset('js/setCookie.js')}}"></script>
     <script src="{{asset('js/getCookie.js')}}"></script>
     <script src="{{asset('js/app.js')}}"></script>
+    <!--favicon-->
+    <link rel="icon" href="{{ url('css/favicon.ico') }}">
     <!--Title of the website-->
     <title>Document</title>
 </head>

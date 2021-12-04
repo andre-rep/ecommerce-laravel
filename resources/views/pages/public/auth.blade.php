@@ -3,9 +3,13 @@
     @include('includes.header')
     <section class="auth">
         <div class="auth-wrapper">
-            <div class="alert alert-primary" id="alert" role="alert" style="display:none;">
-                        
-            </div>
+            @if($errors->any())
+                @foreach($errors->all() as $error)
+                    <div class="alert alert-primary" id="alert" role="alert">
+                        {{$error}}
+                    </div>
+                @endforeach
+            @endif
             <div id="wait" style="display:none;margin-bottom:10px;align-items:center;">
                 <img src="{{asset('storage/image/wait.gif')}}" style="width:25px;height:25px;margin-right:10px;">
                 <h5 style="margin-top:5px;">Aguarde..</h5>
@@ -37,12 +41,12 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">Endereço de Email</label>
-                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" autocomplete="off" style="margin-top: 10px;" required>
+                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" autocomplete="off" style="margin-top: 10px;">
                         <small id="emailHelp" class="form-text text-muted" style="margin-top: 15px;display:block;">Nós não compartilhamos suas informações pessoais com terceiros.</small>
                     </div>
                     <div class="form-group" style="margin-top: 10px;">
                         <label for="exampleInputPassword1">Senha</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Senha do Usuário" style="margin-top: 10px;" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Senha do Usuário" style="margin-top: 10px;">
                     </div>
                     <button type="submit" class="btn btn-primary" style="margin-top: 30px;width:100%;">Fazer Login</button>
                 </form>
@@ -53,37 +57,4 @@
     @include('includes.facilities')
     @include('includes.footer')
     @include('includes.copyright')
-    <script>
-        document.getElementById('toSignUpPage').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementsByClassName('sign-up')[0].style.display = 'block';
-            document.getElementsByClassName('sign-in')[0].style.display = 'none';
-        });
-        document.getElementById('toSignInPage').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementsByClassName('sign-in')[0].style.display = 'block';
-            document.getElementsByClassName('sign-up')[0].style.display = 'none';
-        });
-        var signUpForm = new Vue({
-            el:'#sign-up-form',
-            methods:{
-                onSubmit:function(event){
-                    const name = document.getElementById('signUpName').value;
-                    const email = document.getElementById('signUpEmail').value;
-                    const password = document.getElementById('signUpPassword').value;
-                    document.getElementById('wait').style.display = "flex";
-                    axios.post('/auth/register', {
-                        name:name,
-                        email:email,
-                        password:password
-                    })
-                    .then((response) => {
-                        document.getElementById('wait').style.display = "none";
-                        document.getElementById('alert').style.display = "block";
-                        document.getElementById('alert').innerHTML = response.data;
-                    });
-                }
-            }
-        });
-    </script>
 @endsection

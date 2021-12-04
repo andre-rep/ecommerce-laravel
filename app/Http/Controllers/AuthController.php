@@ -20,10 +20,16 @@ class AuthController extends Controller
         $password = $request->password;
 
         //Validating credentials by exising and their types
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required']
-        ]);
+        $credentials = $request->validate(
+            [
+                'email' => ['required', 'email'],
+                'password' => ['required']
+            ],
+            [
+                'email.required' => 'O campo email tem que ser preenchido',
+                'password.required' => 'O campo senha tem que ser preenchido'
+            ]
+        );
 
         //Attempt to login
         if(Auth::attempt(['email' => $email, 'password' => $password, 'user_status' => 0])){
@@ -37,12 +43,19 @@ class AuthController extends Controller
         ]);
     }
 
-    public function register()
+    public function register(Request $request)
     {
         //Getting data from the user
-        $name = request()->name;
-        $email = request()->email;
-        $password = Hash::make(request()->password);
+        $name = $request->name;
+        $email = $request->email;
+        $password = Hash::make($request->password);
+
+        //Validate data from the user
+        $credentials = $request->validate([
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
 
         //Insert new user in users table
         User::create([
