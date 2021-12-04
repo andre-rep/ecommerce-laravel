@@ -7,9 +7,11 @@
             <div class="product-add-ctn">
                 <h2>Adicionar Produto</h2>
                 <div class="product-add">
-                    <div class="alert alert-primary" id="alert" role="alert" style="display:none;">
-                        
-                    </div>
+                    @if($errors->any())
+                        @foreach($errors->all() as $error)
+                            <div class="alert alert-primary" id="alert" role="alert">{{$error}}</div>
+                        @endforeach
+                    @endif
                     <form id="addProduct" method="post" action="/product/insert/" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">

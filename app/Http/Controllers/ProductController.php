@@ -11,18 +11,18 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function insertProduct()
+    public function insertProduct(Request $request)
     {
-        $productName = request()->productName;
+        $productName = $request->productName;
         $productUrl = strtolower(str_replace(
             array('/', '?', ' ', '_', ':', '#', '[', ']', '!', '$', '@', '(', ')', '*', ',', ';', '=', '<', '>', '%', '\\', '\'', '`', '|', '¨', '&', '"' ),
             array('-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-' ),
             $productName));
-        $productDescription = request()->productDescription;
-        $productCategory = request()->productCategory;
-        $productBrand = request()->productBrand;
-        $files = request()->file('file');
-        $productPrice = request()->productPrice;
+        $productDescription = $request->productDescription;
+        $productCategory = $request->productCategory;
+        $productBrand = $request->productBrand;
+        $files = $request->file('file');
+        $productPrice = $request->productPrice;
 
         $publicFile = new StoragePublic('image/products/' . $productCategory . '/' . $productBrand . '/');
 
@@ -36,6 +36,26 @@ class ProductController extends Controller
             ->where('product_brand_name', $productBrand)
             ->value('id');
         
+        //Validate data from user
+        $request->validate(
+            [
+                'product_name' => ['required'],
+                'product_url' => ['required'],
+                'product_description' => ['required'],
+                'product_category_id' => ['required'],
+                'product_brand_id' => ['required'],
+                'product_price' => ['required']
+            ],
+            [
+                'product_name.required' => 'O campo nome não pode estar vazio',
+                'product_url.required' => 'O campo url não pode estar vazio',
+                'product_description.required' => 'O campo descrição não pode estar vazio',
+                'product_category_id.required' => 'O campo categoria não pode estar vazio',
+                'product_brand_id.required' => 'O campo marca não pode estar vazio',
+                'product_price.required' => 'O campo preço não pode estar vazio',
+            ]
+        );
+
         //Insert data into products table
         Product::create([
             'product_name' => $productName,
