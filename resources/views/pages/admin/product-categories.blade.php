@@ -199,7 +199,8 @@
                                 
                             })
                             .then((response) => {
-                                document.location.reload(true);
+                                //document.location.reload(true);
+                                console.log(response.data)
                             })
                         }
                     }

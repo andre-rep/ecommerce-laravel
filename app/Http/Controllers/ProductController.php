@@ -111,23 +111,36 @@ class ProductController extends Controller
         }else if($type == 'brand'){
             //Get product_brand_category_id
             $productBrandCategoryId = DB::table('products_categories')
-                ->where('product_category_name', '=', $category)
-                ->value('id');
-            
-            //Add new brand
-            $addedBrandId = DB::table('products_brands')
-                ->insertGetId(
-                    [
-                        'product_brand_name' => $name,
-                        'product_brand_description' => $description
-                    ]
-                );
+            ->where('product_category_name', '=', $category)
+            ->value('id');
 
-            //Add new products_brand_category register
-            DB::table('products_brand_category')->insert([
-                'product_category_id' => $productBrandCategoryId,
-                'product_brand_id' => $addedBrandId
-            ]);
+            //Check if the brand's name already exists
+            if(DB::table('products_brands')->where('product_brand_name', '=', $name)->exists()){
+                //Get the id of the brand's name provided by the user
+                $productBrandId = DB::table('products_brands')
+                    ->where('product_brand_name', $name)
+                    ->value('id');
+
+                DB::table('products_brand_category')->insert([
+                    'product_category_id' => $productBrandCategoryId,
+                    'product_brand_id' => $productBrandId
+                ]);
+            }else{
+                //Add new brand
+                $addedBrandId = DB::table('products_brands')
+                    ->insertGetId(
+                        [
+                            'product_brand_name' => $name,
+                            'product_brand_description' => $description
+                        ]
+                    );
+
+                //Add new products_brand_category register
+                DB::table('products_brand_category')->insert([
+                    'product_category_id' => $productBrandCategoryId,
+                    'product_brand_id' => $addedBrandId
+                ]);    
+            }
 
             return 'Nova marca adicionada';
         }
