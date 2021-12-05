@@ -29,7 +29,7 @@ class MailBuilder extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.test')
+        return $this->view('emails.emailConfirmation')
                     ->from($this->data['fromAddress'], $this->data['name'])
                     ->cc($this->data['fromAddress'], $this->data['name'])
                     ->bcc($this->data['fromAddress'], $this->data['name'])
