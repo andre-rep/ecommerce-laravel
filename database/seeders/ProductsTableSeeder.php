@@ -86,7 +86,7 @@ class ProductsTableSeeder extends Seeder
 
         Product::create([
             'product_category_id' => 8,
-            'product_brand_id' => 8,
+            'product_brand_id' => 7,
             'product_name' => 'Tablet Philco 32GB Tela 8" Android 10 Processador Quadcore 4G Wi-Fi PTB8RSG - Preco/Cinza',
             'product_url' => 'tablet-philco-32gb-tela-8--android-10-processador-quadcore-4g-wi-fi-ptb8rsg---preco-cinza',
             'product_description' => '4ª geração de conexão com a internet. Mais velocidade de conexão, aceso rápido ao conteúdo online em qualquer lugar',
@@ -96,7 +96,7 @@ class ProductsTableSeeder extends Seeder
 
         Product::create([
             'product_category_id' => 9,
-            'product_brand_id' => 9,
+            'product_brand_id' => 8,
             'product_name' => 'Roteador dlink wifi AC1200 TR069 wan gigabit DIR841',
             'product_url' => 'roteador-dlink-wifi-ac1200-tr069-wan-gigabit-dir841',
             'product_description' => 'Características: - Marca: D-Link - Modelo: DIR-841 Especificações: Interfaces do Dispositivo: - 4 x lan 10/100Mbps - 1 x wan 10/100/1000Mbps - Wireless ac (Dual-Band) - Botão wps - Botão Reset - Botão Wi-Fi (Liga/Desliga)',
@@ -106,7 +106,7 @@ class ProductsTableSeeder extends Seeder
 
         Product::create([
             'product_category_id' => 10,
-            'product_brand_id' => 10,
+            'product_brand_id' => 9,
             'product_name' => 'Processador AMD Ryzen 9 3900X Box (AM4 / 12 Cores / 24 Threads / 3.8Ghz / 70MB Cache/Cooler Wraith Prism RGB) - *S/Video Integrado*',
             'product_url' => 'processador-amd-ryzen-9-3900x-box--am4---12-cores---24-threads---3.8ghz---70mb-cache-cooler-wraith-prism-rgb-----s-video-integrado-',
             'product_description' => 'Marca 	AMD
@@ -120,7 +120,7 @@ class ProductsTableSeeder extends Seeder
 
         Product::create([
             'product_category_id' => 11,
-            'product_brand_id' => 11,
+            'product_brand_id' => 10,
             'product_name' => 'Bloco de Papel A4 com 500 Folhas de Gramatura 75 Branco Multilaser - PE033',
             'product_url' => 'bloco-de-papel-a4-com-500-folhas-de-gramatura-75-branco-multilaser---pe033',
             'product_description' => 'Imprima textos, imagens ou faça arte!
@@ -131,7 +131,7 @@ class ProductsTableSeeder extends Seeder
 
         Product::create([
             'product_category_id' => 12,
-            'product_brand_id' => 12,
+            'product_brand_id' => 11,
             'product_name' => 'Fone de Ouvido Philips TAUE101BK/00 Serie 1000 Intra-Auricular com Microfone - Preto',
             'product_url' => 'fone-de-ouvido-philips-taue101bk-00-serie-1000-intra-auricular-com-microfone---preto',
             'product_description' => 'Com o desempenho dos graves otimizado, este fone de ouvido reproduz músicas com uma qualidade incrível.',
