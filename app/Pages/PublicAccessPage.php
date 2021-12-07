@@ -56,8 +56,23 @@ class PublicAccessPage implements AccessPageContract
 
     public function search()
     {
-        //Initialize paginate value
         $paginate = 20;
+        $keyword = request()->query('keyword');
+        $products = Product::where('product_name', 'like', '%' . $keyword . '%')
+            ->where('product_image_highlighted', 1)
+            ->orWhereHas('productsBrands', function($q) use ($keyword){
+                return $q->where('product_brand_name', 'like', '%' . $keyword . '%');
+            })
+            ->where('product_image_highlighted', 1)
+            ->orWhereHas('productsCategories', function($q) use ($keyword){
+                return $q->where('product_category_name', 'like', '%' . $keyword . '%');
+            })
+            ->where('product_image_highlighted', 1)
+            ->join('product_images', 'products.id', '=', 'product_images.product_id')
+            ->paginate($paginate);
+
+        //Initialize paginate value
+        /*$paginate = 20;
 
         if(request()->filterByCategory != null){
             //-------------------------------------------FILTER BY BRAND AND CATEGORY---------------------------------------------
@@ -145,7 +160,7 @@ class PublicAccessPage implements AccessPageContract
                 })
                 ->join('product_images', 'products.id', '=', 'product_images.product_id')
                 ->paginate($paginate);
-        }
+        }*/
 
         $productsBrands = DB::table('products_brands')
             ->get();

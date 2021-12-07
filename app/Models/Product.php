@@ -19,4 +19,14 @@ class Product extends Model
     ];
     
     public $timestamps = false;
+
+    public function productsBrands()
+    {
+        return $this->hasMany(ProductBrand::class, 'id', 'product_brand_id');
+    }
+
+    public function productsCategories()
+    {
+        return $this->hasMany(Category::class, 'id', 'product_category_id');
+    }
 }

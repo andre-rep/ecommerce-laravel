@@ -84,7 +84,7 @@ Route::prefix('gallery')->group(function(){
 Route::get('/', [PagesController::class, 'main']);
 Route::get('auth', [PagesController::class, 'auth']);
 Route::get('recover/{mail}', [PagesController::class, 'recoverPassword'])->name('recoverPage')->middleware('signed');
-Route::get('search', [PagesController::class, 'search']);
+Route::get('search/{q?}', [PagesController::class, 'search']);
 Route::get('product/{productName?}', [PagesController::class, 'product']);
 
 //User Pages
