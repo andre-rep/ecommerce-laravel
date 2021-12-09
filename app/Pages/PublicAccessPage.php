@@ -64,8 +64,19 @@ class PublicAccessPage implements AccessPageContract
 
         $products = Product::with('productsBrands', 'productsCategories')
                         ->where('product_name', 'like', '%' . $keyword . '%')
+                        ->where(function($q) use ($keyword, $brand, $category){
+                            foreach($brand as $b){
+                                $q->orWhere('product_brand_name', $b);
+                            }
+                            foreach($category as $c){
+                                $q->where('product_category_name', $c);
+                                $q->orWhere('product_category_name', $c);
+                            }
+                        })
                         ->where('product_image_highlighted', 1)
-                        ->join('product_images', 'products.id', '=', 'product_images.product_id')
+                        ->join('products_brands', 'products_brands.id', '=', 'products.product_brand_id')
+                        ->join('products_categories', 'products_categories.id', '=', 'products.product_category_id')
+                        ->join('product_images', 'product_images.product_id', '=', 'products.id')
                         ->paginate($paginate);
 
         foreach($products as $product){
