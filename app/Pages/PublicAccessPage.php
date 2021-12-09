@@ -57,19 +57,37 @@ class PublicAccessPage implements AccessPageContract
     public function search()
     {
         $paginate = 20;
+        //Data from the user
         $keyword = request()->query('keyword');
-        $products = Product::where('product_name', 'like', '%' . $keyword . '%')
-            ->where('product_image_highlighted', 1)
-            ->orWhereHas('productsBrands', function($q) use ($keyword){
-                return $q->where('product_brand_name', 'like', '%' . $keyword . '%');
+        $brand = request()->filterByBrand;
+        $category = request()->filterByCategory;
+
+        $products = Product::with('productsBrands', 'productsCategories')
+                        ->where('product_name', 'like', '%' . $keyword . '%')
+                        ->where('product_image_highlighted', 1)
+                        ->join('product_images', 'products.id', '=', 'product_images.product_id')
+                        ->paginate($paginate);
+
+        foreach($products as $product){
+            echo $product->product_name . " " . $product->productsBrands[0]->product_brand_name . " " . $product->productsCategories[0]->product_category_name . "<br>";
+        }
+        /*$products = Product::whereHas('productsBrands', function($q) use ($keyword, $brand, $category){
+                if($brand != null && $category == null){
+                    $q->where('product_name', 'like', '%' . $keyword . '%');
+                    $q->where('product_brand_name', $brand[0]);
+                }
+                $q->where('product_image_highlighted', 1);
             })
-            ->where('product_image_highlighted', 1)
-            ->orWhereHas('productsCategories', function($q) use ($keyword){
-                return $q->where('product_category_name', 'like', '%' . $keyword . '%');
+            ->orWhereHas('productsCategories', function($q) use ($keyword, $brand, $category){
+                if($category != null && $brand == null){
+                    $q->where('product_name', 'like', '%' . $keyword . '%');
+                    $q->where('product_category_name', $category[0]);
+                }
+                $q->where('product_image_highlighted', 1);
             })
-            ->where('product_image_highlighted', 1)
             ->join('product_images', 'products.id', '=', 'product_images.product_id')
-            ->paginate($paginate);
+            ->join('products_brands', 'products.product_brand_id', '=', 'products_brands.id')
+            ->paginate($paginate);*/
 
         //Initialize paginate value
         /*$paginate = 20;
