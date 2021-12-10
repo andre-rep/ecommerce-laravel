@@ -224,6 +224,66 @@ class PagesController extends Controller
         }
     }
 
+    public function cart(){
+        $cartProducts = request()->session()->get('cart');
+        $cartTotal = request()->session()->get('cartTotal');
+
+        if(Gate::allows('isUser')){
+            return response()->view('pages.user.cart', [
+                'cartItems' => $this->cartItems,
+                'cartProducts' => $cartProducts,
+                'cartTotal' => $cartTotal
+            ]);
+        }
+
+        abort(404);
+    }
+
+    public function checkout(){
+        $cartProducts = request()->session()->get('cart');
+        $cartTotal = request()->session()->get('cartTotal');
+
+        $user = DB::table('users')
+            ->where('id', Auth::user()->id)
+            ->first();
+
+        if(Gate::allows('isUser')){
+            return response()->view('pages.user.checkout', [
+                'cartItems' => $this->cartItems,
+                'cartProducts' => $cartProducts,
+                'cartTotal' => $cartTotal,
+                'user' => $user
+            ]);
+        }
+
+        abort(404);
+    }
+
+    public function order(){
+        $user = UserModel::where('id', Auth::user()->id)
+            ->first();
+
+        $products = DB::table('purchases')
+            ->where('user_id', '=', Auth::user()->id)
+            ->where('purchase_id', '=', request()->orderNumber)
+            ->where('product_image_highlighted', '=', 1)
+            ->join('purchases_products', 'purchases.id', '=', 'purchases_products.purchase_id')
+            ->join('products', 'purchases_products.product_id', '=', 'products.id')
+            ->join('product_images', 'product_images.product_id', '=', 'products.id')
+            ->get();
+
+        if(Gate::allows('isAdmin')){
+            return response()->view('pages.user.order', [
+                'cartItems' => $this->cartItems,
+                'user' => $user,
+                'products' => $products,
+                'purchaseId' => request()->orderNumber
+            ]);
+        }
+        
+        abort(404);
+    }
+
     public function productList(User $user){
         if(request()->searchByCategory != null){
             //-------------------------------------------SEARCH BY BRAND AND CATEGORY WITH OR WITHOUT KEYWORD---------------------------------------------
@@ -399,47 +459,204 @@ class PagesController extends Controller
         abort(404);
     }
 
-    public function productOrders(AccessPageContract $accessPageContract){
-        return $accessPageContract->productOrders();
+    public function productOrders(User $user){
+        //Load the pagination variable
+        $paginate = 20;
+
+        //Assign new value for pagination if exists
+        if(request()->paginate != null){
+            $paginate = request()->query('paginate');
+        }
+
+        //-------------------------------------------SEARCH BY STATUS WITH OR WITHOUT KEYWORD---------------------------------------------
+        if(request()->orderStatus != null){
+            $purchases = DB::table('purchases')
+                ->where('users.name', 'like', '%' . request()->query('keyword') . '%')
+                ->where('purchases.purchase_status', '=', request()->query('orderStatus'))
+                ->leftJoin('users', 'purchases.user_id', '=', 'users.id')
+                ->select('purchases.*', 'users.*', 'purchases.id as purchase_id', 'purchases.created_at as purchase_created_at')
+                ->paginate($paginate);
+        }else{
+            //-------------------------------------------NO SEARCH OR WITH KEYWORD----------------------------------------------
+            $purchases = DB::table('purchases')
+                ->where('users.name', 'like', '%' . request()->query('keyword') . '%')
+                ->leftJoin('users', 'purchases.user_id', '=', 'users.id')
+                ->select('purchases.*', 'users.*', 'purchases.id as purchase_id', 'purchases.created_at as purchase_created_at')
+                ->paginate($paginate);
+        }
+
+        if(Gate::allows('isAdmin')){
+            return response()->view('pages.admin.product-orders', [
+                'purchases' => $purchases,
+                'chosenStatus' => request()->query('orderStatus'),
+                'chosenPagination' => $paginate
+            ]);
+        }
+
+        abort(404);
     }
 
-    public function productOrderDetail(AccessPageContract $accessPageContract){
-        return $accessPageContract->productOrderDetail();
+    public function productOrderDetail(){
+        $purchases = DB::table('purchases')
+            ->where('product_image_highlighted', '=', 1)
+            ->where('purchase_id', '=', request()->orderId)
+            ->join('users', 'purchases.user_id', '=', 'users.id')
+            ->join('purchases_products', 'purchases.id', '=', 'purchases_products.purchase_id')
+            ->join('products', 'purchases_products.product_id', '=', 'products.id')
+            ->join('product_images', 'product_images.product_id', '=', 'products.id')
+            ->get();
+        
+        if(Gate::allows('isAdmin')){
+            return response()->view('pages.admin.product-order-detail', [
+                'purchases' => $purchases,
+                'orderId' => request()->orderId
+            ]);
+        }
+
+        abort(404);
     }
 
-    public function productTransactions(AccessPageContract $accessPageContract){
-        return $accessPageContract->productTransactions();
+    public function productTransactions(){
+        if(Gate::allows('isAdmin')){
+            return response()->view('pages.admin.product-transactions');
+        }
+
+        abort(404);
     }
 
-    public function productReviews(AccessPageContract $accessPageContract){
-        return $accessPageContract->productReviews();
+    public function productReviews(){
+        //Initialize chosen visibility variable
+        $chosenVisibility = 0;
+
+        //-------------------------------------------SEARCH BY VISIBILITY WITH OR WITHOUT KEYWORD---------------------------------------------
+        if(request()->query('visibilityOption') != null){
+            $chosenVisibility = request()->query('visibilityOption');
+            $purchasesProducts = DB::table('purchases_products')
+                ->where('product_name', 'like', '%' . request()->query('keyword') . '%')
+                ->where('purchase_product_rate_comment_visibility', '=' , request()->query('visibilityOption'))
+                ->orWhere('name', 'like', '%' . request()->query('keyword') . '%')
+                ->where('purchase_product_rate_comment_visibility', '=' , request()->query('visibilityOption'))
+                ->join('purchases', 'purchases_products.purchase_id', '=', 'purchases.id')
+                ->join('users', 'purchases.user_id', '=', 'users.id')
+                ->join('products', 'purchases_products.product_id', '=', 'products.id')
+                ->select('purchases_products.*', 'purchases.*', 'users.*', 'products.*', 'purchases_products.id as id', 'purchases_products.created_at as purchase_product_created_at')
+                ->get();
+        }else{
+            //-------------------------------------------NO SEARCH OR WITH KEYWORD----------------------------------------------
+            $purchasesProducts = DB::table('purchases_products')
+                ->where('product_name', 'like', '%' . request()->query('keyword') . '%')
+                ->orWhere('name', 'like', '%' . request()->query('keyword') . '%')
+                ->join('purchases', 'purchases_products.purchase_id', '=', 'purchases.id')
+                ->join('users', 'purchases.user_id', '=', 'users.id')
+                ->join('products', 'purchases_products.product_id', '=', 'products.id')
+                ->select('purchases_products.*', 'purchases.*', 'users.*', 'products.*', 'purchases_products.id as id', 'purchases_products.created_at as purchase_product_created_at')
+                ->get();
+        }
+           
+        if(Gate::allows('isAdmin')){
+            return response()->view('pages.admin.product-reviews', [
+                'purchasesProducts' => $purchasesProducts,
+                'chosenVisibility' => $chosenVisibility
+            ]);
+        }
+        
+        abort(404);
     }
 
-    public function clients(AccessPageContract $accessPageContract){
-        return $accessPageContract->clients();
+    public function clients(){
+        $paginate = 20;
+        if(request()->paginate != null){
+            $paginate = request()->query('paginate');
+        }
+        //-------------------------------------------SEARCH BY USER STATUS WITH OR WITHOUT KEYWORD---------------------------------------------
+        if(request()->userStatus != null){
+            $search = 'admin';
+            $users = UserModel::where('users.name', 'like', '%' . request()->query('keyword') . '%')
+                ->where('users.user_status', '=', request()->query('userStatus'))
+                ->select('users.*', 'users.created_at as user_created_at')
+                ->paginate($paginate);
+        }else{
+            //-------------------------------------------NO SEARCH OR WITH KEYWORD----------------------------------------------
+            $search = 'admin';
+            $users = UserModel::where('users.name', 'like', '%' . request()->query('keyword') . '%')
+                ->select('users.*', 'users.created_at as user_created_at')
+                ->paginate($paginate);
+        }
+
+        if(Gate::allows('isAdmin')){
+            return response()->view('pages.admin.clients', [
+                'users' => $users,
+                'chosenStatus' => request()->query('userStatus'),
+                'chosenPagination' => $paginate
+            ]);    
+        }
+
+        abort(404);
     }
 
-    public function client(AccessPageContract $accessPageContract){
-        return $accessPageContract->client();
+    public function client(){
+        $itemsPurchased = DB::table('purchases_products')
+            ->where('users.email', '=', request()->email)
+            ->join('purchases', 'purchases_products.purchase_id', '=', 'purchases.id')
+            ->join('users', 'purchases.user_id', '=', 'users.id')
+            ->get();
+
+        $user = UserModel::where('email', request()->email)
+            ->first();
+            
+        //Retrieve total quantity of items purchased by the user
+        $totalItemsPurchased = 0;
+        foreach($itemsPurchased as $itemPurchased){
+            $totalItemsPurchased = $totalItemsPurchased + $itemPurchased->purchase_product_quantity;
+        }
+
+        //Retrieve total amount spent by the user
+        $totalSpent = 0;
+        foreach($itemsPurchased as $itemPurchased){
+            $totalSpent = $totalSpent + ($itemPurchased->purchase_product_price * $itemPurchased->purchase_product_quantity);
+        }
+
+        if(Gate::allows('isAdmin')){
+            return response()->view('pages.admin.client', [
+                'user' => $user,
+                'totalItemsPurchased' => $totalItemsPurchased,
+                'totalSpent' => $totalSpent
+            ]);
+        }
+
+        abort(404);
     }
 
-    public function productEdit(AccessPageContract $accessPageContract){
-        return $accessPageContract->productEdit();
+    public function productEdit(){
+        $productsCategories = DB::table('products_categories')
+            ->get();
+            
+        $mainProduct = Product::where('product_url', request()->product)
+            ->where('product_image_highlighted', '=', 1)
+            ->join('product_images', 'products.id', '=', 'product_images.product_id')
+            ->get();
+        
+        $products = Product::where('product_url', request()->product)
+            ->where('product_image_highlighted', '=', null)
+            ->join('product_images', 'products.id', '=', 'product_images.product_id')
+            ->get();
+
+        if(Gate::allows('isAdmin')){
+            return response()->view('pages.admin.product-edit', [
+                'productsCategories' => $productsCategories,
+                'mainProduct' => $mainProduct,
+                'products' => $products
+            ]);
+        }
+        
+        abort(404);
     }
 
-    public function cart(AccessPageContract $accessPageContract){
-        return $accessPageContract->cart();
-    }
+    public function mainPage(){
+        if(Gate::allows('isAdmin')){
+            return response()->view('pages.admin.main-page');
+        }
 
-    public function checkout(AccessPageContract $accessPageContract){
-        return $accessPageContract->checkout();
-    }
-
-    public function order(AccessPageContract $accessPageContract){
-        return $accessPageContract->order();
-    }
-
-    public function mainPage(AccessPageContract $accessPageContract){
-        return $accessPageContract->mainPage();
+        abort(404);
     }
 }

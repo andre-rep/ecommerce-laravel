@@ -537,6 +537,11 @@ class AdminAccessPage implements AccessPageContract
         ]);
     }
 
+    public function mainPage()
+    {
+        return response()->view('pages.admin.main-page');
+    }
+
     public function cart()
     {
         return redirect('/');
@@ -550,10 +555,5 @@ class AdminAccessPage implements AccessPageContract
     public function order()
     {
         return redirect('/');
-    }
-
-    public function mainPage()
-    {
-        return response()->view('pages.admin.main-page');
     }
 }

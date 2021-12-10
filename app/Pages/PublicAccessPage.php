@@ -139,6 +139,16 @@ class PublicAccessPage implements AccessPageContract
         ]);
     }
 
+    public function cart()
+    {
+        return redirect('/');
+    }
+
+    public function checkout()
+    {
+        return redirect('/');
+    }
+
     public function productList()
     {
         return redirect('/');
@@ -199,12 +209,7 @@ class PublicAccessPage implements AccessPageContract
         return redirect('/');
     }
 
-    public function cart()
-    {
-        return redirect('/');
-    }
-
-    public function checkout()
+    public function mainPage()
     {
         return redirect('/');
     }
@@ -219,10 +224,5 @@ class PublicAccessPage implements AccessPageContract
         return view('messages.public-passwordRecovery', [
             'email' => request()->mail
         ]);
-    }
-
-    public function mainPage()
-    {
-        return redirect('/');
     }
 }

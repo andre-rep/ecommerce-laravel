@@ -290,6 +290,11 @@ class UserAccessPage implements AccessPageContract
         return redirect('/');
     }
 
+    public function mainPage()
+    {
+        return redirect('/');
+    }
+
     public function cart()
     {
         $cartProducts = request()->session()->get('cart');
@@ -339,10 +344,5 @@ class UserAccessPage implements AccessPageContract
             'products' => $products,
             'purchaseId' => request()->orderNumber
         ]);
-    }
-
-    public function mainPage()
-    {
-        return redirect('/');
     }
 }
