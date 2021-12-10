@@ -40,6 +40,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->user_access_level == 1;
         });
 
+        Gate::define('isLoggedIn', function(User $user){
+            return $user->user_access_level != 0;
+        });
+
         /**
          * Policies 
          * 

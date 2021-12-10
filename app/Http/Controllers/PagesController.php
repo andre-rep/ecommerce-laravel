@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Pages\AccessPageContract;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use App\Pages\AccessPageContract;
+use App\Models\User;
 
 class PagesController extends Controller
 {
@@ -11,8 +13,10 @@ class PagesController extends Controller
         return $accessPageContract->auth();
     }
 
-    public function main(AccessPageContract $accessPageContract){
-        return $accessPageContract->main();
+    public function main(User $user){
+        if(Gate::allows('isLoggedIn', $user)){
+            return 'logged in';
+        }
     }
 
     public function recoverPassword(AccessPageContract $accessPageContract, $mail){
