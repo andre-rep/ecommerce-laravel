@@ -369,8 +369,21 @@ class PagesController extends Controller
         abort(404);
     }
 
-    public function productCategories(AccessPageContract $accessPageContract){
-        return $accessPageContract->productCategories();
+    public function productCategories(User $user){
+        $productsCategories = DB::table('products_categories')
+            ->get();
+
+        $productsBrands = DB::table('products_brands')
+            ->get();
+
+        if(Gate::allows('isAdmin', $user)){
+            return response()->view('pages.admin.product-categories', [
+                'productsCategories' => $productsCategories,
+                'productsBrands' => $productsBrands
+            ]);
+        }
+
+        abort(404);
     }
 
     public function productAdd(AccessPageContract $accessPageContract){
