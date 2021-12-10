@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Pages\AccessPageContract;
 use App\Models\User;
+use App\Models\User as UserModel;
 use App\Cart\Cart;
 
 class PagesController extends Controller
@@ -25,6 +27,7 @@ class PagesController extends Controller
         if(Gate::denies('isLoggedIn', $user)){
             return response()->view('pages.public.auth');
         }
+
         abort(404);
     }
 
@@ -63,8 +66,17 @@ class PagesController extends Controller
         return $accessPageContract->recoverPassword();
     }
 
-    public function editProfile(AccessPageContract $accessPageContract){
-        return $accessPageContract->editProfile();
+    public function editProfile(User $user){
+        if(Gate::allows('isUser', $user)){
+            $users = UserModel::where('id', Auth::user()->id)->first();
+
+            return response()->view('pages.user.edit-profile', [
+                'cartItems' => $this->cartItems,
+                'users' => $users
+            ]);
+        }
+
+        abort(404);
     }
 
     public function shoppingHistoric(AccessPageContract $accessPageContract){
