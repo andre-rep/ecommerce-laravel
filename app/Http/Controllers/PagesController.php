@@ -158,8 +158,70 @@ class PagesController extends Controller
         }
     }
 
-    public function product(AccessPageContract $accessPageContract){
-        return $accessPageContract->product();
+    public function product(User $user){
+        //Get product name from url
+        $productName = request()->productName;
+        
+        $purchasesProducts = DB::table('purchases_products')
+            ->where('product_url', '=', $productName)
+            ->join('purchases', 'purchases_products.purchase_id', '=', 'purchases.id')
+            ->join('users', 'purchases.user_id', '=', 'users.id')
+            ->join('products', 'purchases_products.product_id', '=', 'products.id')
+            ->select('purchases_products.*', 'purchases.*', 'users.*', 'products.*', 'purchases_products.id as id', 'purchases_products.created_at as purchases_product_created_at')
+            ->get();
+
+        $products = Product::where('product_url', '=', $productName)
+            ->where('product_image_highlighted', '=', null)
+            ->join('product_images', 'products.id', '=', 'product_images.product_id')
+            ->get();
+
+        $mainProduct = Product::where('product_url', '=', $productName)
+            ->where('product_image_highlighted', '=', 1)
+            ->join('product_images', 'products.id', '=', 'product_images.product_id')
+            ->first();
+        
+        $customersReviews = DB::table('purchases_products')
+            ->where('product_url', '=', $productName)
+            ->join('products', 'products.id', '=', 'purchases_products.product_id')
+            ->get();
+
+        $customersReviews = sizeof($customersReviews);
+
+        $allRates = DB::table('purchases_products')
+            ->where('product_url', '=', $productName)
+            ->join('products', 'products.id', '=', 'purchases_products.product_id')
+            ->get();
+
+        if(Gate::denies('isLoggedIn', $user)){
+            return response()->view('pages.public.product', [
+                'products' => $products,
+                'mainProduct' => $mainProduct,
+                'purchasesProducts' => $purchasesProducts,
+                'customersReviews' => $customersReviews,
+                'allRates' => $allRates
+            ]);
+        }
+        
+        if(Gate::allows('isUser', $user)){
+            return response()->view('pages.user.product', [
+                'cartItems' => $this->cartItems,
+                'products' => $products,
+                'mainProduct' => $mainProduct,
+                'purchasesProducts' => $purchasesProducts,
+                'customersReviews' => $customersReviews,
+                'allRates' => $allRates
+            ]);
+        }
+
+        if(Gate::allows('isAdmin', $user)){
+            return response()->view('pages.admin.product', [
+                'products' => $products,
+                'mainProduct' => $mainProduct,
+                'purchasesProducts' => $purchasesProducts,
+                'customersReviews' => $customersReviews,
+                'allRates' => $allRates
+            ]);
+        }
     }
 
     public function productList(AccessPageContract $accessPageContract){
