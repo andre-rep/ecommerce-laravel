@@ -79,8 +79,21 @@ class PagesController extends Controller
         abort(404);
     }
 
-    public function shoppingHistoric(AccessPageContract $accessPageContract){
-        return $accessPageContract->shoppingHistoric();
+    public function shoppingHistoric(User $user){
+        if(Gate::allows('isUser', $user)){
+            $purchases = DB::table('purchases')
+            ->where('user_id', '=', Auth::user()->id)
+            ->get();
+
+            $users = UserModel::where('id', Auth::user()->id)
+                ->first();
+
+            return response()->view('pages.user.shopping-historic', [
+                'cartItems' => $this->cartItems,
+                'purchases' => $purchases,
+                'users' => $users
+            ]);
+        }
     }
 
     public function search(AccessPageContract $accessPageContract){
