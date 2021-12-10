@@ -1,6 +1,6 @@
 @extends('layouts.publicLayout')
 @section('content')
-    @include('includes.header')
+    {{--@include('includes.header')--}}
     <h2>Oops, essa página não existe!</h2>
     @include('includes.facilities')
     @include('includes.footer')

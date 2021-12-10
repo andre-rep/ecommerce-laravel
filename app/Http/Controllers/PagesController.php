@@ -21,8 +21,11 @@ class PagesController extends Controller
         }
     }
     
-    public function auth(AccessPageContract $accessPageContract){
-        return $accessPageContract->auth();
+    public function auth(User $user){
+        if(Gate::denies('isLoggedIn', $user)){
+            return response()->view('pages.public.auth');
+        }
+        abort(404);
     }
 
     public function main(User $user){
