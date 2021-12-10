@@ -224,8 +224,149 @@ class PagesController extends Controller
         }
     }
 
-    public function productList(AccessPageContract $accessPageContract){
-        return $accessPageContract->productList();
+    public function productList(User $user){
+        if(request()->searchByCategory != null){
+            //-------------------------------------------SEARCH BY BRAND AND CATEGORY WITH OR WITHOUT KEYWORD---------------------------------------------
+            if(request()->searchByBrand != null){
+                //If there's search for brand and category
+                $categoryKeywords = request()->searchByCategory;
+                $brandKeywords = request()->searchByBrand;
+                $newBrandKeywords = [];
+
+                //Change brandKeywords to fit into the category
+                for($j=0; $j<sizeof($categoryKeywords); $j++){
+                    for($i=0; $i<sizeof($brandKeywords); $i++){
+                        $brands = DB::table('products_brands')
+                            ->where('product_category_name', $categoryKeywords[$j])
+                            ->where('product_brand_name', $brandKeywords[$i])
+                            ->join('products_categories', 'products_brands.product_brand_category_id', '=', 'products_categories.id')
+                            ->get();
+
+                        if(isset($brands[0]->id)){
+                            array_push($newBrandKeywords, $brandKeywords[$i]);
+                        }
+                    }
+                }
+
+                $brandKeywords = $newBrandKeywords;
+
+                if(sizeof($brandKeywords)>0){
+                    $products = Product::where(function($query) use ($categoryKeywords, $brandKeywords){
+                            foreach($categoryKeywords as $categoryKeyword){
+                                for($i=0; $i<sizeof($brandKeywords); $i++){
+                                    $query->orWhere('product_image_highlighted', 1);
+                                    $query->where('product_name', 'like', '%' . request()->query('keyword') . '%');
+                                    $query->where('product_category_name', '=', $categoryKeyword);
+                                    $query->where('product_brand_name', '=', $brandKeywords[$i]);
+                                }
+                            }
+                        })
+                        ->join('product_images', 'products.id', '=', 'product_images.product_id')
+                        ->join('products_categories', 'products.product_category_id', '=', 'products_categories.id')
+                        ->join('products_brands', 'products.product_brand_id', '=', 'products_brands.id')
+                        ->paginate(20);
+                
+                //Set chosen category to be selected in the front end option
+                $chosenCategory = request()->query('searchByCategory');
+                $chosenBrand = request()->query('searchByBrand');
+
+                //These values are being fetched to be displayed in the search options select
+                $productsBrands = DB::table('products_brands')
+                    ->get();
+
+                $productsCategories = DB::table('products_categories')
+                    ->get();
+                }
+            }else{
+                //-------------------------------------------SEARCH BY CATEGORY WITH OR WITHOUT KEYWORD---------------------------------------------
+                $categoryKeywords = request()->query('searchByCategory');
+                $columns = ['product_name', 'product_category_name'];
+                $products = Product::where(function($query) use ($columns, $categoryKeywords){
+                        foreach($columns as $column){
+                            $query->orWhere('product_image_highlighted', 1);
+                            $query->whereIn('product_category_name', $categoryKeywords);
+                            $query->where($column, 'like', '%' . request()->query('keyword') . '%');
+                        }
+                    })
+                    ->join('product_images', 'products.id', '=', 'product_images.product_id')
+                    ->join('products_categories', 'products.product_category_id', '=', 'products_categories.id')
+                    ->paginate(20);
+                
+                //Set chosen category to be selected in the front end option
+                $chosenCategory = request()->query('searchByCategory');
+                $chosenBrand[0] = '';
+
+                //These values are being fetched to be displayed in the search options select
+                $productsBrands = DB::table('products_brands')
+                    ->where('product_category_name', '=', $chosenCategory)
+                    ->join('products_categories', 'products_brands.product_brand_category_id', '=', 'products_categories.id')
+                    ->get();
+
+                $productsCategories = DB::table('products_categories')
+                    ->get();
+            }
+        }else if(request()->searchByBrand != null){
+            //-------------------------------------------SEARCH BY BRAND WITH OR WITHOUT KEYWORD---------------------------------------------
+            $brandKeywords = request()->query('searchByBrand');
+            $columns = ['product_name', 'product_brand_name'];
+            $products = Product::where(function($query) use ($columns, $brandKeywords){
+                    foreach($columns as $column){
+                        $query->orWhere('product_image_highlighted', 1);
+                        $query->whereIn('product_brand_name', $brandKeywords);
+                        $query->where($column, 'like', '%' . request()->query('keyword') . '%');
+                    }
+                })
+                ->join('product_images', 'products.id', '=', 'product_images.product_id')
+                ->join('products_brands', 'products.product_brand_id', '=', 'products_brands.id')
+                ->paginate(20);
+            
+            //Set chosen category to be selected in the front end option
+            $chosenCategory[0] = '';
+            $chosenBrand = request()->query('searchByBrand');
+            
+            //These values are being fetched to be displayed in the search options select
+            $productsBrands = DB::table('products_brands')
+                ->get();
+
+            $productsCategories = DB::table('products_categories')
+                ->get();
+        }else{
+            //-------------------------------------------NO SEARCH OR WITH KEYWORD----------------------------------------------
+            $columns = ['product_name', 'product_category', 'product_brand'];
+            $products = Product::where(function($query) use ($columns){
+                    foreach($columns as $columns){
+                        $query->orWhere('product_image_highlighted', 1);
+                        $query->where('product_name', 'like', '%'. request()->query('keyword'). '%');
+                    }
+                })
+                ->join('product_images', 'products.id', '=', 'product_images.product_id')
+                ->paginate(12);
+
+            //Set chosen category to be selected in the front end option
+            $chosenCategory[0] = '';
+            $chosenBrand[0] = '';
+
+            //These values are being fetched to be displayed in the search options select
+            $productsBrands = DB::table('products_brands')
+                ->get();
+
+            $productsCategories = DB::table('products_categories')
+                ->get();
+        }
+
+        if(Gate::allows('isAdmin', $user)){
+            //Return the values in the page
+            return response()->view('pages.admin.product-list', [
+                'products' => $products,
+                'productsBrands' => $productsBrands,
+                'productsCategories' => $productsCategories,
+                'productListSession' => request()->session()->get('productList'),
+                'chosenCategory' => $chosenCategory,
+                'chosenBrand' => $chosenBrand
+            ]);
+        }
+
+        abort(404);
     }
 
     public function productCategories(AccessPageContract $accessPageContract){
