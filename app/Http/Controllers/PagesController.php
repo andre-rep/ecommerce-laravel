@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Pages\AccessPageContract;
 use App\Models\User;
 use App\Models\User as UserModel;
+use App\Models\Product;
 use App\Cart\Cart;
 
 class PagesController extends Controller
@@ -94,10 +95,67 @@ class PagesController extends Controller
                 'users' => $users
             ]);
         }
+
+        abort(404);
     }
 
-    public function search(AccessPageContract $accessPageContract){
-        return $accessPageContract->search();
+    public function search(User $user){
+        $paginate = 20;
+        //Data from the user
+        $keyword = request()->query('keyword');
+        $brand = request()->filterByBrand;
+        $category = request()->filterByCategory;
+
+        $products = Product::with('productsBrands', 'productsCategories')
+                        ->where('product_name', 'like', '%' . $keyword . '%')
+                        ->where(function($q) use ($keyword, $brand, $category){
+                            foreach($brand as $b){
+                                $q->orWhere('product_brand_name', $b);
+                            }
+                            foreach($category as $c){
+                                $q->where('product_category_name', $c);
+                                $q->orWhere('product_category_name', $c);
+                            }
+                        })
+                        ->where('product_image_highlighted', 1)
+                        ->join('products_brands', 'products_brands.id', '=', 'products.product_brand_id')
+                        ->join('products_categories', 'products_categories.id', '=', 'products.product_category_id')
+                        ->join('product_images', 'product_images.product_id', '=', 'products.id')
+                        ->paginate($paginate);
+
+        $productsBrands = DB::table('products_brands')
+            ->get();
+
+        $productsCategories = DB::table('products_categories')
+            ->get();
+
+        if(Gate::denies('isLoggedIn', $user)){
+            return response()->view('pages.public.search', [
+                'products' => $products,
+                'productsBrands' => $productsBrands,
+                'productsCategories' => $productsCategories,
+                'paginate' => $paginate
+            ]);
+        }
+        
+        if(Gate::allows('isUser', $user)){
+            return response()->view('pages.user.search', [
+                'cartItems' => $this->cartItems,
+                'products' => $products,
+                'productsBrands' => $productsBrands,
+                'productsCategories' => $productsCategories,
+                'paginate' => $paginate
+            ]);
+        }
+
+        if(Gate::allows('isAdmin', $user)){
+            return response()->view('pages.admin.search', [
+                'products' => $products,
+                'productsBrands' => $productsBrands,
+                'productsCategories' => $productsCategories,
+                'paginate' => $paginate
+            ]);
+        }
     }
 
     public function product(AccessPageContract $accessPageContract){
