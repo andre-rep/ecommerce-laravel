@@ -26,7 +26,7 @@ class PagesController extends Controller
     
     public function auth(User $user){
         if(Gate::denies('isLoggedIn', $user)){
-            return response()->view('pages.public.auth');
+            return response()->view('pages.auth');
         }
 
         abort(404);
@@ -41,14 +41,14 @@ class PagesController extends Controller
             ->get();
 
         if(Gate::denies('isUser', $user)){
-            return response()->view('pages.user.main', [
+            return response()->view('pages.main', [
                 'banners' => $banners,
                 'gallery' => $gallery
             ]);
         }
         
         if(Gate::allows('isUser', $user)){
-            return response()->view('pages.user.main', [
+            return response()->view('pages.main', [
                 'cartItems' => $this->cartItems,
                 'banners' => $banners,
                 'gallery' => $gallery
@@ -56,15 +56,15 @@ class PagesController extends Controller
         }
 
         if(Gate::allows('isAdmin', $user)){
-            return response()->view('pages.admin.main', [
+            return response()->view('pages.main', [
                 'banners' => $banners,
                 'gallery' => $gallery
             ]);
         }
     }
 
-    public function recoverPassword(AccessPageContract $accessPageContract, $mail){
-        return $accessPageContract->recoverPassword();
+    public function recoverPassword(){
+        
     }
 
     public function editProfile(User $user){
@@ -130,7 +130,7 @@ class PagesController extends Controller
             ->get();
 
         if(Gate::denies('isLoggedIn', $user)){
-            return response()->view('pages.public.search', [
+            return response()->view('pages.search', [
                 'products' => $products,
                 'productsBrands' => $productsBrands,
                 'productsCategories' => $productsCategories,
@@ -139,7 +139,7 @@ class PagesController extends Controller
         }
         
         if(Gate::allows('isUser', $user)){
-            return response()->view('pages.user.search', [
+            return response()->view('pages.search', [
                 'cartItems' => $this->cartItems,
                 'products' => $products,
                 'productsBrands' => $productsBrands,
@@ -149,7 +149,7 @@ class PagesController extends Controller
         }
 
         if(Gate::allows('isAdmin', $user)){
-            return response()->view('pages.admin.search', [
+            return response()->view('pages.search', [
                 'products' => $products,
                 'productsBrands' => $productsBrands,
                 'productsCategories' => $productsCategories,
@@ -193,7 +193,7 @@ class PagesController extends Controller
             ->get();
 
         if(Gate::denies('isLoggedIn', $user)){
-            return response()->view('pages.public.product', [
+            return response()->view('pages.product', [
                 'products' => $products,
                 'mainProduct' => $mainProduct,
                 'purchasesProducts' => $purchasesProducts,
@@ -203,7 +203,7 @@ class PagesController extends Controller
         }
         
         if(Gate::allows('isUser', $user)){
-            return response()->view('pages.user.product', [
+            return response()->view('pages.product', [
                 'cartItems' => $this->cartItems,
                 'products' => $products,
                 'mainProduct' => $mainProduct,
@@ -214,7 +214,7 @@ class PagesController extends Controller
         }
 
         if(Gate::allows('isAdmin', $user)){
-            return response()->view('pages.admin.product', [
+            return response()->view('pages.product', [
                 'products' => $products,
                 'mainProduct' => $mainProduct,
                 'purchasesProducts' => $purchasesProducts,
