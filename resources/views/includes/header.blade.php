@@ -37,7 +37,7 @@
         <div class="header-cart">
             @if(Auth::user() != null)
                 @can('isUser')
-                    @if($cartItems != '0')
+                    @if($cartItems != 0)
                         <div class="header-cart-items">
                             <span>{{$cartItems}}</span>
                         </div>

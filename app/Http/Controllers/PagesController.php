@@ -4,18 +4,55 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\DB;
 use App\Pages\AccessPageContract;
 use App\Models\User;
+use App\Cart\Cart;
 
 class PagesController extends Controller
 {
+    private $cartItems;
+
+    public function __construct(User $user)
+    {
+        if(Gate::allows('isUser', $user)){
+            $cart = new Cart();
+            $this->cartItems = $cart->getProductsQuantity();
+        }
+    }
+    
     public function auth(AccessPageContract $accessPageContract){
         return $accessPageContract->auth();
     }
 
     public function main(User $user){
-        if(Gate::allows('isLoggedIn', $user)){
-            return 'logged in';
+        $banners = DB::table('banners')
+            ->latest('created_at')
+            ->first();
+
+        $gallery = DB::table('carousel')
+            ->get();
+
+        if(Gate::denies('isUser', $user)){
+            return response()->view('pages.user.main', [
+                'banners' => $banners,
+                'gallery' => $gallery
+            ]);
+        }
+        
+        if(Gate::allows('isUser', $user)){
+            return response()->view('pages.user.main', [
+                'cartItems' => $this->cartItems,
+                'banners' => $banners,
+                'gallery' => $gallery
+            ]);
+        }
+
+        if(Gate::allows('isAdmin', $user)){
+            return response()->view('pages.admin.main', [
+                'banners' => $banners,
+                'gallery' => $gallery
+            ]);
         }
     }
 
