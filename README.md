@@ -51,7 +51,7 @@ senha: 12345
 
 O Banco de dados relacional foi feito com restrições para ligar as chaves extrangeiras das tabelas quando necessário.
 
-![alt text](http://andrenascimento.com/external_images/ecommerce/eer-diagram.png)
+![alt text](https://drive.google.com/uc?export=view&id=1V36yt1-_z8SyrY3XOUlYQCSlcwTMxeHA)
 
 ## Imagens do site
 
