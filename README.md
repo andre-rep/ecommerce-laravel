@@ -51,7 +51,7 @@ senha: 12345
 
 O Banco de dados relacional foi feito com restrições para ligar as chaves extrangeiras das tabelas quando necessário.
 
-![alt text](https://drive.google.com/uc?export=view&id=1V36yt1-_z8SyrY3XOUlYQCSlcwTMxeHA)
+![alt text](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/eer-diagram.png)
 
 ## Imagens do site
 
