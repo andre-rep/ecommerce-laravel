@@ -109,12 +109,16 @@ class PagesController extends Controller
         $products = Product::with('productsBrands', 'productsCategories')
                         ->where('product_name', 'like', '%' . $keyword . '%')
                         ->where(function($q) use ($keyword, $brand, $category){
-                            foreach($brand as $b){
-                                $q->orWhere('product_brand_name', $b);
+                            if($brand != null){
+                                foreach($brand as $b){
+                                    $q->orWhere('product_brand_name', $b);
+                                }
                             }
-                            foreach($category as $c){
-                                $q->where('product_category_name', $c);
-                                $q->orWhere('product_category_name', $c);
+                            if($category != null){
+                                foreach($category as $c){
+                                    $q->where('product_category_name', $c);
+                                    $q->orWhere('product_category_name', $c);
+                                }
                             }
                         })
                         ->where('product_image_highlighted', 1)
