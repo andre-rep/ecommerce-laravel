@@ -54,27 +54,26 @@ password: 12345
 
 The relational database was made with restrictions to link the foreign keys of the tables when necessary.
 
-![alt text](http://andrenascimento.com/external_images/ecommerce/eer-diagram.png)
+![Eer Diagram](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/eer-diagram.png)
 
 ## Site images
 
 ###### Main page
 
-![alt text](http://andrenascimento.com/external_images/ecommerce/main-page-1.png)
-![alt text](http://andrenascimento.com/external_images/ecommerce/main-page-2.png)
+![Main Page 1](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/main-page-1.png)
+![Main Page 2](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/main-page-2.png)
 
 ###### Admin Panel
 
-![alt text](http://andrenascimento.com/external_images/ecommerce/admin-panel.png)
+![Admin Panel](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/admin-panel.png)
 
 ###### Regular User Control Panel
 
-![alt text](http://andrenascimento.com/external_images/ecommerce/user-panel.png)
+![User Panel](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/user-panel.png)
 
 ###### Product
 
-![alt text](http://andrenascimento.com/external_images/ecommerce/product-page.png)
-![alt text](http://andrenascimento.com/external_images/ecommerce/product-page-2.png)
+![Product Page](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/product-page.png)
 
 ## Bugs yet to be fixed and new implementations
 
