@@ -1,81 +1,82 @@
 Selecionar Idioma: [Português](https://github.com/andre-rep/laravel-ecommerce-project/blob/master/README-pt.md), **English**
 ========
 
-## Sobre o Ecommerce
+## About the Ecommerce
 
-O projeto é feito em Laravel 8, trata-se de um site para uma loja local que faz entregas de seus produtos.
-Existem dois tipos de contas: Admin e Usuário normal.
-Não é possível criar uma nova conta de Admin mas é possível criar uma conta normal para fazer compras.
+The project is made with Laravel 8, it is a website for a local store that delivers its products.
+There are two types of accounts: Admin and Normal User.
+It is not possible to create a new Admin account but it is possible to create a normal account for shopping.
 
-## Tecnologias utilizadas
+## Stack used
 
-Para o backend está sendo utilizado Laravel 8 e Mysql Workbench para gerenciamento do banco de dados. Para o front end está sendo usado Html, Css e Javascript puros além de algumas bibliotecas para funções específicas como Bootstrap 5, Vue.js e Axios para requisições Http.
+For the backend, Laravel 8 and Mysql Workbench are being used for database management. For the front end pure HTML, CSS and Javascript are being used, as well as some libraries for specific functions like Bootstrap 5, Vue.js and Axios for Http requests.
 
-## Como instalar
+## How to install
 
-Após a configuração do arquivo .env basta rodar o comando:
+After configuring the .env file, just run the command:
 ```
 php artisan migrate --seed
 ```
-O site já vai estar instalado e populado com alguns produtos e com os dados de um user e um admin.
-É necessário também fazer um link entre o storage a pasta storage dentro de public, usando o comando:
+The site will already be installed and populated with some products and with the data of a user and an admin.
+It is also necessary to link the storage to the storage folder inside public, using the command:
 ```
 php artisan storage:link
 ```
 
-###### Opcional
+###### Optional
 
-Para fazer **cadastro de novo usuário** é necessário usar a biblioteca de envio de email do Laravel. Para isso é necessário configurar o arquivo .env com credenciais de um servidor smtp, o seguinte exemplo usa configurações para o gmail:
+To **register a new user** it is necessary to use Laravel's mailing library. For this it is necessary to configure the .env file with credentials from an SMTP server, the following example uses settings for gmail:
 ```
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.googlemail.com
 MAIL_PORT=465
-MAIL_USERNAME=endereco@email.com
-MAIL_PASSWORD=senhadoemail
+MAIL_USERNAME=address@email.com
+MAIL_PASSWORD=emailpassword
 MAIL_ENCRYPTION=ssl
 MAIL_FROM_ADDRESS=null
 MAIL_FROM_NAME="${APP_NAME}"
 ```
-Você pode colocar em 'MAIL_USERNAME' e em 'MAIL_PASSWORD' as credenciais do seu próprio email, funciona normalmente. Mas por questão de segurança você também pode configurar uma senha de app na sua conta gmail e colocar em 'MAIL_PASSWORD', seguindo o [Tutotial](https://support.google.com/mail/answer/185833?hl=pt-BR), funciona da memsa maneira.
+You can put in 'MAIL_USERNAME' and in 'MAIL_PASSWORD' your own email credentials, it works normally. But for security reasons you can also set an app password on your gmail account and put it in 'MAIL_PASSWORD', following the [Tutotial](https://support.google.com/mail/answer/185833?hl=en) , works the same way.
 
-## Login como Admin
+## Login as Admin
 
-Admin já cadastrado\
+Admin already registered\
 login: admin@admin.com\
-senha: 12345
+password: 12345
 
-## Login como Usuário Comum
+## Login as a Regular User
 
-Usuário já cadastrado\
+User already registered\
 login: user@user.com\
-senha: 12345
+password: 12345
 
-## Banco de dados
+## Database
 
-O Banco de dados relacional foi feito com restrições para ligar as chaves extrangeiras das tabelas quando necessário.
+The relational database was made with restrictions to link the foreign keys of the tables when necessary.
 
-![Eer Diagram](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/eer-diagram.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/eer-diagram.png)
 
-## Imagens do site
+## Site images
 
-###### Página principal
+###### Main page
 
-![Main Page 1](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/main-page-1.png)
-![Main Page 2](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/main-page-2.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/main-page-1.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/main-page-2.png)
 
-###### Painel de Admin
+###### Admin Panel
 
-![Admin Panel](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/admin-panel.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/admin-panel.png)
 
-###### Painel de Controle do Usuário Comum
+###### Regular User Control Panel
 
-![User Panel](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/user-panel.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/user-panel.png)
 
-###### Produto
+###### Product
 
-![Product Page](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/product-page.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/product-page.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/product-page-2.png)
 
-## Erros ainda a serem corrigidos e novas implementações
+## Bugs yet to be fixed and new implementations
 
-- A página de pesquisa de produtos possui um filtro do lado direito da página que ainda não está funcionando
-- Falta adicionar uma integração para pagamento no final da compra. Atualmente o usuário pode apenas fazer pagamento ao receber o produto.
+- The product search page has a filter on the right side of the page that isn't working yet.
+- It remains to add an integration for payment at the end of the purchase. Currently, the user can only make payment when receiving the product.

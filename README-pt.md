@@ -1,82 +1,81 @@
 Select Language: [English](https://github.com/andre-rep/laravel-ecommerce-project), **Português**
 ========
 
-## About the Ecommerce
+## Sobre o Ecommerce
 
-The project is made with Laravel 8, it is a website for a local store that delivers its products.
-There are two types of accounts: Admin and Normal User.
-It is not possible to create a new Admin account but it is possible to create a normal account for shopping.
+O projeto é feito em Laravel 8, trata-se de um site para uma loja local que faz entregas de seus produtos.
+Existem dois tipos de contas: Admin e Usuário normal.
+Não é possível criar uma nova conta de Admin mas é possível criar uma conta normal para fazer compras.
 
-## Stack used
+## Tecnologias utilizadas
 
-For the backend, Laravel 8 and Mysql Workbench are being used for database management. For the front end pure HTML, CSS and Javascript are being used, as well as some libraries for specific functions like Bootstrap 5, Vue.js and Axios for Http requests.
+Para o backend está sendo utilizado Laravel 8 e Mysql Workbench para gerenciamento do banco de dados. Para o front end está sendo usado Html, Css e Javascript puros além de algumas bibliotecas para funções específicas como Bootstrap 5, Vue.js e Axios para requisições Http.
 
-## How to install
+## Como instalar
 
-After configuring the .env file, just run the command:
+Após a configuração do arquivo .env basta rodar o comando:
 ```
 php artisan migrate --seed
 ```
-The site will already be installed and populated with some products and with the data of a user and an admin.
-It is also necessary to link the storage to the storage folder inside public, using the command:
+O site já vai estar instalado e populado com alguns produtos e com os dados de um user e um admin.
+É necessário também fazer um link entre o storage a pasta storage dentro de public, usando o comando:
 ```
 php artisan storage:link
 ```
 
-###### Optional
+###### Opcional
 
-To **register a new user** it is necessary to use Laravel's mailing library. For this it is necessary to configure the .env file with credentials from an SMTP server, the following example uses settings for gmail:
+Para fazer **cadastro de novo usuário** é necessário usar a biblioteca de envio de email do Laravel. Para isso é necessário configurar o arquivo .env com credenciais de um servidor smtp, o seguinte exemplo usa configurações para o gmail:
 ```
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.googlemail.com
 MAIL_PORT=465
-MAIL_USERNAME=address@email.com
-MAIL_PASSWORD=emailpassword
+MAIL_USERNAME=endereco@email.com
+MAIL_PASSWORD=senhadoemail
 MAIL_ENCRYPTION=ssl
 MAIL_FROM_ADDRESS=null
 MAIL_FROM_NAME="${APP_NAME}"
 ```
-You can put in 'MAIL_USERNAME' and in 'MAIL_PASSWORD' your own email credentials, it works normally. But for security reasons you can also set an app password on your gmail account and put it in 'MAIL_PASSWORD', following the [Tutotial](https://support.google.com/mail/answer/185833?hl=en) , works the same way.
+Você pode colocar em 'MAIL_USERNAME' e em 'MAIL_PASSWORD' as credenciais do seu próprio email, funciona normalmente. Mas por questão de segurança você também pode configurar uma senha de app na sua conta gmail e colocar em 'MAIL_PASSWORD', seguindo o [Tutotial](https://support.google.com/mail/answer/185833?hl=pt-BR), funciona da memsa maneira.
 
-## Login as Admin
+## Login como Admin
 
-Admin already registered\
+Admin já cadastrado\
 login: admin@admin.com\
-password: 12345
+senha: 12345
 
-## Login as a Regular User
+## Login como Usuário Comum
 
-User already registered\
+Usuário já cadastrado\
 login: user@user.com\
-password: 12345
+senha: 12345
 
-## Database
+## Banco de dados
 
-The relational database was made with restrictions to link the foreign keys of the tables when necessary.
+O Banco de dados relacional foi feito com restrições para ligar as chaves extrangeiras das tabelas quando necessário.
 
-![alt text](http://andrenascimento.com/external_images/ecommerce/eer-diagram.png)
+![Eer Diagram](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/eer-diagram.png)
 
-## Site images
+## Imagens do site
 
-###### Main page
+###### Página principal
 
-![alt text](http://andrenascimento.com/external_images/ecommerce/main-page-1.png)
-![alt text](http://andrenascimento.com/external_images/ecommerce/main-page-2.png)
+![Main Page 1](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/main-page-1.png)
+![Main Page 2](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/main-page-2.png)
 
-###### Admin Panel
+###### Painel de Admin
 
-![alt text](http://andrenascimento.com/external_images/ecommerce/admin-panel.png)
+![Admin Panel](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/admin-panel.png)
 
-###### Regular User Control Panel
+###### Painel de Controle do Usuário Comum
 
-![alt text](http://andrenascimento.com/external_images/ecommerce/user-panel.png)
+![User Panel](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/user-panel.png)
 
-###### Product
+###### Produto
 
-![alt text](http://andrenascimento.com/external_images/ecommerce/product-page.png)
-![alt text](http://andrenascimento.com/external_images/ecommerce/product-page-2.png)
+![Product Page](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/product-page.png)
 
-## Bugs yet to be fixed and new implementations
+## Erros ainda a serem corrigidos e novas implementações
 
-- The product search page has a filter on the right side of the page that isn't working yet.
-- It remains to add an integration for payment at the end of the purchase. Currently, the user can only make payment when receiving the product.
+- A página de pesquisa de produtos possui um filtro do lado direito da página que ainda não está funcionando
+- Falta adicionar uma integração para pagamento no final da compra. Atualmente o usuário pode apenas fazer pagamento ao receber o produto.
