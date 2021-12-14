@@ -1,4 +1,5 @@
-[Leia esta página em português](https://github.com/andre-rep/laravel-ecommerce-project/blob/master/README-pt.md)
+Selecionar Idioma: [Português](https://github.com/andre-rep/laravel-ecommerce-project/blob/master/README-pt.md), **English**
+========
 
 ## Sobre o Ecommerce
 

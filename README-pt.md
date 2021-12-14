@@ -1,4 +1,5 @@
-[Read this page in English](https://github.com/andre-rep/laravel-ecommerce-project)
+Select Language: [Inglês](https://github.com/andre-rep/laravel-ecommerce-project), **Português**
+========
 
 ## Sobre o Ecommerce
 
@@ -53,26 +54,27 @@ senha: 12345
 
 O Banco de dados relacional foi feito com restrições para ligar as chaves extrangeiras das tabelas quando necessário.
 
-![Eer Diagram](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/eer-diagram.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/eer-diagram.png)
 
 ## Imagens do site
 
 ###### Página principal
 
-![Main Page 1](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/main-page-1.png)
-![Main Page 2](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/main-page-2.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/main-page-1.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/main-page-2.png)
 
 ###### Painel de Admin
 
-![Admin Panel](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/admin-panel.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/admin-panel.png)
 
 ###### Painel de Controle do Usuário Comum
 
-![User Panel](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/user-panel.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/user-panel.png)
 
 ###### Produto
 
-![Product Page](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/product-page.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/product-page.png)
+![alt text](http://andrenascimento.com/external_images/ecommerce/product-page-2.png)
 
 ## Erros ainda a serem corrigidos e novas implementações
 
