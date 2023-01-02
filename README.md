@@ -1,31 +1,60 @@
-Selecionar Idioma: [Português](https://github.com/andre-rep/laravel-ecommerce-project/blob/master/README-pt.md), **English**
-========
+<h1 align="center">Ecommerce Laravel</h1>
+<p align="center">Um projeto de ecommerce para uma loja de eletrônicos</p>
 
-## About the Ecommerce
+<h4 align="center"> 
+	🚧  Laravel 🚀 Em construção...  🚧
+</h4>
 
-The project is made with Laravel 8, it is a website for a local store that delivers its products.
-There are two types of accounts: Admin and Normal User.
-It is not possible to create a new Admin account but it is possible to create a normal account for shopping.
+### Pré-requisitos
 
-## Stack used
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Laravel](https://laravel.com/) na versão 8, [Mysql Workbench](https://www.mysql.com/products/workbench/), [PHP](https://www.php.net/).
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-For the backend, Laravel 8 and Mysql Workbench are being used for database management. For the front end pure HTML, CSS and Javascript are being used, as well as some libraries for specific functions like Bootstrap 5, Vue.js and Axios for Http requests.
+### 🎲 Rodando o Back End (servidor)
 
-## How to install
+```bash
+# Clone este repositório
+$ git clone <https://github.com/andre-rep/ecommerce-laravel>
 
-After configuring the .env file, just run the command:
+# Acesse a pasta do projeto no terminal/cmd
+$ cd ecommerce-laravel
+
+# Instale as dependências
+$ composer install
+
+# Abra o arquivo .env para editar as credenciais de acesso ao seu servidor workbench
+$ nano .env
+
+# Renomeie o arquivo .env.example para .env
+$ mv .env.example .env
+
+# Envie os dados da aplicação para o workbench
+$ php artisan migrate --seed
+
+# Crie um link da pasta storage para uma pasta dentro da pasta public
+$ php artisan storage:link
+
+# Inicie o servidor
+$ php artisan serve
+
+# O servidor inciará na porta:8000 - acesse <http://localhost:8000>
 ```
-php artisan migrate --seed
-```
-The site will already be installed and populated with some products and with the data of a user and an admin.
-It is also necessary to link the storage to the storage folder inside public, using the command:
-```
-php artisan storage:link
-```
 
-###### Optional
+### Fazer login na aplicação
+Login como admin
 
-To **register a new user** it is necessary to use Laravel's mailing library. For this it is necessary to configure the .env file with credentials from an SMTP server, the following example uses settings for gmail:
+login: admin@admin.com\
+password: 12345
+
+Login como usuário normal
+
+login: user@user.com\
+password: 12345
+
+### Opcional
+
+Para **registrar um novo usuário** é necessário usar a biblioteca de email do Laravel. Para isso configure o seu arquivo .env com as credenciais do seu servidor SMTP. Um exemplo de configuração do servidor do gmail:
 ```
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.googlemail.com
@@ -36,46 +65,47 @@ MAIL_ENCRYPTION=ssl
 MAIL_FROM_ADDRESS=null
 MAIL_FROM_NAME="${APP_NAME}"
 ```
-You can put in 'MAIL_USERNAME' and in 'MAIL_PASSWORD' your own email credentials, it works normally. But for security reasons you can also set an app password on your gmail account and put it in 'MAIL_PASSWORD', following the [Tutotial](https://support.google.com/mail/answer/185833?hl=en) , works the same way.
+Substitua 'MAIL_USERNAME' pelo seu username do gmail e 'MAIL_PASSWORD' pela a sua senha do gmail. Caso não queira usar sua senha do gmail, você pode criar uma senha alternativa apenas para essa aplicação, siga o tutorial para isso: [Tutotial](https://support.google.com/mail/answer/185833?hl=pt-br).
 
-## Login as Admin
+### 🛠 Tecnologias
 
-Admin already registered\
-login: admin@admin.com\
-password: 12345
+As seguintes ferramentas foram usadas na construção do projeto:
 
-## Login as a Regular User
+- [Laravel](https://laravel.com/)
+- [Mysql Workbench](https://www.mysql.com/products/workbench/)
+- [Html](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [Css](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 
-User already registered\
-login: user@user.com\
-password: 12345
+### Imagens da aplicação
 
-## Database
+###### Página principal
 
-The relational database was made with restrictions to link the foreign keys of the tables when necessary.
+![Página principal](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/main-page-1.png)
+![Página principal](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/main-page-2.png)
+
+###### Página de Administrador
+
+![Página de Administrador](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/admin-panel.png)
+
+###### Página de usuário normal
+
+![Página de usuário normal](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/user-panel.png)
+
+###### Página de produto
+
+![Página de produto](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/product-page.png)
+
+###### Banco de dados relacional
 
 ![Eer Diagram](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/eer-diagram.png)
 
-## Site images
+### Autor
+---
 
-###### Main page
+<a href="https://github.com/andre-rep">
+ <img style="border-radius:50px;" src="https://avatars.githubusercontent.com/u/36203075?v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>André Nascimento</b></sub></a> <a href="https://github.com/andre-rep" title="Github">🚀</a>
 
-![Main Page 1](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/main-page-1.png)
-![Main Page 2](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/main-page-2.png)
 
-###### Admin Panel
-
-![Admin Panel](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/admin-panel.png)
-
-###### Regular User Control Panel
-
-![User Panel](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/user-panel.png)
-
-###### Product
-
-![Product Page](https://raw.githubusercontent.com/andre-rep/laravel-ecommerce-project/master/public/andre-rep/product-page.png)
-
-## Bugs yet to be fixed and new implementations
-
-- The product search page has a filter on the right side of the page that isn't working yet.
-- It remains to add an integration for payment at the end of the purchase. Currently, the user can only make payment when receiving the product.
+Feito com ❤️ por André Nascimento
