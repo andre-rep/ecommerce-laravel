@@ -1,0 +1,32 @@
+.product-transactions-ctn{
+    width: 1300px;
+    height: 100%;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+.product-transactions{
+    height: 900px;
+    background-color: #fff;
+    border-radius: 4px;
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+.product-transactions-header{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #cfdbe6;
+}
+.product-transactions-header > input{
+    width: 350px;
+}
+.product-transactions-body{
+    width: 100%;
+    height: 500px;
+}

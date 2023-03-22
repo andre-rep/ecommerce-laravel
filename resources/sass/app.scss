@@ -1,11 +1,71 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Main
-@import 'main';
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
 
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Auth
+@import 'auth';
+
+//Banner
+@import 'banner';
+
+//Cart
+@import 'cart';
+
+//Clients list
+@import 'clients-list';
+
+//Clients reviews
+@import 'clients-reviews';
+
+//Checkout
+@import 'checkout';
+
+//Dashboard
+@import 'dashboard';
+
+//Gallery
+@import 'gallery';
+
+// Main
+@import 'main';
+
+//Product add
+@import 'product-add';
+
+//Product categories
+@import 'product-categories';
+
+//Product edit
+@import 'product-edit';
+
+//Product list
+@import 'product-list';
+
+//Product orders
+@import 'product-orders';
+
+//Product tags
+@import 'product-tags';
+
+//Product
+@import 'product';
+
+//Search
+@import 'search';
+
+//Transactions history
+@import 'transactions-history';
+
+//User edit
+@import 'user-edit';
+
+//User historic
+@import 'user-historic';
+
+//User order
+@import 'user-order';
