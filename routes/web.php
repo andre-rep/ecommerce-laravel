@@ -110,3 +110,10 @@ Route::prefix('dashboard')->group(function(){
     Route::get('client/{email?}', [PagesController::class, 'client']);
     Route::get('main-page', [PagesController::class, 'mainPage']);
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
