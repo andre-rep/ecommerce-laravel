@@ -88,7 +88,7 @@ Route::get('search/{q?}', [PagesController::class, 'search']);
 Route::get('product/{productName?}', [PagesController::class, 'product']);
 
 //User Pages
-Route::prefix('user')->middlware('auth')->group(function(){
+Route::prefix('user')->middleware('auth')->group(function(){
     Route::get('edit-profile', [PagesController::class, 'editProfile']);
     Route::get('shopping-historic', [PagesController::class, 'shoppingHistoric']);
     Route::get('order/{orderNumber?}', [PagesController::class, 'order']);
