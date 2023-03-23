@@ -88,7 +88,7 @@ Route::get('search/{q?}', [PagesController::class, 'search']);
 Route::get('product/{productName?}', [PagesController::class, 'product']);
 
 //User Pages
-Route::prefix('user')->group(function(){
+Route::prefix('user')->middlware('auth')->group(function(){
     Route::get('edit-profile', [PagesController::class, 'editProfile']);
     Route::get('shopping-historic', [PagesController::class, 'shoppingHistoric']);
     Route::get('order/{orderNumber?}', [PagesController::class, 'order']);
@@ -97,7 +97,7 @@ Route::prefix('user')->group(function(){
 });
 
 //Admin Pages
-Route::prefix('dashboard')->group(function(){
+Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::get('product-list', [PagesController::class, 'productList']);
     Route::get('product-categories', [PagesController::class, 'productCategories']);
     Route::get('product-add', [PagesController::class, 'productAdd']);
@@ -110,10 +110,6 @@ Route::prefix('dashboard')->group(function(){
     Route::get('client/{email?}', [PagesController::class, 'client']);
     Route::get('main-page', [PagesController::class, 'mainPage']);
 });
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
