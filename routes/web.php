@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Middleware\RolesAndPermissionsMiddleware;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MailController;
@@ -88,7 +89,7 @@ Route::get('search/{q?}', [PagesController::class, 'search']);
 Route::get('product/{productName?}', [PagesController::class, 'product']);
 
 //User Pages
-Route::prefix('user')->middleware('auth')->group(function(){
+Route::prefix('user')->middleware('auth', 'rolesAndPermissions')->group(function(){
     Route::get('edit-profile', [PagesController::class, 'editProfile']);
     Route::get('shopping-historic', [PagesController::class, 'shoppingHistoric']);
     Route::get('order/{orderNumber?}', [PagesController::class, 'order']);
@@ -97,7 +98,7 @@ Route::prefix('user')->middleware('auth')->group(function(){
 });
 
 //Admin Pages
-Route::prefix('dashboard')->middleware('auth')->group(function(){
+Route::prefix('dashboard')->middleware('auth', 'rolesAndPermissions')->group(function(){
     Route::get('product-list', [PagesController::class, 'productList']);
     Route::get('product-categories', [PagesController::class, 'productCategories']);
     Route::get('product-add', [PagesController::class, 'productAdd']);
