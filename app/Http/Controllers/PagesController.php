@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Pages\AccessPageContract;
 use App\Models\User;
-use App\Models\User as UserModel;
 use App\Models\Product;
 use App\Cart\Cart;
 
@@ -61,26 +60,20 @@ class PagesController extends Controller
     }
 
     public function editProfile(User $user){
-        if(Gate::allows('isUser', $user)){
-            $users = UserModel::where('id', Auth::user()->id)->first();
+        if(Gate::allows('isUser')){
+            $users = User::where('id', Auth::user()->id)->first();
 
             return response()->view('pages.user.edit-profile', [
                 'cartItems' => $this->cartItems,
                 'users' => $users
             ]);
         }
-
-        abort(404);
     }
 
     public function shoppingHistoric(User $user){
-        if(Gate::allows('isUser', $user)){
-            $purchases = DB::table('purchases')
-            ->where('user_id', '=', Auth::user()->id)
-            ->get();
-
-            $users = UserModel::where('id', Auth::user()->id)
-                ->first();
+        if(Gate::allows('isUser')){
+            $purchases = DB::table('purchases')->where('user_id', '=', Auth::user()->id)->get();
+            $users = User::where('id', Auth::user()->id)->first();
 
             return response()->view('pages.user.shopping-historic', [
                 'cartItems' => $this->cartItems,
@@ -88,8 +81,6 @@ class PagesController extends Controller
                 'users' => $users
             ]);
         }
-
-        abort(404);
     }
 
     public function search(User $user){
@@ -257,7 +248,7 @@ class PagesController extends Controller
     }
 
     public function order(){
-        $user = UserModel::where('id', Auth::user()->id)
+        $user = User::where('id', Auth::user()->id)
             ->first();
 
         $products = DB::table('purchases')
@@ -568,14 +559,14 @@ class PagesController extends Controller
         //-------------------------------------------SEARCH BY USER STATUS WITH OR WITHOUT KEYWORD---------------------------------------------
         if(request()->userStatus != null){
             $search = 'admin';
-            $users = UserModel::where('users.name', 'like', '%' . request()->query('keyword') . '%')
+            $users = User::where('users.name', 'like', '%' . request()->query('keyword') . '%')
                 ->where('users.user_status', '=', request()->query('userStatus'))
                 ->select('users.*', 'users.created_at as user_created_at')
                 ->paginate($paginate);
         }else{
             //-------------------------------------------NO SEARCH OR WITH KEYWORD----------------------------------------------
             $search = 'admin';
-            $users = UserModel::where('users.name', 'like', '%' . request()->query('keyword') . '%')
+            $users = User::where('users.name', 'like', '%' . request()->query('keyword') . '%')
                 ->select('users.*', 'users.created_at as user_created_at')
                 ->paginate($paginate);
         }
@@ -598,7 +589,7 @@ class PagesController extends Controller
             ->join('users', 'purchases.user_id', '=', 'users.id')
             ->get();
 
-        $user = UserModel::where('email', request()->email)
+        $user = User::where('email', request()->email)
             ->first();
             
         //Retrieve total quantity of items purchased by the user
