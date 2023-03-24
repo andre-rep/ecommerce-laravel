@@ -33,34 +33,30 @@ class PagesController extends Controller
     }
 
     public function main(User $user){
-        $banners = DB::table('banners')
-            ->latest('created_at')
-            ->first();
+        $banners = DB::table('banners')->latest('created_at')->first();
 
-        $gallery = DB::table('carousel')
-            ->get();
+        $gallery = DB::table('carousel')->get();
 
-        if(Gate::denies('isUser', $user)){
-            return response()->view('pages.main', [
-                'banners' => $banners,
-                'gallery' => $gallery
-            ]);
+        if(Auth::check()){
+            if(Auth::user()->hasRole('user')){
+                return response()->view('pages.main', [
+                    'cartItems' => $this->cartItems,
+                    'banners' => $banners,
+                    'gallery' => $gallery
+                ]);
+            }
+            if(Auth::user()->hasRole('admin')){
+                return response()->view('pages.main', [
+                    'banners' => $banners,
+                    'gallery' => $gallery
+                ]);
+            }
         }
         
-        if(Gate::allows('isUser', $user)){
-            return response()->view('pages.main', [
-                'cartItems' => $this->cartItems,
-                'banners' => $banners,
-                'gallery' => $gallery
-            ]);
-        }
-
-        if(Gate::allows('isAdmin', $user)){
-            return response()->view('pages.main', [
-                'banners' => $banners,
-                'gallery' => $gallery
-            ]);
-        }
+        return response()->view('pages.main', [
+            'banners' => $banners,
+            'gallery' => $gallery
+        ]);
     }
 
     public function recoverPassword(){
