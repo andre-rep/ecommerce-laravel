@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Policies\UserPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -32,16 +33,16 @@ class AuthServiceProvider extends ServiceProvider
          * Only gates
          * 
          */
-        Gate::define('isAdmin', function(User $user){
-            return $user->user_access_level == 2;
+        Gate::define('isAdmin', function(){
+            if(Auth::check()){
+                return Auth::user()->hasRole('admin');
+            }
         });
 
-        Gate::define('isUser', function(User $user){
-            return $user->user_access_level == 1;
-        });
-
-        Gate::define('isLoggedIn', function(User $user){
-            return $user->user_access_level != 0;
+        Gate::define('isUser', function(){
+            if(Auth::check()){
+                return Auth::user()->hasRole('user');
+            }
         });
 
         /**

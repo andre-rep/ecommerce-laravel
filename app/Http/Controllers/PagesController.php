@@ -36,20 +36,18 @@ class PagesController extends Controller
 
         $gallery = DB::table('carousel')->get();
 
-        if(Auth::check()){
-            if(Auth::user()->hasRole('user')){
-                return response()->view('pages.main', [
-                    'cartItems' => $this->cartItems,
-                    'banners' => $banners,
-                    'gallery' => $gallery
-                ]);
-            }
-            if(Auth::user()->hasRole('admin')){
-                return response()->view('pages.main', [
-                    'banners' => $banners,
-                    'gallery' => $gallery
-                ]);
-            }
+        if(Gate::allows('isUser')){
+            return response()->view('pages.main', [
+                'cartItems' => $this->cartItems,
+                'banners' => $banners,
+                'gallery' => $gallery
+            ]);
+        }
+        if(Gate::allows('isAdmin')){
+            return response()->view('pages.main', [
+                'banners' => $banners,
+                'gallery' => $gallery
+            ]);
         }
         
         return response()->view('pages.main', [
