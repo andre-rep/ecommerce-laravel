@@ -25,11 +25,10 @@ class PagesController extends Controller
     }
     
     public function auth(User $user){
-        if(Gate::denies('isLoggedIn', $user)){
-            return response()->view('pages.auth');
+        if(Auth::check()){
+            return redirect('/');
         }
-
-        abort(404);
+        return response()->view('pages.auth');
     }
 
     public function main(User $user){
