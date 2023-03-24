@@ -6,7 +6,7 @@
                     <img src="" style="width:25px;height:25px;margin-right:10px;">
                     <h5 style="margin-top:5px;">Aguarde..</h5>
                 </div>
-                <div class="sign-up">
+                <div class="sign-up" v-if="signUp">
                     <h3>Cadastre-se para continuar</h3>
                     <form id="sign-up-form" method="post" action="/auth/register">
                         <div class="form-group">
@@ -24,9 +24,9 @@
                         </div>
                         <button type="submit" class="btn btn-primary" style="margin-top: 30px;width:100%;">Cadastrar</button>
                     </form>
-                    <span style="display:block;text-align:center;margin-top: 40px;">Já tem uma conta? <a href="#" id="toSignInPage">Faça Login</a></span>
+                    <span style="display:block;text-align:center;margin-top: 40px;">Já tem uma conta? <a href="#" @click.prevent="toSignInPage">Faça Login</a></span>
                 </div>
-                <div class="sign-in">
+                <div class="sign-in" v-if="signIn">
                     <h3>Faça login para continuar</h3>
                         <form id="sign-in-form" method="post" action="/auth/login">
                             <input type="hidden" name="_token" :value="csrf_token">
@@ -41,7 +41,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary" style="margin-top: 30px;width:100%;">Fazer Login</button>
                         </form>
-                    <span style="display:block;text-align:center;margin-top: 40px;">Ainda não tem uma conta? <a href="#" id="toSignUpPage">Cadastre-se</a></span>
+                    <span style="display:block;text-align:center;margin-top: 40px;">Ainda não tem uma conta? <a href="#" @click.prevent="toSignUpPage">Cadastre-se</a></span>
                 </div>
             </div>
         </section>
@@ -50,6 +50,22 @@
 
 <script>
     export default {
-        props: ['csrf_token']
+        props: ['csrf_token'],
+        data(){
+            return {
+                'signUp': false,
+                'signIn': true
+            }
+        },
+        methods:{
+            toSignInPage(){
+                this.signUp = false
+                this.signIn = true
+            },
+            toSignUpPage(){
+                this.signUp = true
+                this.signIn = false
+            }
+        }
     }
 </script>

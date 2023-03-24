@@ -5314,7 +5314,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['csrf_token']
+  props: ['csrf_token'],
+  data: function data() {
+    return {
+      'signUp': false,
+      'signIn': true
+    };
+  },
+  methods: {
+    toSignInPage: function toSignInPage() {
+      this.signUp = false;
+      this.signIn = true;
+    },
+    toSignUpPage: function toSignUpPage() {
+      this.signUp = true;
+      this.signIn = false;
+    }
+  }
 });
 
 /***/ }),
@@ -5358,7 +5374,25 @@ var render = function render() {
     staticClass: "auth"
   }, [_c("div", {
     staticClass: "auth-wrapper"
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+  }, [_vm._m(0), _vm._v(" "), _vm.signUp ? _c("div", {
+    staticClass: "sign-up"
+  }, [_c("h3", [_vm._v("Cadastre-se para continuar")]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("span", {
+    staticStyle: {
+      display: "block",
+      "text-align": "center",
+      "margin-top": "40px"
+    }
+  }, [_vm._v("Já tem uma conta? "), _c("a", {
+    attrs: {
+      href: "#"
+    },
+    on: {
+      click: function click($event) {
+        $event.preventDefault();
+        return _vm.toSignInPage.apply(null, arguments);
+      }
+    }
+  }, [_vm._v("Faça Login")])])]) : _vm._e(), _vm._v(" "), _vm.signIn ? _c("div", {
     staticClass: "sign-in"
   }, [_c("h3", [_vm._v("Faça login para continuar")]), _vm._v(" "), _c("form", {
     attrs: {
@@ -5383,7 +5417,23 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Fazer Login")])]), _vm._v(" "), _vm._m(4)])])])]);
+  }, [_vm._v("Fazer Login")])]), _vm._v(" "), _c("span", {
+    staticStyle: {
+      display: "block",
+      "text-align": "center",
+      "margin-top": "40px"
+    }
+  }, [_vm._v("Ainda não tem uma conta? "), _c("a", {
+    attrs: {
+      href: "#"
+    },
+    on: {
+      click: function click($event) {
+        $event.preventDefault();
+        return _vm.toSignUpPage.apply(null, arguments);
+      }
+    }
+  }, [_vm._v("Cadastre-se")])])]) : _vm._e()])])]);
 };
 
 var staticRenderFns = [function () {
@@ -5417,9 +5467,7 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
-    staticClass: "sign-up"
-  }, [_c("h3", [_vm._v("Cadastre-se para continuar")]), _vm._v(" "), _c("form", {
+  return _c("form", {
     attrs: {
       id: "sign-up-form",
       method: "post",
@@ -5504,18 +5552,7 @@ var staticRenderFns = [function () {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Cadastrar")])]), _vm._v(" "), _c("span", {
-    staticStyle: {
-      display: "block",
-      "text-align": "center",
-      "margin-top": "40px"
-    }
-  }, [_vm._v("Já tem uma conta? "), _c("a", {
-    attrs: {
-      href: "#",
-      id: "toSignInPage"
-    }
-  }, [_vm._v("Faça Login")])])]);
+  }, [_vm._v("Cadastrar")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -5574,22 +5611,6 @@ var staticRenderFns = [function () {
       placeholder: "Senha do Usuário"
     }
   })]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("span", {
-    staticStyle: {
-      display: "block",
-      "text-align": "center",
-      "margin-top": "40px"
-    }
-  }, [_vm._v("Ainda não tem uma conta? "), _c("a", {
-    attrs: {
-      href: "#",
-      id: "toSignUpPage"
-    }
-  }, [_vm._v("Cadastre-se")])]);
 }];
 render._withStripped = true;
 
