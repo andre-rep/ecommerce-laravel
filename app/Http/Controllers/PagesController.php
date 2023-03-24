@@ -111,22 +111,10 @@ class PagesController extends Controller
                         ->join('product_images', 'product_images.product_id', '=', 'products.id')
                         ->paginate($paginate);
 
-        $productsBrands = DB::table('products_brands')
-            ->get();
-
-        $productsCategories = DB::table('products_categories')
-            ->get();
-
-        if(Gate::denies('isLoggedIn', $user)){
-            return response()->view('pages.search', [
-                'products' => $products,
-                'productsBrands' => $productsBrands,
-                'productsCategories' => $productsCategories,
-                'paginate' => $paginate
-            ]);
-        }
+        $productsBrands = DB::table('products_brands')->get();
+        $productsCategories = DB::table('products_categories')->get();
         
-        if(Gate::allows('isUser', $user)){
+        if(Gate::allows('isUser')){
             return response()->view('pages.search', [
                 'cartItems' => $this->cartItems,
                 'products' => $products,
@@ -136,7 +124,7 @@ class PagesController extends Controller
             ]);
         }
 
-        if(Gate::allows('isAdmin', $user)){
+        if(Gate::allows('isAdmin')){
             return response()->view('pages.search', [
                 'products' => $products,
                 'productsBrands' => $productsBrands,
@@ -144,6 +132,12 @@ class PagesController extends Controller
                 'paginate' => $paginate
             ]);
         }
+        return response()->view('pages.search', [
+            'products' => $products,
+            'productsBrands' => $productsBrands,
+            'productsCategories' => $productsCategories,
+            'paginate' => $paginate
+        ]);
     }
 
     public function product(User $user){

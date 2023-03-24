@@ -64,14 +64,14 @@
 </header>
 <script>
     //Make the search with keyword
-    var searchForm = new Vue({
+    /*var searchForm = new Vue({
         el:'#searchForm',
         methods:{
             onSubmit:function(event){
                 window.location.href = "http://localhost:8000/search?keyword=" + document.getElementById('searchKeyword').value;
             }
         }
-    });
+    });*/
 
     //Allow logged in user to logout
     @if(Auth::user() != null)
