@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
     @include('includes.header')
-    <div id="root"></div>
     @include('includes.main-menu')
     <section class="main-banner-ctn">
         <div class="main-banner">
