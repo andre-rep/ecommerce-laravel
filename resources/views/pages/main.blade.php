@@ -1,4 +1,4 @@
-@extends('layouts.userLayout')
+@extends('layouts.app')
 @section('content')
     @include('includes.header')
     <div id="root"></div>
@@ -77,7 +77,7 @@
         </div>
     </section>
     @include('includes.offers')
-    <script>
+    <!--<script>
         //Set the names of the offer products to a shorter version
         var productName = document.getElementsByClassName('product-name');
         var size = productName.length;
@@ -92,7 +92,7 @@
             perPage: 5,
             perMove: 1,
         } ).mount();
-    </script>
+    </script>-->
     @include('includes.facilities')
     @include('includes.footer')
     @include('includes.copyright')
