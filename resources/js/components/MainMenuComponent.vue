@@ -102,9 +102,6 @@
 
 <script>
     export default {
-        props:['smartphoneLink', 'tvsLink', 'notebooksLink', 'tabletsLink', 'roteadoresLink', 'hdsLink', 'processadorLink', 'papelariaLink', 'sonorizacaoLink', 'galeria'],
-        mounted() {
-            console.log('Component mounted.')
-        }
+        props:['smartphoneLink', 'tvsLink', 'notebooksLink', 'tabletsLink', 'roteadoresLink', 'hdsLink', 'processadorLink', 'papelariaLink', 'sonorizacaoLink', 'galeria']
     }
 </script>
