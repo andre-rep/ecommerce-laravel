@@ -1,5 +1,9 @@
-Select Language: [English](https://github.com/andrenasc25/ecommerce-laravel/README-en.md), **Português**
-========
+<h1 align="center">Ecommerce Laravel</h1>
+<p align="center">Um projeto de ecommerce feito em Laravel e Vuejs</p>
+
+<h4 align="center"> 
+	🚀 Em construção...  🚧
+</h4>
 
 ## Sobre o Ecommerce
 
