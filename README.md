@@ -1,79 +1,81 @@
+Select Language: [English](https://github.com/andrenasc25/laravel-ecommerce-project), **Português**
+========
 
-# Setup Docker Para Projetos Laravel (8, 9 ou 10)
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
+## Sobre o Ecommerce
 
-### Passo a passo
-Clone Repositório
-```sh
-git clone https://github.com/especializati/setup-docker-laravel.git
+O projeto é feito em Laravel 8, trata-se de um site para uma loja local que faz entregas de seus produtos.
+Existem dois tipos de contas: Admin e Usuário normal.
+Não é possível criar uma nova conta de Admin mas é possível criar uma conta normal para fazer compras.
+
+## Tecnologias utilizadas
+
+Para o backend está sendo utilizado Laravel 8 e Mysql Workbench para gerenciamento do banco de dados. Para o front end está sendo usado Html, Css e Javascript puros além de algumas bibliotecas para funções específicas como Bootstrap 5, Vue.js e Axios para requisições Http.
+
+## Como instalar
+
+Após a configuração do arquivo .env basta rodar o comando:
+```
+php artisan migrate --seed
+```
+O site já vai estar instalado e populado com alguns produtos e com os dados de um user e um admin.
+É necessário também fazer um link entre o storage a pasta storage dentro de public, usando o comando:
+```
+php artisan storage:link
 ```
 
-Clone os Arquivos do Laravel
-```sh
-git clone https://github.com/laravel/laravel.git app-laravel
+###### Opcional
+
+Para fazer **cadastro de novo usuário** é necessário usar a biblioteca de envio de email do Laravel. Para isso é necessário configurar o arquivo .env com credenciais de um servidor smtp, o seguinte exemplo usa configurações para o gmail:
 ```
-
-
-Copie os arquivos docker-compose.yml, Dockerfile e o diretório docker/ para o seu projeto
-```sh
-cp -rf setup-docker-laravel/* app-laravel/
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.googlemail.com
+MAIL_PORT=465
+MAIL_USERNAME=endereco@email.com
+MAIL_PASSWORD=senhadoemail
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS=null
+MAIL_FROM_NAME="${APP_NAME}"
 ```
-```sh
-cd app-laravel/
-```
+Você pode colocar em 'MAIL_USERNAME' e em 'MAIL_PASSWORD' as credenciais do seu próprio email, funciona normalmente. Mas por questão de segurança você também pode configurar uma senha de app na sua conta gmail e colocar em 'MAIL_PASSWORD', seguindo o [Tutotial](https://support.google.com/mail/answer/185833?hl=pt-BR), funciona da memsa maneira.
 
+## Login como Admin
 
-Crie o Arquivo .env
-```sh
-cp .env.example .env
-```
+Admin já cadastrado\
+login: admin@admin.com\
+senha: 12345
 
+## Login como Usuário Comum
 
-Atualize as variáveis de ambiente do arquivo .env
-```dosini
-APP_NAME="Especializa Ti"
-APP_URL=http://localhost:8989
+Usuário já cadastrado\
+login: user@user.com\
+senha: 12345
 
-DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=laravel
-DB_USERNAME=root
-DB_PASSWORD=root
+## Banco de dados
 
-CACHE_DRIVER=redis
-QUEUE_CONNECTION=redis
-SESSION_DRIVER=redis
+O Banco de dados relacional foi feito com restrições para ligar as chaves extrangeiras das tabelas quando necessário.
 
-REDIS_HOST=redis
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-```
+![Eer Diagram](https://raw.githubusercontent.com/andrenasc25/laravel-ecommerce-project/master/public/andrenasc25/eer-diagram.png)
 
+## Imagens do site
 
-Suba os containers do projeto
-```sh
-docker-compose up -d
-```
+###### Página principal
 
+![Main Page 1](https://raw.githubusercontent.com/andrenasc25/laravel-ecommerce-project/master/public/andrenasc25/main-page-1.png)
+![Main Page 2](https://raw.githubusercontent.com/andrenasc25/laravel-ecommerce-project/master/public/andrenasc25/main-page-2.png)
 
-Acessar o container
-```sh
-docker-compose exec app bash
-```
+###### Painel de Admin
 
+![Admin Panel](https://raw.githubusercontent.com/andrenasc25/laravel-ecommerce-project/master/public/andrenasc25/admin-panel.png)
 
-Instalar as dependências do projeto
-```sh
-composer install
-```
+###### Painel de Controle do Usuário Comum
 
+![User Panel](https://raw.githubusercontent.com/andrenasc25/laravel-ecommerce-project/master/public/andrenasc25/user-panel.png)
 
-Gerar a key do projeto Laravel
-```sh
-php artisan key:generate
-```
+###### Produto
 
+![Product Page](https://raw.githubusercontent.com/andrenasc25/laravel-ecommerce-project/master/public/andrenasc25/product-page.png)
 
-Acessar o projeto
-[http://localhost:8989](http://localhost:8989)
+## Erros ainda a serem corrigidos e novas implementações
+
+- A página de pesquisa de produtos possui um filtro do lado direito da página que ainda não está funcionando
+- Falta adicionar uma integração para pagamento no final da compra. Atualmente o usuário pode apenas fazer pagamento ao receber o produto.

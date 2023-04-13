@@ -5427,6 +5427,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OffersComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OffersComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['mainOffersProductLink']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AuthComponent.vue?vue&type=template&id=b0e5954c&":
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AuthComponent.vue?vue&type=template&id=b0e5954c& ***!
@@ -6238,6 +6255,289 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OffersComponent.vue?vue&type=template&id=605bee8b&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OffersComponent.vue?vue&type=template&id=605bee8b& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("section", {
+    staticClass: "main-offers-ctn"
+  }, [_c("div", {
+    staticClass: "main-offers"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "main-offers-body"
+  }, [_c("div", {
+    staticClass: "splide",
+    attrs: {
+      id: "splide"
+    }
+  }, [_c("div", {
+    staticClass: "splide__track"
+  }, [_c("ul", {
+    staticClass: "splide__list"
+  }, [_c("li", {
+    staticClass: "splide__slide"
+  }, [_c("div", {
+    staticClass: "main-offers-product"
+  }, [_c("a", {
+    staticClass: "main-offers-product-link",
+    attrs: {
+      href: _vm.mainOffersProductLink
+    }
+  }), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)])]), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5), _vm._v(" "), _vm._m(6)])])])])])]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "main-offers-header"
+  }, [_c("div", {
+    staticClass: "main-offers-header-info"
+  }, [_c("span", [_vm._v("Produtos em destaque e ofertas")])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "main-offers-product-image"
+  }, [_c("span", {
+    staticClass: "main-offers-product-sale"
+  }, [_vm._v("Oferta")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "main-offers-product-desc-ctn"
+  }, [_c("div", {
+    staticClass: "main-offers-product-description"
+  }, [_c("span", {
+    staticClass: "product-name"
+  }, [_vm._v("Smartphone Samsung Galaxy A03s 64GB 4G Wi-Fi Tela 6,5'' Dual Chip 4GB RAM Câmera Tripla + Selfie 5MP - Preto")]), _vm._v(" "), _c("span", [_vm._v("R$879.00")]), _vm._v(" "), _c("div", {
+    staticClass: "main-offers-product-rate"
+  }, [_c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(203,203,203)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(203,203,203)"
+    }
+  })])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("li", {
+    staticClass: "splide__slide"
+  }, [_c("div", {
+    staticClass: "main-offers-product"
+  }, [_c("div", {
+    staticClass: "main-offers-product-image"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "main-offers-product-desc-ctn"
+  }, [_c("div", {
+    staticClass: "main-offers-product-description"
+  }, [_c("span", {
+    staticClass: "product-name"
+  }, [_vm._v('Notebook Asus M515DA-EJ502T AMD R5-3500U 8GB 256GB W10 15.6" Cinza')]), _vm._v(" "), _c("span", [_vm._v("R$3183.00")]), _vm._v(" "), _c("div", {
+    staticClass: "main-offers-product-rate"
+  }, [_c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(203,203,203)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(203,203,203)"
+    }
+  })])])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("li", {
+    staticClass: "splide__slide"
+  }, [_c("div", {
+    staticClass: "main-offers-product"
+  }, [_c("div", {
+    staticClass: "main-offers-product-image"
+  }, [_c("span", {
+    staticClass: "main-offers-product-pinned"
+  }, [_vm._v("Mais Vendido")])]), _vm._v(" "), _c("div", {
+    staticClass: "main-offers-product-desc-ctn"
+  }, [_c("div", {
+    staticClass: "main-offers-product-description"
+  }, [_c("span", {
+    staticClass: "product-name"
+  }, [_vm._v("Impressora Multifuncional DeskJet Ink Advantage 2774 1 UN HP")]), _vm._v(" "), _c("span", [_vm._v("R$355.00")]), _vm._v(" "), _c("div", {
+    staticClass: "main-offers-product-rate"
+  }, [_c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(203,203,203)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(203,203,203)"
+    }
+  })])])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("li", {
+    staticClass: "splide__slide"
+  }, [_c("div", {
+    staticClass: "main-offers-product"
+  }, [_c("div", {
+    staticClass: "main-offers-product-image"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "main-offers-product-desc-ctn"
+  }, [_c("div", {
+    staticClass: "main-offers-product-description"
+  }, [_c("span", {
+    staticClass: "product-name"
+  }, [_vm._v("SSD Kingston A400 480GB - 500mb/s para Leitura e 450mb/s para Gravação")]), _vm._v(" "), _c("span", [_vm._v("R$359.00")]), _vm._v(" "), _c("div", {
+    staticClass: "main-offers-product-rate"
+  }, [_c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(203,203,203)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(203,203,203)"
+    }
+  })])])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("li", {
+    staticClass: "splide__slide"
+  }, [_c("div", {
+    staticClass: "main-offers-product"
+  }, [_c("div", {
+    staticClass: "main-offers-product-image"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "main-offers-product-desc-ctn"
+  }, [_c("div", {
+    staticClass: "main-offers-product-description"
+  }, [_c("span", {
+    staticClass: "product-name"
+  }, [_vm._v('HD WD Blue 1TB 3.5" Sata III 6GB/s, WD10EZEX')]), _vm._v(" "), _c("span", [_vm._v("R$260.00")]), _vm._v(" "), _c("div", {
+    staticClass: "main-offers-product-rate"
+  }, [_c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(250,196,70)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(203,203,203)"
+    }
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa fa-star",
+    staticStyle: {
+      color: "rgb(203,203,203)"
+    }
+  })])])])])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -6267,6 +6567,7 @@ Vue.component('auth-component', __webpack_require__(/*! ./components/AuthCompone
 Vue.component('header-component', __webpack_require__(/*! ./components/HeaderComponent.vue */ "./resources/js/components/HeaderComponent.vue")["default"]);
 Vue.component('main-menu-component', __webpack_require__(/*! ./components/MainMenuComponent.vue */ "./resources/js/components/MainMenuComponent.vue")["default"]);
 Vue.component('main-component', __webpack_require__(/*! ./components/MainComponent.vue */ "./resources/js/components/MainComponent.vue")["default"]);
+Vue.component('offers-component', __webpack_require__(/*! ./components/OffersComponent.vue */ "./resources/js/components/OffersComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -29159,6 +29460,45 @@ component.options.__file = "resources/js/components/MainMenuComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/OffersComponent.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/OffersComponent.vue ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _OffersComponent_vue_vue_type_template_id_605bee8b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OffersComponent.vue?vue&type=template&id=605bee8b& */ "./resources/js/components/OffersComponent.vue?vue&type=template&id=605bee8b&");
+/* harmony import */ var _OffersComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OffersComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/OffersComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _OffersComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _OffersComponent_vue_vue_type_template_id_605bee8b___WEBPACK_IMPORTED_MODULE_0__.render,
+  _OffersComponent_vue_vue_type_template_id_605bee8b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/OffersComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/AuthComponent.vue?vue&type=script&lang=js&":
 /*!****************************************************************************!*\
   !*** ./resources/js/components/AuthComponent.vue?vue&type=script&lang=js& ***!
@@ -29236,6 +29576,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MainMenuComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MainMenuComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MainMenuComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MainMenuComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/OffersComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/OffersComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OffersComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OffersComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OffersComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OffersComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -29320,6 +29676,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MainMenuComponent_vue_vue_type_template_id_f7b1186c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MainMenuComponent_vue_vue_type_template_id_f7b1186c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MainMenuComponent.vue?vue&type=template&id=f7b1186c& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MainMenuComponent.vue?vue&type=template&id=f7b1186c&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/OffersComponent.vue?vue&type=template&id=605bee8b&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/OffersComponent.vue?vue&type=template&id=605bee8b& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OffersComponent_vue_vue_type_template_id_605bee8b___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OffersComponent_vue_vue_type_template_id_605bee8b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OffersComponent_vue_vue_type_template_id_605bee8b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OffersComponent.vue?vue&type=template&id=605bee8b& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OffersComponent.vue?vue&type=template&id=605bee8b&");
 
 
 /***/ }),

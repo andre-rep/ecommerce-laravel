@@ -1,4 +1,7 @@
-<section class="main-offers-ctn">
+<offers-component
+    main-offers-product-link="{{asset('product/smartphone-samsung-galaxy-a03s-64gb-4g-wi-fi-tela-6-5---dual-chip-4gb-ram-camera-tripla-+-selfie-5mp---preto')}}"
+></offers-component>
+<!--<section class="main-offers-ctn">
     <div class="main-offers">
         <div class="main-offers-header">
             <div class="main-offers-header-info">
@@ -131,4 +134,4 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->

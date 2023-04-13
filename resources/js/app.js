@@ -24,6 +24,7 @@ Vue.component('auth-component', require('./components/AuthComponent.vue').defaul
 Vue.component('header-component', require('./components/HeaderComponent.vue').default);
 Vue.component('main-menu-component', require('./components/MainMenuComponent.vue').default);
 Vue.component('main-component', require('./components/MainComponent.vue').default);
+Vue.component('offers-component', require('./components/OffersComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
