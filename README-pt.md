@@ -1,4 +1,4 @@
-Select Language: [English](https://github.com/andrenasc25/laravel-ecommerce-project), **Português**
+Select Language: [English](https://github.com/andrenasc25/ecommerce-laravel), **Português**
 ========
 
 ## Sobre o Ecommerce
@@ -54,26 +54,26 @@ senha: 12345
 
 O Banco de dados relacional foi feito com restrições para ligar as chaves extrangeiras das tabelas quando necessário.
 
-![Eer Diagram](https://raw.githubusercontent.com/andrenasc25/laravel-ecommerce-project/master/public/andrenasc25/eer-diagram.png)
+![Eer Diagram](https://raw.githubusercontent.com/andrenasc25/ecommerce-laravel/master/public/andrenasc25/eer-diagram.png)
 
 ## Imagens do site
 
 ###### Página principal
 
-![Main Page 1](https://raw.githubusercontent.com/andrenasc25/laravel-ecommerce-project/master/public/andrenasc25/main-page-1.png)
-![Main Page 2](https://raw.githubusercontent.com/andrenasc25/laravel-ecommerce-project/master/public/andrenasc25/main-page-2.png)
+![Main Page 1](https://raw.githubusercontent.com/andrenasc25/ecommerce-laravel/master/public/andrenasc25/main-page-1.png)
+![Main Page 2](https://raw.githubusercontent.com/andrenasc25/ecommerce-laravel/master/public/andrenasc25/main-page-2.png)
 
 ###### Painel de Admin
 
-![Admin Panel](https://raw.githubusercontent.com/andrenasc25/laravel-ecommerce-project/master/public/andrenasc25/admin-panel.png)
+![Admin Panel](https://raw.githubusercontent.com/andrenasc25/ecommerce-laravel/master/public/andrenasc25/admin-panel.png)
 
 ###### Painel de Controle do Usuário Comum
 
-![User Panel](https://raw.githubusercontent.com/andrenasc25/laravel-ecommerce-project/master/public/andrenasc25/user-panel.png)
+![User Panel](https://raw.githubusercontent.com/andrenasc25/ecommerce-laravel/master/public/andrenasc25/user-panel.png)
 
 ###### Produto
 
-![Product Page](https://raw.githubusercontent.com/andrenasc25/laravel-ecommerce-project/master/public/andrenasc25/product-page.png)
+![Product Page](https://raw.githubusercontent.com/andrenasc25/ecommerce-laravel/master/public/andrenasc25/product-page.png)
 
 ## Erros ainda a serem corrigidos e novas implementações
 
