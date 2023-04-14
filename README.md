@@ -1,4 +1,4 @@
-Select Language: [Portuguese](https://github.com/andrenasc25/ecommerce-laravel/README-pt.md), **English**
+Select Language: [Portuguese](https://github.com/andrenasc25/ecommerce-laravel/blob/master/README-pt.md), **English**
 ========
 
 <h1 align="center">Ecommerce Laravel</h1>
