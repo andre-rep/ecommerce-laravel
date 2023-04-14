@@ -1,5 +1,12 @@
-Select Language: [English](https://github.com/andrenasc25/ecommerce-laravel), **Português**
+Selecione o idioma: [Inglês](https://github.com/andrenasc25/ecommerce-laravel), **English**
 ========
+
+<h1 align="center">Ecommerce Laravel</h1>
+<p align="center">Um projeto de ecommerce feito em Laravel e Vuejs</p>
+
+<h4 align="center"> 
+	🚀 Em construção...  🚧
+</h4>
 
 ## Sobre o Ecommerce
 
@@ -36,7 +43,7 @@ MAIL_ENCRYPTION=ssl
 MAIL_FROM_ADDRESS=null
 MAIL_FROM_NAME="${APP_NAME}"
 ```
-Você pode colocar em 'MAIL_USERNAME' e em 'MAIL_PASSWORD' as credenciais do seu próprio email, funciona normalmente. Mas por questão de segurança você também pode configurar uma senha de app na sua conta gmail e colocar em 'MAIL_PASSWORD', seguindo o [Tutorial](https://support.google.com/mail/answer/185833?hl=pt-BR), funciona da memsa maneira.
+Você pode colocar em 'MAIL_USERNAME' e em 'MAIL_PASSWORD' as credenciais do seu próprio email, funciona normalmente. Mas por questão de segurança você também pode configurar uma senha de app na sua conta gmail e colocar em 'MAIL_PASSWORD', seguindo o [Tutorial](https://support.google.com/mail/answer/185833?hl=pt-BR), funciona da mesma maneira.
 
 ## Login como Admin
 

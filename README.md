@@ -1,85 +1,88 @@
+Select Language: [Portuguese](https://github.com/andrenasc25/ecommerce-laravel/README-pt.md), **English**
+========
+
 <h1 align="center">Ecommerce Laravel</h1>
-<p align="center">Um projeto de ecommerce feito em Laravel e Vuejs</p>
+<p align="center">An Ecommerce project made with Laravel and Vuejs</p>
 
 <h4 align="center"> 
-	🚀 Em construção...  🚧
+	🚀 Under construction...  🚧
 </h4>
 
-## Sobre o Ecommerce
+## About the Ecommerce
 
-O projeto é feito em Laravel 8, trata-se de um site para uma loja local que faz entregas de seus produtos.
-Existem dois tipos de contas: Admin e Usuário normal.
-Não é possível criar uma nova conta de Admin mas é possível criar uma conta normal para fazer compras.
+The project is made with Laravel 8, it is a website for a local store that delivers its products.
+There are two types of accounts: Admin and Regular User.
+It is not possible to create a new Admin account but it is possible to create a normal account for shopping.
 
-## Tecnologias utilizadas
+## Technologies used
 
-Para o backend está sendo utilizado Laravel 8 e Mysql Workbench para gerenciamento do banco de dados. Para o front end está sendo usado Html, Css e Javascript puros além de algumas bibliotecas para funções específicas como Bootstrap 5, Vue.js e Axios para requisições Http.
+For the backend, Laravel 8 and Mysql Workbench are being used for database management. For the front end, pure Html, CSS and Javascript are being used, in addition to some libraries for specific functions such as Bootstrap 5, Vue.js and Axios for Http requests.
 
-## Como instalar
+## How to install
 
-Após a configuração do arquivo .env basta rodar o comando:
+After configuring the .env file, just run the command:
 ```
 php artisan migrate --seed
 ```
-O site já vai estar instalado e populado com alguns produtos e com os dados de um user e um admin.
-É necessário também fazer um link entre o storage a pasta storage dentro de public, usando o comando:
+The site will already be installed and populated with some products and with the data of a user and an admin.
+It is also necessary to link the storage to the storage folder within public, using the command:
 ```
 php artisan storage:link
 ```
 
-###### Opcional
+###### Optional
 
-Para fazer **cadastro de novo usuário** é necessário usar a biblioteca de envio de email do Laravel. Para isso é necessário configurar o arquivo .env com credenciais de um servidor smtp, o seguinte exemplo usa configurações para o gmail:
+To do a **new user registration** it is necessary to use the Laravel email sending library. For this it is necessary to configure the .env file with credentials of an smtp server, the following example uses settings for gmail:
 ```
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.googlemail.com
 MAIL_PORT=465
-MAIL_USERNAME=endereco@email.com
-MAIL_PASSWORD=senhadoemail
+MAIL_USERNAME=address@email.com
+MAIL_PASSWORD=emailpassword
 MAIL_ENCRYPTION=ssl
 MAIL_FROM_ADDRESS=null
 MAIL_FROM_NAME="${APP_NAME}"
 ```
-Você pode colocar em 'MAIL_USERNAME' e em 'MAIL_PASSWORD' as credenciais do seu próprio email, funciona normalmente. Mas por questão de segurança você também pode configurar uma senha de app na sua conta gmail e colocar em 'MAIL_PASSWORD', seguindo o [Tutorial](https://support.google.com/mail/answer/185833?hl=pt-BR), funciona da memsa maneira.
+You can put your own email credentials in 'MAIL_USERNAME' and 'MAIL_PASSWORD', it works normally. But for security reasons, you can also configure an app password in your gmail account and put it in 'MAIL_PASSWORD', following the [Tutorial](https://support.google.com/mail/answer/185833), it works the same way.
 
-## Login como Admin
+## Login as Admin
 
-Admin já cadastrado\
+Admin already registered\
 login: admin@admin.com\
-senha: 12345
+password: 12345
 
-## Login como Usuário Comum
+## Login as Regular User
 
-Usuário já cadastrado\
+Already registered User\
 login: user@user.com\
-senha: 12345
+password: 12345
 
-## Banco de dados
+## Database
 
-O Banco de dados relacional foi feito com restrições para ligar as chaves extrangeiras das tabelas quando necessário.
+The relational database was built with restrictions to link the foreign keys of the tables when necessary.
 
 ![Eer Diagram](https://raw.githubusercontent.com/andrenasc25/ecommerce-laravel/master/public/andrenasc25/eer-diagram.png)
 
-## Imagens do site
+## Website Images
 
-###### Página principal
+###### Main Page
 
 ![Main Page 1](https://raw.githubusercontent.com/andrenasc25/ecommerce-laravel/master/public/andrenasc25/main-page-1.png)
 ![Main Page 2](https://raw.githubusercontent.com/andrenasc25/ecommerce-laravel/master/public/andrenasc25/main-page-2.png)
 
-###### Painel de Admin
+###### Admin Panel
 
 ![Admin Panel](https://raw.githubusercontent.com/andrenasc25/ecommerce-laravel/master/public/andrenasc25/admin-panel.png)
 
-###### Painel de Controle do Usuário Comum
+###### Control Panel for Regular User
 
 ![User Panel](https://raw.githubusercontent.com/andrenasc25/ecommerce-laravel/master/public/andrenasc25/user-panel.png)
 
-###### Produto
+###### Product
 
 ![Product Page](https://raw.githubusercontent.com/andrenasc25/ecommerce-laravel/master/public/andrenasc25/product-page.png)
 
-## Erros ainda a serem corrigidos e novas implementações
+## Bugs yet to be fixed and new implementations
 
-- A página de pesquisa de produtos possui um filtro do lado direito da página que ainda não está funcionando
-- Falta adicionar uma integração para pagamento no final da compra. Atualmente o usuário pode apenas fazer pagamento ao receber o produto.
+- The product search page has a filter on the right side of the page that is still not working
+- It lacks to add an integration for payment at the end of the purchase. Currently the user can only make payment when receiving the product.
